@@ -1,0 +1,82 @@
+{
+  "id": "CIRCLE_DAILY_20260917-1243",
+  "startedAt": "2026-09-17T12:43:43.679638+08:00",
+  "completedAt": "2026-09-17T13:10:20.994223+08:00",
+  "status": "degraded",
+  "model": "gpt-5.6-luna",
+  "source": "CIRCLE_DAILY_20260917-1243.daily_official.json",
+  "sourceSha256": "62162d344cd2138e4220869ac33af038cdf9b638279661e52f9b215159dcdb4c",
+  "conclusion": "本次保持估值与策略；关键监管来源未完整覆盖，程序成功不代表已确认没有重大变化。",
+  "modules": [
+    {
+      "id": "preflight",
+      "title": "Preflight",
+      "status": "完成",
+      "degraded": false,
+      "result": "检查输入路径、当前版本和文件契约。"
+    },
+    {
+      "id": "nav_snapshot",
+      "title": "NAV 快照",
+      "status": "完成",
+      "degraded": false,
+      "result": "读取资产并生成 NAV 快照；本批总资产 $30,440.02。"
+    },
+    {
+      "id": "execution_reconcile",
+      "title": "AMM 执行核对",
+      "status": "完成",
+      "degraded": false,
+      "result": "没有待核对执行计划；未追加交易事实。"
+    },
+    {
+      "id": "pnl_review",
+      "title": "PNL / 仓位复盘",
+      "status": "完成",
+      "degraded": false,
+      "result": "基于正式 NAV 和既有记录，生成收益与持仓复盘。"
+    },
+    {
+      "id": "news_candidates",
+      "title": "新闻候选包刷新",
+      "status": "完成",
+      "degraded": true,
+      "result": "刷新新闻候选；关键监管来源获取失败，覆盖不完整。"
+    },
+    {
+      "id": "news_radar",
+      "title": "新闻雷达 / 新闻筛选日报",
+      "status": "完成",
+      "degraded": true,
+      "result": "对候选进行筛选与来源核验，保留观察线索。"
+    },
+    {
+      "id": "fundamental_bridge",
+      "title": "基本面事实桥 / 三情景估值 Review",
+      "status": "完成",
+      "degraded": true,
+      "result": "Watch：证据不足以修改正式估值。"
+    },
+    {
+      "id": "strategy_state",
+      "title": "策略状态机 / 策略运行报告",
+      "status": "完成",
+      "degraded": true,
+      "result": "Maintain / On Plan：维持已批准的仓位意图。"
+    },
+    {
+      "id": "master_summary",
+      "title": "每日总控摘要 / 运行清单",
+      "status": "完成",
+      "degraded": true,
+      "result": "汇总模块结果及覆盖限制，不触发交易。"
+    },
+    {
+      "id": "system_review",
+      "title": "系统评审",
+      "status": "完成",
+      "degraded": true,
+      "result": "记录系统运行与后续需要复核的事项。"
+    }
+  ]
+}

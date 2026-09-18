@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "caseId": "circle-20260918-v1",
+  "type": "archived-production-snapshot",
+  "snapshotAt": "2026-09-18 12:09:17 +08:00",
+  "prices": {
+    "crclxPrice": 84.68,
+    "fairPrice": 84.68,
+    "fairPriceAsOfUtc": "2026-09-17T23:59:56Z",
+    "poolPrice": 86.0651613527161,
+    "poolPriceObservedAtUtc": "2026-09-18T04:09:36.780Z",
+    "primaryPoolId": "G39wywquKbHK8F2wZZZFX3fcsyG91VCCbbr6WEVp5axy",
+    "priceMethodVersion": "yahoo_pool_v1"
+  },
+  "nav": {
+    "totalUsd": 31446.709716929632,
+    "allocCorePct": 39.399130827466735,
+    "allocActivePct": 20.432793032657415,
+    "allocPureCrclxPct": 36.249162743798124,
+    "allocWalletUsdcPct": 6.995962438689125e-06,
+    "allocJlusdcPct": 3.9189064001153064,
+    "allocKaminoCrclxPct": 0
+  },
+  "wallet": {
+    "pureCrclxQty": 134.61465497,
+    "pureCrclxUsd": 11399.1689828596,
+    "usdcUsd": 0.0022,
+    "jlusdcUsd": 1232.3671197224373
+  },
+  "positions": [
+    {
+      "role": "Active",
+      "positionPda": "8co5NqjygJsgPuoxXkF5F4SXkn9HhNNJtKHLvXjhhE7t",
+      "strategyApprovedLower": 90,
+      "strategyApprovedUpper": 115,
+      "rangeLowerUsdcPerCrclx": 90.30341568243358,
+      "rangeUpperUsdcPerCrclx": 115.48757939435473,
+      "crclxQty": 72.35634208,
+      "usdcQty": 0,
+      "unclaimedFeeUsd": 298.3060647064,
+      "principalUsd": 6127.135047334401,
+      "totalUsd": 6425.441112040801
+    },
+    {
+      "role": "Core",
+      "positionPda": "5Zpeg6jG2mM5LX12g1qJDvHhBL8VL9PyS7heS3BUXPng",
+      "strategyApprovedLower": 58,
+      "strategyApprovedUpper": 172.95,
+      "rangeLowerUsdcPerCrclx": 57.92780444013877,
+      "rangeUpperUsdcPerCrclx": 172.62867282211195,
+      "crclxQty": 87.4618049,
+      "usdcQty": 4599.513009,
+      "unclaimedFeeUsd": 383.9516543748,
+      "principalUsd": 12005.778647932002,
+      "totalUsd": 12389.730302306802
+    }
+  ],
+  "valuation": {
+    "version": "2026-08-22-full-rebuild",
+    "dataCutoff": "2026-08-22",
+    "horizon": "2027E normalized",
+    "nodes": [
+      11.32,
+      35.81,
+      88.71,
+      177.86
+    ]
+  },
+  "strategy": {
+    "version": "2026-08-24-0016",
+    "approvedAt": "2026-08-24T00:54:48+08:00",
+    "referencePrice": 88.53,
+    "core": [
+      58,
+      172.95
+    ],
+    "active": [
+      90,
+      115
+    ]
+  },
+  "pnl": {
+    "startAt": "2026-06-09 20:19:37 +08:00",
+    "initialNav": 30512.650995653,
+    "pnl": 934.0587212766004,
+    "returnPct": 3.0612178581588063,
+    "pureEnd": 31191.622838125233,
+    "purePnl": 678.9718424722341,
+    "holdEnd": 31120.273487880855,
+    "holdPnl": 607.6224922278561,
+    "excessPure": 255.08687880436628,
+    "excessHold": 326.4362290487443,
+    "latestStart": "2026-09-17 12:43:53 +08:00",
+    "latestInitialNav": 30440.0157366584,
+    "latestPnl": 1006.6939802712004,
+    "latestReturn": 3.3071401440139723,
+    "latestExcessPure": -218.87016111156117,
+    "latestExcessHold": 6.142461186940636,
+    "periodComparisons": [
+      {
+        "key": "strategy",
+        "label": "实盘策略",
+        "endingUsd": 31446.7097169296,
+        "pnlUsd": 1006.6939802712004,
+        "returnPct": 3.3071401440139723,
+        "excessUsd": 0.0
+      },
+      {
+        "key": "pure_underlying",
+        "label": "纯 CRCLx",
+        "endingUsd": 31665.57987804116,
+        "pnlUsd": 1225.5641413827616,
+        "returnPct": 4.026161326542402,
+        "excessUsd": -218.87016111156117
+      },
+      {
+        "key": "initial_hodl",
+        "label": "期初股币组合持有",
+        "endingUsd": 31440.56725574266,
+        "pnlUsd": 1000.5515190842598,
+        "returnPct": 3.2869612412168117,
+        "excessUsd": 6.142461186940636
+      },
+      {
+        "key": "cash",
+        "label": "USDC",
+        "endingUsd": 30440.0157366584,
+        "pnlUsd": 0.0,
+        "returnPct": 0.0,
+        "excessUsd": 1006.6939802712004
+      }
+    ],
+    "inceptionComparisons": [
+      {
+        "key": "strategy",
+        "label": "实盘策略",
+        "endingUsd": 31446.7097169296,
+        "pnlUsd": 934.0587212766004,
+        "returnPct": 3.0612178581588063,
+        "excessUsd": 0.0
+      },
+      {
+        "key": "pure_underlying",
+        "label": "纯 CRCLx",
+        "endingUsd": 31191.622838125233,
+        "pnlUsd": 678.9718424722341,
+        "returnPct": 2.2252141990840593,
+        "excessUsd": 255.08687880436628
+      },
+      {
+        "key": "initial_hodl",
+        "label": "期初股币组合持有",
+        "endingUsd": 31120.273487880855,
+        "pnlUsd": 607.6224922278561,
+        "returnPct": 1.9913788949849731,
+        "excessUsd": 326.4362290487443
+      },
+      {
+        "key": "cash",
+        "label": "USDC",
+        "endingUsd": 30512.650995653,
+        "pnlUsd": 0.0,
+        "returnPct": 0.0,
+        "excessUsd": 934.0587212766004
+      }
+    ],
+    "coreBatchCurve": -192.55497958080196,
+    "coreBatchFees": 375.4557343124,
+    "coreBatchExcess": 182.90075473159806,
+    "activeBatchCurve": -9.094947017729282e-13,
+    "activeBatchFees": 298.3060647064,
+    "activeBatchExcess": 298.30606470639907,
+    "feePeriod": {
+      "start": "2026-09-17 12:43:53 +08:00",
+      "end": "2026-09-18 12:09:17 +08:00",
+      "balanceChangeUsd": 22.796928066901955,
+      "quantityAccrualUsd": 10.318867544799952,
+      "revaluationUsd": 12.478060522102004,
+      "claimedUsd": 0,
+      "byRole": [
+        {
+          "role": "core",
+          "accrualUsd": 10.318867544800009
+        },
+        {
+          "role": "active",
+          "accrualUsd": 0.0
+        }
+      ]
+    }
+  },
+  "monitor": {
+    "date": "2026-09-16",
+    "sourceCount": 53,
+    "candidateCount": 21,
+    "fundamental": "Watch",
+    "valuationChanged": false,
+    "strategyChanged": false,
+    "scope": "historical-research-example"
+  },
+  "sources": [
+    {
+      "id": "valuation",
+      "document": "CIRCLE（CRCL）三情景估值宪法.current.md",
+      "sha256": "b56529dc887386dccc17a7e495a9584f67065d9023660f59422cf6c851c0fa62"
+    },
+    {
+      "id": "strategy",
+      "document": "CIRCLE_AMM策略.current.md",
+      "sha256": "db829911dec3a83bf7788c024b3782bdfd4e93d18e0a28e56cf7c1a219e0f521"
+    },
+    {
+      "id": "ai_candidate",
+      "document": "CIRCLE流动性区间生成日报.260824-0016.md",
+      "sha256": "d65dc488d80403c03b9745457cd0e34126027c4bed531955748c252aa1aeb8d2"
+    },
+    {
+      "id": "valuation_inputs",
+      "document": "CIRCLE估值数据底稿.260822.md",
+      "sha256": "27449b5ffed8bd48a10976b91b78c0102b18970cbab8a16e1b1ae3ba2c41fe40"
+    },
+    {
+      "id": "nav",
+      "document": "CIRCLE_LP_NAV_current_snapshot.json",
+      "sha256": "e6f6bf3fa945f127a84fbb8d5ffec494d11414c333eba1adadb0d70d81d61f46"
+    },
+    {
+      "id": "nav_log",
+      "document": "CIRCLE_LP_NAV快照.260918-1209.md",
+      "sha256": "970569a38872b571e96528b0f1285c1917d9391b4c7bb5293a7c1c1bdb668bb9"
+    },
+    {
+      "id": "pnl",
+      "document": "CIRCLE_PNL归因复盘.260918-1209.md",
+      "sha256": "c107d98f0a01e84613007f1f8c0a04bd7021ea30a4f3e51d852b31e75df93b19"
+    },
+    {
+      "id": "monitor",
+      "document": "CIRCLE每日总控摘要.260918-1209.md",
+      "sha256": "53157712f066a12b1fbc1bcf8607c422ac25111e4bf9f163e515835b47a7590b"
+    },
+    {
+      "id": "history",
+      "document": "CIRCLE_LP_NAV监控.csv",
+      "sha256": "ba0aa5423b16f1d6ae69b3da8a77cd771bcfd7466820bb6af2c4634760f71a91"
+    },
+    {
+      "id": "pnl_context",
+      "document": "CIRCLE_DAILY_20260918-1209.pnl_context.json",
+      "sha256": "db308696fa6c29ff7ef25fb1bd1292a68d3e353ddc999f78db39366d93a70d84"
+    }
+  ],
+  "evidenceRun": {
+    "date": "2026-09-18",
+    "pnlScope": "since_inception",
+    "priceBasis": "as_recorded_mixed_methods"
+  }
+}

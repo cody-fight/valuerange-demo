@@ -1,0 +1,13 @@
+.language-switch{display:flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:8px;background:#f6f7fb;flex-shrink:0}
+.language-switch button{background:transparent;border:0;border-radius:5px;padding:5px 10px;font-size:12px;color:var(--muted)}
+.language-switch button[aria-pressed=true]{background:white;color:var(--blue);box-shadow:0 1px 4px #1c233714;font-weight:650}
+html[lang=en] h1,html[lang=en] h2,html[lang=en] h3{letter-spacing:-.025em}
+html[lang=en] .badge{white-space:normal;line-height:1.5}
+html[lang=en] .nav-item{line-height:1.4;min-height:52px}
+html[lang=en] .field{flex-wrap:wrap}
+html[lang=en] .metric strong{font-size:clamp(20px,2vw,26px)}
+html[lang=en] .inventory-row b{white-space:nowrap}
+html[lang=en] .document-body pre{white-space:pre-wrap;overflow-wrap:anywhere}
+html[lang=en] .intro-case-grid>*{min-width:0}
+.translation-note{font-size:11px;padding:10px 12px;margin:0 0 16px;background:#f4f6fb;border-radius:7px}
+@media(max-width:760px){.top-meta{gap:8px}.top-meta>.badge{display:none}.language-switch button{padding:5px 8px}html[lang=en] .page-heading{flex-wrap:wrap}html[lang=en] .section-head{align-items:flex-start;flex-wrap:wrap}html[lang=en] .nav-item{min-height:42px;white-space:nowrap}html[lang=en] .metrics-grid{grid-template-columns:1fr;gap:12px}html[lang=en] .metrics-grid .metric:not(:first-child){border-left:0;border-top:1px solid var(--line);padding:12px 0 0}html[lang=en] .metric>span{font-size:12px}html[lang=en] .metric small{font-size:11px}}

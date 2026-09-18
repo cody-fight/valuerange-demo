@@ -1,0 +1,252 @@
+{
+  "version": "2026-09-17-fees-v0.6",
+  "start": "2026-08-24 13:48:34 +08:00",
+  "end": "2026-09-16 12:33:55 +08:00",
+  "days": 22.948159722222222,
+  "observations": 24,
+  "method": "No production writes; daily endpoint fee marking and trapezoidal capital weighting; no intraday active-time reconstruction.",
+  "windows": [
+    {
+      "start": "2026-09-15 10:32:41 +08:00",
+      "end": "2026-09-16 12:33:55 +08:00",
+      "days": 1.0841898148148148,
+      "observations": 2,
+      "roles": {
+        "core": {
+          "feesDailyMark": 15.622922182621986,
+          "feesEndMark": 15.622922182621986,
+          "capitalDays": 13468.240366385719,
+          "averagePrincipal": 12422.40074786735,
+          "aprCalendar": 42.33935868035958,
+          "observedInRange": 2,
+          "observations": 2
+        },
+        "active": {
+          "feesDailyMark": 7.3419385349459825,
+          "feesEndMark": 7.3419385349459825,
+          "capitalDays": 7026.696158008717,
+          "averagePrincipal": 6481.057156222145,
+          "aprCalendar": 38.137518756961725,
+          "observedInRange": 1,
+          "observations": 2
+        }
+      },
+      "feeTotal": 22.96486071756797,
+      "avgLpPrincipal": 18903.457904089493,
+      "lpAprCalendar": 40.898756392513285,
+      "avgPortfolioNav": 32885.87064279095,
+      "portfolioFeeAnnual": 23.509425315001252,
+      "portfolioFeeContributionToStartPct": 0.06684579752925517
+    },
+    {
+      "start": "2026-09-09 12:59:27 +08:00",
+      "end": "2026-09-16 12:33:55 +08:00",
+      "days": 6.982268518518518,
+      "observations": 8,
+      "roles": {
+        "core": {
+          "feesDailyMark": 67.456793744222,
+          "feesEndMark": 65.28234734940798,
+          "capitalDays": 87753.96562553442,
+          "averagePrincipal": 12568.116707742121,
+          "aprCalendar": 28.057683252409802,
+          "observedInRange": 8,
+          "observations": 8
+        },
+        "active": {
+          "feesDailyMark": 109.74812095164597,
+          "feesEndMark": 105.42436709350898,
+          "capitalDays": 46133.080952622455,
+          "averagePrincipal": 6607.176568799572,
+          "aprCalendar": 86.83153893079336,
+          "observedInRange": 7,
+          "observations": 8
+        }
+      },
+      "feeTotal": 177.20491469586796,
+      "avgLpPrincipal": 19175.293276541695,
+      "lpAprCalendar": 48.309224467233896,
+      "avgPortfolioNav": 33311.14307265178,
+      "portfolioFeeAnnual": 27.808818961905136,
+      "portfolioFeeContributionToStartPct": 0.5170401567118409
+    },
+    {
+      "start": "2026-09-02 12:16:09 +08:00",
+      "end": "2026-09-16 12:33:55 +08:00",
+      "days": 14.012337962962963,
+      "observations": 15,
+      "roles": {
+        "core": {
+          "feesDailyMark": 123.31209341073802,
+          "feesEndMark": 117.449226409229,
+          "capitalDays": 179755.1608511299,
+          "averagePrincipal": 12828.348939788202,
+          "aprCalendar": 25.039010775437472,
+          "observedInRange": 15,
+          "observations": 15
+        },
+        "active": {
+          "feesDailyMark": 208.685960202838,
+          "feesEndMark": 197.115880600045,
+          "capitalDays": 95242.15835623768,
+          "averagePrincipal": 6797.0212114480255,
+          "aprCalendar": 79.97548227449138,
+          "observedInRange": 12,
+          "observations": 15
+        }
+      },
+      "feeTotal": 331.998053613576,
+      "avgLpPrincipal": 19625.370151236228,
+      "lpAprCalendar": 44.06562577345615,
+      "avgPortfolioNav": 34178.13025243018,
+      "portfolioFeeAnnual": 25.302853326461346,
+      "portfolioFeeContributionToStartPct": 1.0257305519973594
+    },
+    {
+      "start": "2026-08-24 13:48:34 +08:00",
+      "end": "2026-09-16 12:33:55 +08:00",
+      "days": 22.948159722222222,
+      "observations": 24,
+      "roles": {
+        "core": {
+          "feesDailyMark": 223.20858132529793,
+          "feesEndMark": 214.479937906505,
+          "capitalDays": 290772.03039815236,
+          "averagePrincipal": 12670.821273593392,
+          "aprCalendar": 28.018902668243513,
+          "observedInRange": 24,
+          "observations": 24
+        },
+        "active": {
+          "feesDailyMark": 313.104106071123,
+          "feesEndMark": 298.316193481778,
+          "capitalDays": 153160.87474575243,
+          "averagePrincipal": 6674.211640484471,
+          "aprCalendar": 74.61631366735799,
+          "observedInRange": 16,
+          "observations": 24
+        }
+      },
+      "feeTotal": 536.3126873964209,
+      "avgLpPrincipal": 19345.032914077863,
+      "lpAprCalendar": 44.09543168155967,
+      "avgPortfolioNav": 33511.84998996716,
+      "portfolioFeeAnnual": 25.45450571948801,
+      "portfolioFeeContributionToStartPct": 1.674195600876118
+    }
+  ],
+  "sourceHashes": [
+    {
+      "source": "CIRCLE_LP_NAV监控.csv",
+      "sha256": "c472f5fd62305900cca9b3c70d81e4be6ab941ba1edaf84d63e99d1d324ed64f"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260824-1348.md",
+      "sha256": "e6eee751930478e9dd6cb83b5fe6be05029c7bda544f08e733cabc8297d05908"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260825-0919.md",
+      "sha256": "7d0636ed3fd55f935755af8843f1acfaf455b868bd6837058f276b9ff5f4f13a"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260826-1222.md",
+      "sha256": "6d5c0a11411b37a1342eed864f71a124be58d3058da3d3c23ac1354cff0ae8c0"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260827-1957.md",
+      "sha256": "c65bf7eca0d1ae1086c8bf05c2e5c42f8675a100cec8ee16cc3f248dab05054b"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260828-1645.md",
+      "sha256": "e42841664dcaf86635db18879bdb4903ced469de4723c776087c408494300e95"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260829-0751.md",
+      "sha256": "2a6d68d11b487955da3c85576684024d8f4bc0f73a77934aca1dcea9040f6c95"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260830-1312.md",
+      "sha256": "97abc9aca66ceef0fb45ba58ae8fa1d99bba3f98a82e5d51565535838e4cb264"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260831-1340.md",
+      "sha256": "3b9d8fdcb8f6360436971c4ae68590379e4caa902c5215a285c4d215301b4ca8"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260901-1100.md",
+      "sha256": "c0f20d2798dee17ee769011cd56c489c260787e58d2bfaa8c6ef9f39fb70fe36"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260902-1216.md",
+      "sha256": "0c259a16bf2c3883dce328069006f5b554ba43057f94463819ee205ff682c258"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260903-1253.md",
+      "sha256": "009db8b5d967b317522c454a81c246ccdb90cd399ed31f15757719a0aa667ed9"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260904-0949.md",
+      "sha256": "61340096900cb0b9c2146178e18cfd5702faa7dddaa8348dc767448a4f4dcd23"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260905-1344.md",
+      "sha256": "71f8a26f96b1ace7475a28602102197208579dbbac6c08216b5da9392bbedea5"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260906-1154.md",
+      "sha256": "57bac447534a5560c476549817586811eb8d8c03d990cfff226c8d34c5d74708"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260907-1301.md",
+      "sha256": "e8375c295eb0950558211af4408ee833a447c7dae490d49686fbd550ab5c4f62"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260908-1314.md",
+      "sha256": "6484a177a3a44c5d5dceb44266d0eebf807ccd8b88ddef40c5c572f1b447f4da"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260909-1259.md",
+      "sha256": "476e5d122c2a83c63ef4a773233282b485fedb1d1ff759523508453c4fc4ede8"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260910-1335.md",
+      "sha256": "d55b78702886316b3a754fb5e9311a63b2689f81e7eaebfb7e592f5db7a21685"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260911-1328.md",
+      "sha256": "bf7c36be556d5f0085a09fb521f153dcc6de0260d6a35b9ecb22ff5d5052b0d3"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260912-1241.md",
+      "sha256": "d3d576b5d4e6afaad4117ad0cc09668d6f1b80b8a1079c131c1d64f0cd0492ed"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260913-1320.md",
+      "sha256": "9b952cba972bde21825169b1610b64f96c5b77cb29f9458c4b16b2b0307c6732"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260914-0209.md",
+      "sha256": "f83118344d631d95e1d792977ebc231e1ec00a2b80d4b53f491fa97a11710e6c"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260915-1032.md",
+      "sha256": "3c303132f13c0a02964e7dd56b02c6ad353864364b1712034a91114032429788"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260916-1233.md",
+      "sha256": "43ef8572a4920fedd2112c490d09800fb0d888e25583a617ed52057102b35009"
+    }
+  ],
+  "defaultHaircut": 0.5,
+  "defaultRates": {
+    "coreApr": 14.0,
+    "activeApr": 37.3,
+    "buyApr": 14
+  },
+  "limitations": [
+    "由逐日手续费代币数量增量按当日期末价格估值，不将旧费用的代币重估算作新收入。",
+    "年化分母为观察期内该 LP 全部本金的时间积分，包含区间外等待；并非日内活跃资本年化。",
+    "默认折半且只按未来区间内资金计费，是审慎演示假设，不是统计置信区间或历史拟合。",
+    "Active 积累段没有实盘样本，以 Core 默认费率作演示假设；新估值区间同样未重新校准交易量。"
+  ]
+}

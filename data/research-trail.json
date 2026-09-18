@@ -1,0 +1,95 @@
+{
+  "version": "research-trail-20260917-v05",
+  "copiedAt": "2026-09-17",
+  "identity": "archived-production-research",
+  "latestDate": "2026-09-16",
+  "records": [
+    {
+      "date": "2026-09-14",
+      "title": "新兴市场扩张线索",
+      "status": "No Review",
+      "decision": "证据不足，维持估值",
+      "discovery": "新闻候选提及新兴市场扩张投入，目前只有聚合标题，投入主体与会计性质尚未核实。",
+      "factors": "年度平均 USDC、渠道扩张与经营费用",
+      "verification": "投入金额不等于费用，也不直接等于新增利润；需确认投入主体、时间表及规模转化。",
+      "action": "未调整规模或费用假设；保留线索，等待公司披露。",
+      "valuationChanged": false,
+      "valuationVersion": "2026-08-22-full-rebuild",
+      "documentId": "research-20260914",
+      "sourceSha256": "75285f655aed07b3ac2ea0497e2d8a057368cfa3056122167ed7dbdf805394cb"
+    },
+    {
+      "date": "2026-09-15",
+      "title": "平台商业化线索",
+      "status": "No Review",
+      "decision": "商业化待验证",
+      "discovery": "Arc 上线与验证者出现转引线索，尚无官方收入、重复收费或毛利确认。",
+      "factors": "经常性非储备收入与平台盈利能力",
+      "verification": "产品上线和网络规模需要转化为可验证的收入与毛利，才能进入估值。",
+      "action": "未提前计入平台收益，维持三情景边界。",
+      "valuationChanged": false,
+      "valuationVersion": "2026-08-22-full-rebuild",
+      "documentId": "research-20260915",
+      "sourceSha256": "069dc3bc6947177bb49dc5c78c571a7274a48803ef81533a42204c4c28a4e4f9"
+    },
+    {
+      "date": "2026-09-16",
+      "title": "监管经济性线索",
+      "status": "Watch",
+      "decision": "进入观察，等待核实",
+      "discovery": "CLARITY Act 与稳定币经济性出现候选线索，尚未完成官方文本和程序状态核验。",
+      "factors": "渠道分成、合规成本与风险折价",
+      "verification": "先确认是否真正改变储备收益分配或渠道经济性，再决定是否修正盈利与估值倍数。",
+      "action": "本轮未发现足够的新硬事实，估值保持不变。",
+      "valuationChanged": false,
+      "valuationVersion": "2026-08-22-full-rebuild",
+      "documentId": "research-20260916",
+      "sourceSha256": "20fa894398677de0a76aaf080087fe29ed0ab0293d34d337f130894b995336de"
+    }
+  ],
+  "documents": [
+    {
+      "id": "research-20260914",
+      "title": "研究回放 · 新兴市场扩张线索",
+      "version": "2026-09-14 · No Review",
+      "source": "CIRCLE估值驱动日报.260914-0209.md",
+      "sourceSha256": "75285f655aed07b3ac2ea0497e2d8a057368cfa3056122167ed7dbdf805394cb",
+      "excerptSha256": "3e9b7a52ad2112ecf05680e0b72d7d66225e2c4f2ea1e249383ced15af71f05e",
+      "markdown": "## Review 状态\n\n**No Review**\n\n一句话原因：本轮没有被新闻雷达推送的新增硬事实；唯一新增候选为 C 级标题、无正文核验且影响方向未知，尚不足以改变估值宪法核心假设。\n\n## 覆盖与材料口径\n\n- 估值宪法：`2026-08-22-full-rebuild`，数据截点 2026-08-22。\n- 估值驱动面板：2026-09-05 重建。\n- 新闻雷达：2026-09-14，`news_quality = ok`，关键来源正常，1 个非关键媒体源返回 429。\n- 本判断仅代表已覆盖来源中的观察；程序运行成功不等于已确认不存在重大变化。\n\n## 今日事实与事件\n\n### 新增硬事实\n\n暂无足以修改三情景估值区间的新硬事实。\n\n### 事件候选\n\n- 事件日期：2026-09-13。\n- 标题：Circle 计划投入 4 亿美元推动 USDC 在新兴市场扩张。\n- 来源：Google News RSS 聚合，指向 CoinDesk。\n- 质量：C 级、仅标题、无正文或独立来源核验。\n- 潜在关联：Average USDC、渠道扩张、Adjusted OpEx。\n- 当前处理：不推送、不改变估值参数，保留为低置信观察项。\n\n### 结构化观察\n\n| 因子 | 2026-09-14 观察 | 基本面判断 |\n|---|---:|---|\n| USDC 供应 | 74.388bn，日变动 -0.03% | 单日存量不等于年度 Average USDC |\n| USDC 市占率 | 23.80%，下降 0.06 个百分点 | 轻微波动，未改变规模假设 |\n| EURC 供应 | 544.2m，增长 15.64% | 产品存量线索，尚无收入、留存或毛利证据 |\n| 13 周国库券代理利率 | 3.913%，前值 3.757% | 不等同实际储备收益率，不调整 Reserve yield |\n\n## 核心因子桥\n\n| 核心因子 | 今日变化 | 对估值的连接 |\n|---|---|---|\n| Core Earnings Power Proxy | USDC 单日存量轻微下降；无年度平均余额或官方 RLDC 新披露 | 不改变 Average USDC、Reserve yield、RLDC margin 或 OpEx |\n| CPN TPV / Monetization | 无新增官方收费、take rate 或留存事实 | 不能新增经常性 Other Revenue |\n| Arc Real Adoption Ladder | 无新增主网、资产沉淀、收费或毛利证据 | 不支持平台身份升级 |\n| Other Revenue Quality | 无新增可重复非储备收入证据；Arc Token 一次性收入仍不作正常化年化 | 不改变经常性 Other Revenue 假设 |\n| Risk Gate | 无储备、赎回、牌照、安全或重大分销合同事件 | 未触发悲观情景强制 Review |\n\n## 三情景估值勾稽\n\n当前估值语法仍为：\n\n`Average USDC × Reserve yield + recurring Other Revenue → RLDC → Adjusted EBITDA → 合并 EV/Adjusted EBITDA + eligible net cash`\n\n| 节点 | 当前成立条件 | 本轮桥接判断 | 当前节点值 |\n|---|---|---|---:|\n| L0 正常悲观 | Average USDC 78bn、Reserve yield 2.5%、RLDC margin 36% | 74.388bn 是时点供应，不能据此判定年度平均余额跌破 L0；亦未触发平均 USDC 低于 65bn 的 Stress Tail | $11.32/股 |\n| L1 中立 | Average USDC 95bn、Reserve yield 2.9%、经常性 Other Revenue 220m | 无新证据确认或否定；仍需官方收入与商业化验证 | $35.81/股 |\n| L2 乐观 | Average USDC 125bn、RLDC margin 42.5%、经常性 Other Revenue 330m，至少一个网络业务形成重复收费和毛利 | EURC 增长及新兴市场标题仅为辅助线索，不足以验证平台商业化 | $88.71/股 |\n| L3 乐观上限 | Average USDC 160bn、经常性 Other Revenue 480m，至少两个网络业务规模化并形成毛利 | 未观察到足以验证该条件的新事实 | $177.86/股 |\n\n结论：L0—L3 的经营假设、估值锚和节点顺序均不需调整。未发现 Thesis Break 或 Stress Tail 证据。"
+    },
+    {
+      "id": "research-20260915",
+      "title": "研究回放 · 平台商业化线索",
+      "version": "2026-09-15 · No Review",
+      "source": "CIRCLE估值驱动日报.260915-1032.md",
+      "sourceSha256": "069dc3bc6947177bb49dc5c78c571a7274a48803ef81533a42204c4c28a4e4f9",
+      "excerptSha256": "1888f8e6752781b4d8dd3b9864bf8402e7f968163a54bd1c9cdc49b16d42627a",
+      "markdown": "## 首屏结论\n\n| 项目 | 判断 |\n|---|---|\n| Review 状态 | **No Review** |\n| 一句话原因 | 已覆盖材料中未发现足以改变 USDC 储备收益、RLDC margin、经常性非储备收入或风险闸门假设的新硬事实。 |\n| 今日新硬事实 | 未发现可核验新增硬事实；本轮无事件推送给基本面事实桥。 |\n| 今日事件 | Arc 上线及验证者为 C 级传闻；监管内容为行业背景或泛综述，均未形成 Circle 特异经营影响。 |\n| 估值宪法 | 继续沿用合并正常化 Adjusted EBITDA × EV/Adjusted EBITDA + eligible net cash；不修改 current。 |\n\n程序运行成功与研究覆盖完整性分开判断：新闻雷达运行成功，`news_quality=ok`；52/53 个覆盖行成功，CoinDesk Policy 一次 429 属非关键失败。但“无选中增量”不等于已确认所有覆盖面没有重大变化。\n\n## 核心因子桥接\n\n| 核心因子 | 已覆盖事实与变化 | 估值勾稽 | 判断 |\n|---|---|---|---|\n| Core Earnings Power | USDC 约 74.421bn，30D 变化约 -0.01%，市占率变化约 -0.11pp；未见新的官方收入、RLDC 或 OpEx 披露 | 单日/短期余额不能替代 2027E Average USDC；未证明 L0-L3 假设失效 | 不触发 |\n| CPN Monetization | 未见新的经常性收入、take rate、留存或毛利证据 | 交易规模本身不能进入 Other Revenue 或独立估值 | 不触发 |\n| Arc Real Adoption | Arc 可能上线及 BlackRock、Visa 验证者为 C 级 RSS 转引线索；无官方 mainnet、settlement、收入归属或毛利确认 | 尚未满足 L1/L2 所需的重复收费、留存和可验证盈利条件 | 观察项，不升级 |\n| Other Revenue Quality | EURC 约 539.6m、包内变化 +15.47%，但无相应收入或利润证据 | 规模增长不能直接等同经常性 Other Revenue | 不触发 |\n| Risk Gate | Clarity Act 投票前行业背景及 GENIUS/CLARITY/MiCA 泛监管综述；未见新的 Circle 特异规则、执法或合规成本变化 | 未改变发行资格、赎回信任、储备安全或风险折价 | 不触发 |\n\n13 周期美国国库券利率为 3.935%，前值 3.775%；仅作为储备收益代理观察，不等同 Circle 实际 Reserve yield，不能单独调整估值参数。\n\n## 三情景桥接\n\n| 情景 | 当前宪法成立条件 | 本轮新增证据 | 桥接结论 |\n|---|---|---|---|\n| 悲观 L0 | Average USDC 78bn、Reserve yield 2.5%、RLDC margin 36%、平台商业化有限但核心 EBITDA 保持正值 | USDC 短期观察未显示明显断裂；未见脱锚、赎回、许可或储备信任事件 | L0 条件未被新事实否定，也未进入 Stress Tail |\n| 中立 L1 | Average USDC 95bn、Reserve yield 2.9%、RLDC margin 39%、经常性 Other Revenue 220m，并出现初步平台收费或留存 | Arc 传闻未获官方或量化确认；CPN 无新增收入证据 | 不上修或下修 L1；平台商业化仍待验证 |\n| 乐观 L2 | Average USDC 125bn、RLDC margin 42.5%、经常性 Other Revenue 330m，至少一个网络业务形成重复收费、留存和可验证毛利 | 无新增可验证商业化证据 | 不满足新增升级依据，L2 条件不变 |\n| 乐观 L3 | Average USDC 160bn、RLDC margin 45%、经常性 Other Revenue 480m，至少两个业务规模化贡献重复收入和毛利 | 未见规模化收入、毛利或自有分发议价改善证据 | L3 不变，不提前计入 Arc/CPN/Agent 期权价值 |\n\n## 事件处理\n\n- Arc 上线及验证者线索：保留为待核验观察项，不作为估值事实。\n- Clarity Act 行业背景：仅解释可能的行业风险偏好变化，不改变 Circle 基本面。\n- 泛监管综述：无新的可核验监管规则或 Circle 特异影响，归档处理。\n- 市场异动：仅用于新闻反查触发，不作为估值或基本面修正因子。"
+    },
+    {
+      "id": "research-20260916",
+      "title": "研究回放 · 监管经济性线索",
+      "version": "2026-09-16 · Watch",
+      "source": "CIRCLE估值驱动日报.260916-1233.md",
+      "sourceSha256": "20fa894398677de0a76aaf080087fe29ed0ab0293d34d337f130894b995336de",
+      "excerptSha256": "f659b3b3a5b0c236f90288725e1666848574b0efaf13695160036a1b6b51d70c",
+      "markdown": "## 首屏结论\n\n| 项目 | 判断 |\n|---|---|\n| Review 状态 | **Watch** |\n| 一句话原因 | 唯一推送事件为可能影响稳定币经济性与分销渠道的 CLARITY Act 候选，但目前仅有低等级标题证据，未完成官方文本核验，暂不足以触发 Review。 |\n| 今日新硬事实 | 未发现可直接改变核心估值假设的新硬事实 |\n| 今日事件 | CLARITY Act / 稳定币经济性规则候选；6 条 Form 144/A 仅列为 Mention |\n| 估值宪法编辑 | **无** |\n| 运行与覆盖 | 新闻雷达运行成功，`news_quality=ok`；覆盖正常不等于研究覆盖绝对完整 |\n\n## 核心因子桥\n\n| 因子 | 今日观察 | 判断 |\n|---|---|---|\n| 核心盈利能力 | USDC 点时供应量 73.436bn，近 30 日下降 0.29%；不能替代年度平均 USDC | 观察项，不改变节点 |\n| CPN 商业化 | 未发现新增可验证重复收入、take rate 或毛利证据 | 无变化 |\n| Arc 采用阶梯 | 未发现新增可估值商业化证据 | 无变化 |\n| Other Revenue 质量 | 未发现新的经常性收入披露；Token 一次性收入仍不纳入正常化收入 | 无变化 |\n| 风险门 | CLARITY Act 及稳定币奖励/储备收益分配议题出现候选事件 | **Watch** |\n\n13 周国库券利率为 3.96%，但该指标不是实际 Reserve yield，不能直接修正估值参数。市场下跌线索主要由行业、同业和宏观因素部分解释，未核实为 Circle 特异基本面事件。\n\n## 新增事实与事件\n\n### CLARITY Act / 稳定币经济性规则\n\n新闻雷达推送 1 个 `Push-Watch` 候选。候选标题称 CLARITY Act 相关程序可能影响稳定币经济性，但：\n\n- 事件日期和官方程序状态待核验；\n- 当前仅有标题与 URL，主要来源等级为 C；\n- 新闻雷达本轮未抓取官方原文；\n- 尚不能确认是否涉及稳定币奖励、储备收益分配、银行参与、发行准入或 KYC/AML 要求。\n\n潜在受影响因子为：\n\n`coinbase_distribution`、`competition_channel`、`regulatory_risk`、`risk_discount`、平台商业化速度。\n\n### Form 144/A 文件\n\n6 条 SEC Form 144/A 被列为 `Mention`。当前缺少申报人、数量、价格、交易计划及是否完成交易等细节，暂不足以改变稀释股本或治理假设。\n\n## 三情景估值勾稽\n\n| 情景 | 当前桥接判断 |\n|---|---|\n| 悲观 | 若官方文本确认削弱储备收益分配、提高合规成本或恶化 Coinbase 等渠道经济性，需重新检查 RLDC margin、风险折价及 Stress Tail 条件。当前尚未核验，L0 参数不变。 |\n| 中立 | 若法规最终不改变 Circle 的储备收益、发行资格和渠道经济性，现有合并发行商估值语法继续成立。 |\n| 乐观 | 若法规明确合规边界并改善机构参与，可能支持 CPN、Arc 等商业化持续期，但尚无重复收入、留存或毛利证据，不能据此进入 L2/L3。 |\n| Rebuild 条件 | 只有在官方文本确认公司收入归属、发行资格、储备经济性或核心业务身份发生结构性变化时，才考虑 Rebuild。当前未达到。 |\n\n## 最终判断\n\n**Watch。**\n\n本轮没有足以修改三情景估值区间的新硬事实。CLARITY Act 候选保留为风险观察项，等待官方文本和公司披露完成事实核验。**不修改估值宪法 current。**"
+    },
+    {
+      "id": "ai_decision",
+      "title": "真实 AI 决策依据：从输入到 90–115",
+      "version": "2026-08-24 · 技术资料截至 08-21",
+      "source": "CIRCLE流动性区间生成日报.260824-0016.md",
+      "sourceSha256": "d65dc488d80403c03b9745457cd0e34126027c4bed531955748c252aa1aeb8d2",
+      "excerptSha256": "dcd0c5e74121ab9f89097b37a998b64d3b89b434e4456f565bca6884d5048cdb",
+      "markdown": "## 0. Candidate outcome\n\n| 项目 | 新 Candidate |\n|---|---|\n| 估值锚 | `2026-08-22-full-rebuild`；L0/L1/L2/L3 = **11.32 / 35.81 / 88.71 / 177.86 USD** |\n| 当前估值位置 | CRCL 正常收盘与盘后价仍在**中性上沿**；最新 CRCLx 池价刚进入**乐观下沿**，属于 L2 边界状态 |\n| 现有 Core | **keep**；不 close、不 migrate、不为恢复静态比例而 resize |\n| 新 Active | **open 20%**；`90.00–115.00`，`armed_stock_inventory`，只使用钱包既有 CRCLx |\n| 迁移后模块 | **纯持股 37.2095% / Core 38.9545% / Active 20% / 独立可用稳定类 3.8360%** |\n| 转换通道 | **`lp_only`**；`direct_swap_required=false` |\n| 资金缺口 | **0（规划口径）**；当前可部署股票库存足够，Active 初始不要求 USDC |\n| Candidate outcome | **`strategy_change_migration_proposed`** |\n| 是否建议升级 current | **是**；但仅升级策略意图，获人工批准后才可进入独立 Execution Preflight |\n\n一句话判断：**保留正在有效运行的宽 Core，用钱包中的一部分既有 CRCLx 在 90–115 建立退出型 Active，让稳定币随上涨沿 LP 曲线形成；不再像旧 Candidate 那样先直接卖出股票凑独立稳定币目标，同时在 L3 仍保留约一半经济股票 Beta。**\n\n## 1. 估值锚、公司类型与边界\n\n估值宪法提供连续、互斥、无留白的 canonical 区间：\n\n```text\n悲观：[11.32, 35.81)\n中立：[35.81, 88.71)\n乐观：[88.71, 177.86]\n```\n\nCircle 当前是“以储备收益为主要利润池、以合规与分发网络为护城河、正在向支付与金融网络平台升级的利率敏感基础设施”。它同时具有平台型、网络型和强叙事期权属性，执行层不能在保守估值之外再过早耗尽股票 Beta。\n\n本次没有发现价格越过 L0/L3，也没有从指定输入中发现要求停止 AMM 生成的 Thesis Break。市场与技术数据只用于执行区间，不修改上述估值锚。\n\n### 2.2 日线（截至 2026-08-21）\n\n| 指标 | 数值 | 执行层含义 |\n|---|---:|---|\n| OHLC / 成交量 | **87.98 / 92.97 / 86.36 / 87.98；约 2,582–2,602 万股** | Yahoo 与 iFinD 成交量口径略有差异，方向一致 |\n| MA5 / MA10 / MA20 | **79.31 / 75.30 / 69.40** | 短线多头，斜率陡 |\n| MA50 / MA100 | **69.48 / 86.11** | 已站上 MA50，并略高于 MA100 |\n| Bollinger(20,2) | **54.59 / 69.40 / 84.22** | 收盘高于上轨约 4.47%，短线扩张偏热 |\n| ATR(14) | **约 5.5–5.6 USD** | 约为收盘 6.3%，普通波动仍大 |\n| RSI(14, Wilder) | **69.46** | 接近过热，但不是单独卖出信号 |\n| MACD / Signal / Hist | **3.48 / 0.97 / +2.51** | 动量显著转强 |\n| 5日 / 20日 / 60日涨跌 | **+22.88% / +41.08% / -14.28%** | 急涨修复成立，中期跌幅尚未完全修复 |\n| 20日均量 | **约 1,300 万股** | 当日成交约为 20 日均量的 2 倍 |\n\n### 2.3 周线、月线与大盘背景\n\n- 最新周 OHLC 为 **71.21 / 92.97 / 70.73 / 87.98**，周成交量约 **9,002 万股**；周 MA4 / MA10 / MA20 为 **72.22 / 69.62 / 85.07**，收盘已站上三者，周 ATR(14) 约 **16.5 USD**。\n- 8 月月线截至 8 月 21 日为 **58.98 / 92.97 / 57.84 / 87.98**；月 MA3 / MA6 为 **71.07 / 85.42**。8 月已突破 7 月 `58.66–72.86` 区间。\n- 最近 100 个交易日按收盘价分桶的成交密集区以 **60–65** 最大，其次为 **110–115、65–70、80–85、90–95**；这是日线代理，不是逐笔 Volume Profile。\n- SPY / QQQ 最新收于 **765.72 / 713.44**，20 日涨幅约 **3.63% / 4.27%**；VIX 收于 **15.13**，低于 20/50 日均线。市场风险偏好开放，但不会消除 CRCL 急涨后的回撤风险。\n\n综合技术位：\n\n- 支撑：**84–86**，其次 **78–80**；Core 中长期支撑 **60–65 / 57.84–58.66**。\n- 压力：**92.97–95**，其次 **105–115**；再上方为 **123–140**。\n- 中期结构：日、周、月共同修复，但日线已越过布林上轨且成交放大，适合启动库存型退出通道，不适合直接削减尾部持股或缩窄 Core。"
+    }
+  ],
+  "historicalAi": {
+    "date": "2026-08-24",
+    "technicalAsOf": "2026-08-21",
+    "valuationVersion": "2026-08-22-full-rebuild",
+    "documentId": "ai_decision",
+    "sourceSha256": "d65dc488d80403c03b9745457cd0e34126027c4bed531955748c252aa1aeb8d2"
+  }
+}
