@@ -1,0 +1,135 @@
+{
+  "id": "demo-ai-20260917-v09",
+  "mode": "isolated-hypothetical-generation",
+  "skillSha256": "6a879a7e2d78651fe72dfe6578bcc7a46840e5e334982fbd13d3de51f52aa464",
+  "runs": [
+    {
+      "case": "improve",
+      "startedAt": "2026-09-17T14:25:53.134111+08:00",
+      "completedAt": "2026-09-17T14:28:25.875811+08:00",
+      "inputSha256": "bdeea57a00d015f75a392f0a4dcd397f31c038f8021d1fe197a7ee0f8e7bcd22",
+      "rawOutputSha256": "d4d05034494c8fde0698ea9ad299f2b2b9b307e817e640c9c765612f5b8f099c",
+      "candidate": {
+        "case": "improve",
+        "title": "Stock-priority candidate following an improvement review",
+        "valuationPosition": "Current price: 100. Revised ranges: Bear [33.39,79.72], Base [79.72,174.02], Bull [174.02,328.13]. Price is in the lower part of the Base range.",
+        "weights": [
+          0.25,
+          0,
+          0.7,
+          0.05
+        ],
+        "coreRange": [
+          79.72,
+          328.13
+        ],
+        "coreAction": "Candidate: migrate old Core [58,172.95] to reference range [79.72,328.13]. Not activated or deployed; preflight requires approval.",
+        "activeAction": "Pause the old Active [90,115]. The candidate specifies close_and_collect, without creating or automatically reopening Active.",
+        "rationale": [
+          "Use the Base valuation lower boundary for Core’s lower bound to reduce pressure to accumulate at lower prices.",
+          "Use the Bull upper boundary to retain payment-network platform optionality and stock beta.",
+          "Only price nodes 88.53, 110, 95 and 100 were known. No candles, ATR or RSI were invented.",
+          "The old Active range still covers the current price of 100; pausing it reduces continued distribution of stock inventory.",
+          "Historical fees support position review, not forecasts of future returns."
+        ],
+        "constraints": [
+          "goalWeights=[0.25,0,0.7,0.05] are given demonstration objectives, retained unchanged rather than optimized by this node.",
+          "LP-first migration has not been completed or verified. Pausing Active while increasing stock exposure may require a direct-swap exception.",
+          "Closing Active, migrating Core and any direct swap require user approval.",
+          "This candidate does not perform preflight, deployment or trading.",
+          "Repeated accumulation is a simulation extension, not the Skill’s default Active behavior."
+        ],
+        "transitionChannel": "mixed",
+        "directSwapRequired": true,
+        "directSwapReason": "The snapshot contains approximately 82.403 stock units. At price 100, stock represents about 58.9% of NAV, below the target of 0.70. Closing Active only releases existing assets and cannot guarantee the target. Any direct swap to reach it needs separate approval and is not executed here.",
+        "fundingReview": "Current NAV is approximately 14002.90, with snapshot cash of approximately 5762.56. Free and LP-committed assets have not been separated for execution. Verify deployable assets first, then consider reducing or delaying Core; request a direct-swap exception only if necessary.",
+        "betaReview": "Current stock: approximately 82.403 units. Candidate targets: stock 0.70, Core 0.25, Active 0. The old Active upper bound of 115 no longer triggers liquidation. At L3=328.13, review Core’s natural conversion; a stock tail remains beyond L3. Exact quantities await execution preflight.",
+        "feesTradeoff": "Pausing Active gives up its future fee stream, but better supports the stock target of 0.70 and reduces premature selling.",
+        "limitations": [
+          "The Core range is a candidate reference and is explicitly inactive.",
+          "Target weights may conflict with LP-first migration; completion of LP-first cannot be claimed.",
+          "No real news, full technical indicators or future price assessment were supplied.",
+          "Exact migration amounts, asset look-through and direct-swap quantities have not been calculated."
+        ],
+        "decision": "candidate_only",
+        "inputBoundaries": "Uses only the supplied hypothetical inputs. No other files, network, preflight or trades. Price nodes are synthetic, not market forecasts."
+      },
+      "model": "gpt-5.6-luna",
+      "modelSemantics": "CLI run metadata; service tier not independently verified",
+      "checks": [
+        "Output parses correctly and has candidate status.",
+        "Weights total 100% and match the given demonstration objectives.",
+        "The Core reference bounds are positive and ordered.",
+        "Input and original-output SHA-256 hashes match this archive. No post-review price nodes were supplied."
+      ]
+    },
+    {
+      "case": "pressure",
+      "startedAt": "2026-09-17T14:28:25.887949+08:00",
+      "completedAt": "2026-09-17T14:30:07.553258+08:00",
+      "inputSha256": "7bbae8078e7b4de4a74e17747dffa0f0479a5642cf95483f50e7e8c6ab1f17af",
+      "rawOutputSha256": "c367be5a4280ae5c670e3d6cb0990680fc322b185064942b91583a1ccfd7bdc1",
+      "candidate": {
+        "case": "pressure",
+        "title": "Pressure: candidate exit from old LPs after valuation falls below price",
+        "valuationPosition": "Revised L0–L3: 6.35/17.39/41.90/83.86. Current price 100 is above L3, triggering a boundary review, not automatic trading.",
+        "weights": [
+          0,
+          0,
+          0.1,
+          0.9
+        ],
+        "coreRange": [
+          17.39236263736264,
+          83.86266300366303
+        ],
+        "coreAction": "Candidate: close old Core. New Core is only an L1–L3 reference range; price is above its upper bound, so it remains inactive.",
+        "activeAction": "Propose closing and collecting the old Active without creating another. No actual closure has occurred.",
+        "rationale": [
+          "Target weights [0,0,0.1,0.9] are given holding constraints, retained unchanged rather than optimized.",
+          "Platform optionality supports a wider Core reference range, but price is above the new L3, so the range remains inactive.",
+          "The old Active range is 90–115, with current price 100 inside it. The candidate closes the position to reduce conflict with the revised valuation boundaries.",
+          "Only supplied valuation points and synthetic price nodes were used. No candles, ATR, news or future prices were invented.",
+          "Retain 10% in shares as minimum residual exposure. This weight is not a default beta recommendation from the Skill."
+        ],
+        "constraints": [
+          "LP-first remains the default. This case proposes a direct-rebalancing exception to meet the user's cash target.",
+          "Do not describe the LP-first process as completed or candidate weights as executed positions.",
+          "The Core reference range is anchored to revised L1–L3; short-term price nodes do not rewrite valuation boundaries.",
+          "Completing, closing and collecting the old Active, and any subsequent rebalancing, require human approval and execution checks.",
+          "Exact quantities cannot be derived directly from this candidate. Assets inside LPs and restricted funds must be recalculated before execution."
+        ],
+        "transitionChannel": "mixed",
+        "directSwapRequired": true,
+        "directSwapReason": "Natural conversion or closure alone cannot guarantee the 90% cash / 10% share target. Direct rebalancing requires a human-approved exception; quantities await execution checks. Nothing has been executed.",
+        "fundingReview": "The synthetic snapshot contains about 82.40 shares, 5762.56 in cash and assets committed to LPs. Check deployable assets after closing the old LPs first. If the target remains unreachable, request approval for direct rebalancing; do not assume shares will be sold to fill the gap.",
+        "betaReview": "The candidate retains 10% in shares, materially reducing equity beta from the initial simulated portfolio. This user-constrained target may fall below the Skill's suggested minimum beta for a platform-optionality asset and requires human confirmation.",
+        "feesTradeoff": "Closing old LPs gives up future fees. Historical simulated fees are not projected as future income; the cash-first target takes priority.",
+        "limitations": [
+          "This is an isolated hypothetical case, not a view on the actual market.",
+          "No network access, other files or external data were used.",
+          "No actual candles, volume, support/resistance, ATR or news were available. Technical levels were not fabricated.",
+          "Direct rebalancing, LP closure, collection and execution checks have not taken place.",
+          "goalWeights are not model-optimized results. This candidate does not demonstrate completion of the default LP-first process."
+        ],
+        "decision": "candidate_only",
+        "inputBoundaries": "Uses only supplied CRCLx valuation, current price 100, synthetic price nodes, existing ranges, simulated position snapshot, pressure case and goalWeights. Does not forecast future prices, returns or P&L."
+      },
+      "model": "gpt-5.6-luna",
+      "modelSemantics": "CLI run metadata; service tier not independently verified",
+      "checks": [
+        "Output parses correctly and has candidate status.",
+        "Weights total 100% and match the given demonstration objectives.",
+        "The Core reference bounds are positive and ordered.",
+        "Input and original-output SHA-256 hashes match this archive. No post-review price nodes were supplied."
+      ]
+    }
+  ],
+  "_translation": {
+    "language": "en",
+    "translatedAt": "2026-09-18",
+    "originalFile": "data/ai-evidence.json",
+    "originalFileSha256": "2a2a21c5e9b479dc00d67fc49e67f8819a899b7eb9bdb404feb8a6b57cf6bbfc",
+    "notice": "English translation of archived business data. Original generation dates, hashes and numeric inputs retain their original meaning; this is not a new model run."
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "id": "CIRCLE_DAILY_20260917-1243",
+  "startedAt": "2026-09-17T12:43:43.679638+08:00",
+  "completedAt": "2026-09-17T13:10:20.994223+08:00",
+  "status": "degraded",
+  "model": "gpt-5.6-luna",
+  "source": "CIRCLE_DAILY_20260917-1243.daily_official.json",
+  "sourceSha256": "62162d344cd2138e4220869ac33af038cdf9b638279661e52f9b215159dcdb4c",
+  "conclusion": "Valuation and strategy were maintained. Critical regulatory sources were not fully covered; successful processing does not confirm the absence of material changes.",
+  "modules": [
+    {
+      "id": "preflight",
+      "title": "Preflight",
+      "status": "Completed",
+      "degraded": false,
+      "result": "Check input paths, current versions and file contracts."
+    },
+    {
+      "id": "nav_snapshot",
+      "title": "NAV snapshot",
+      "status": "Completed",
+      "degraded": false,
+      "result": "Read assets and produce a NAV snapshot. Total assets in this run: $30,440.02."
+    },
+    {
+      "id": "execution_reconcile",
+      "title": "AMM execution reconciliation",
+      "status": "Completed",
+      "degraded": false,
+      "result": "No execution plan awaited reconciliation; no new trade facts were added."
+    },
+    {
+      "id": "pnl_review",
+      "title": "PNL / Position review",
+      "status": "Completed",
+      "degraded": false,
+      "result": "Review performance and positions using the official NAV and existing records."
+    },
+    {
+      "id": "news_candidates",
+      "title": "Refresh news candidates",
+      "status": "Completed",
+      "degraded": true,
+      "result": "Refresh news candidates. Critical regulatory sources could not be retrieved, leaving incomplete coverage."
+    },
+    {
+      "id": "news_radar",
+      "title": "News radar / Daily screening",
+      "status": "Completed",
+      "degraded": true,
+      "result": "Screen candidates, verify sources and retain items for monitoring."
+    },
+    {
+      "id": "fundamental_bridge",
+      "title": "Fundamentals bridge / Valuation review",
+      "status": "Completed",
+      "degraded": true,
+      "result": "Watch: insufficient evidence to revise the official valuation."
+    },
+    {
+      "id": "strategy_state",
+      "title": "Strategy state machine / Status report",
+      "status": "Completed",
+      "degraded": true,
+      "result": "Maintain / On Plan: retain the approved position intent."
+    },
+    {
+      "id": "master_summary",
+      "title": "Daily master summary / Run checklist",
+      "status": "Completed",
+      "degraded": true,
+      "result": "Summarize module results and coverage limitations without triggering trades."
+    },
+    {
+      "id": "system_review",
+      "title": "System review",
+      "status": "Completed",
+      "degraded": true,
+      "result": "Record system operation and items requiring follow-up review."
+    }
+  ],
+  "_translation": {
+    "language": "en",
+    "translatedAt": "2026-09-18",
+    "originalFile": "data/workflow-evidence.json",
+    "originalFileSha256": "804e9bc0a8580d908cb0e7e1f449b2fed80fe28eb6a19143839374843610faff",
+    "notice": "English translation of archived business data. Original generation dates, hashes and numeric inputs retain their original meaning; this is not a new model run."
+  }
+}

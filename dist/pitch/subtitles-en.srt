@@ -1,0 +1,143 @@
+﻿1
+00:00:00,407 --> 00:00:02,932
+You believe in a company’s future.
+
+2
+00:00:03,219 --> 00:00:07,265
+But the price? It rarely moves in a straight line.
+
+3
+00:00:07,557 --> 00:00:10,772
+So, how could part of your holding do more?
+
+4
+00:00:11,689 --> 00:00:18,414
+With tokenized stocks on Solana, keep shares for growth—and put part of the portfolio into liquidity.
+
+5
+00:00:18,674 --> 00:00:21,326
+Earn trading fees. Convert inventory.
+
+6
+00:00:21,597 --> 00:00:25,659
+The next question is: where should those liquidity ranges be?
+
+7
+00:00:26,747 --> 00:00:32,182
+Meet ValueRange. Company valuation, turned into an on-chain strategy with AI.
+
+8
+00:00:32,772 --> 00:00:37,087
+Every business is different. Its valuation model should be, too.
+
+9
+00:00:37,356 --> 00:00:43,544
+We turn financial reports and research into models built around how each company creates value.
+
+10
+00:00:43,804 --> 00:00:47,728
+Those assumptions form bear, base, and bull valuations.
+
+11
+00:00:47,993 --> 00:00:52,230
+AI adds market data, your inventory, and your holding goals.
+
+12
+00:00:52,503 --> 00:00:56,315
+Code checks the calculations, and you review the plan.
+
+13
+00:00:57,241 --> 00:01:00,528
+Here’s how each part of the portfolio works.
+
+14
+00:01:00,806 --> 00:01:04,100
+Shares for growth. Core for a broader range.
+
+15
+00:01:04,361 --> 00:01:08,077
+Active for staged conversions. Cash for the next opportunity.
+
+16
+00:01:09,184 --> 00:01:13,410
+Explore how the strategy behaves over one to five years.
+
+17
+00:01:13,955 --> 00:01:19,579
+For this example, let’s choose three years, with rallies and pullbacks.
+
+18
+00:01:20,821 --> 00:01:24,883
+As the price rises, Active turns some shares into cash.
+
+19
+00:01:25,145 --> 00:01:28,855
+When it pulls back, available cash can rebuild inventory.
+
+20
+00:01:29,115 --> 00:01:32,154
+As it recovers, the strategy redeploys.
+
+21
+00:01:32,415 --> 00:01:37,815
+Shares, cash, and liquidity keep changing—while in-range trades earn fees.
+
+22
+00:01:38,914 --> 00:01:44,476
+Daily research checks new disclosures, news, and operating data against the model.
+
+23
+00:01:44,866 --> 00:01:48,624
+Sources, assumptions, and decisions stay traceable.
+
+24
+00:01:49,015 --> 00:01:52,010
+Material changes prompt a valuation review.
+
+25
+00:01:53,247 --> 00:01:58,144
+Now suppose stronger growth and better margins support a higher valuation.
+
+26
+00:01:58,406 --> 00:02:02,645
+At year two, review the valuation and move Core higher.
+
+27
+00:02:02,906 --> 00:02:05,580
+Hold more shares, and pause Active.
+
+28
+00:02:05,840 --> 00:02:11,060
+For this example, let’s assume growth materializes, with pullbacks along the way.
+
+29
+00:02:11,955 --> 00:02:16,167
+Now compare the three portfolios, on the same price path.
+
+30
+00:02:16,427 --> 00:02:22,646
+In this growth scenario, the revised plan finishes ahead of the original strategy and buy-and-hold.
+
+31
+00:02:22,906 --> 00:02:28,138
+Then look at the breakdown: holdings and range decisions, alongside trading fees.
+
+32
+00:02:29,245 --> 00:02:32,450
+Next, bring this strategy to more people.
+
+33
+00:02:32,726 --> 00:02:37,327
+Deposit into a managed vault, with the strategy run for you.
+
+34
+00:02:37,606 --> 00:02:42,991
+Or keep custody, with an agent helping you trade within limits you set.
+
+35
+00:02:43,266 --> 00:02:46,711
+Research   Allocate   Adapt
+
+36
+00:02:47,830 --> 00:02:52,023
+ValueRange — A plan for how you hold

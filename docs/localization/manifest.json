@@ -1,0 +1,130 @@
+{
+  "version": "1.0",
+  "translatedAt": "2026-09-18",
+  "records": [
+    {
+      "id": "valuation",
+      "originalSource": "CIRCLE（CRCL）三情景估值宪法.current.md",
+      "englishSourceAlias": "CIRCLE (CRCL) three-scenario valuation constitution.current.md",
+      "sourceSha256": "b56529dc887386dccc17a7e495a9584f67065d9023660f59422cf6c851c0fa62",
+      "originalExcerptSha256": "402fad5e7c831c535d78c7026f870af2e4421d7781d2570dcae0fa36d2045c12",
+      "translationSha256": "1a1de997d2744602f1a842ffd4f059a792c6bd38d8bda10cc9106fc48b20da76",
+      "translatedAt": "2026-09-18",
+      "file": "docs/en/evidence/valuation.md"
+    },
+    {
+      "id": "valuation_inputs",
+      "originalSource": "CIRCLE估值数据底稿.260822.md",
+      "englishSourceAlias": "CIRCLE_valuation_workbook.260822.md",
+      "sourceSha256": "27449b5ffed8bd48a10976b91b78c0102b18970cbab8a16e1b1ae3ba2c41fe40",
+      "originalExcerptSha256": "4458841187bed3ec1f8c57cffbb53e9dcf64c78d8fdd1ad75f68014091fbff4a",
+      "translationSha256": "0123f61304d6c9ce508a38b8b479a60eef7a4709f12f8aaa01b9ed520eaadfae",
+      "translatedAt": "2026-09-18",
+      "file": "docs/en/evidence/valuation_inputs.md"
+    },
+    {
+      "id": "ai_candidate",
+      "originalSource": "CIRCLE流动性区间生成日报.260824-0016.md",
+      "englishSourceAlias": "CIRCLE_LP_range_daily.260824-0016.md",
+      "sourceSha256": "d65dc488d80403c03b9745457cd0e34126027c4bed531955748c252aa1aeb8d2",
+      "originalExcerptSha256": "60a809e81a951514ea17fc43bd1d2272241063e2d727e9b416cc36edf485ee7b",
+      "translationSha256": "5b771262c3b715da7d664448987316211ada99e7c77ae3be4af84b5b52dee017",
+      "translatedAt": "2026-09-18",
+      "file": "docs/en/evidence/ai_candidate.md"
+    },
+    {
+      "id": "bridge",
+      "originalSource": "CIRCLE估值驱动日报.260916-1233.md",
+      "englishSourceAlias": "CIRCLE_valuation_driver_daily.260916-1233.md",
+      "sourceSha256": "20fa894398677de0a76aaf080087fe29ed0ab0293d34d337f130894b995336de",
+      "originalExcerptSha256": "f659b3b3a5b0c236f90288725e1666848574b0efaf13695160036a1b6b51d70c",
+      "translationSha256": "9af42c8d361702af6422aa0602f7b2624cc44c22cdc32f2bacb4c63ef27f0957",
+      "translatedAt": "2026-09-18",
+      "file": "docs/en/evidence/bridge.md"
+    },
+    {
+      "id": "monitor",
+      "originalSource": "CIRCLE每日总控摘要.260918-1209.md",
+      "englishSourceAlias": "CIRCLE_daily_summary.260918-1209.md",
+      "sourceSha256": "53157712f066a12b1fbc1bcf8607c422ac25111e4bf9f163e515835b47a7590b",
+      "originalExcerptSha256": "a19eae43bd60f5f0391db2ab75e7b166c41265d2102406a8548e44728e52dc3d",
+      "translationSha256": "5dba24f1037409b5f979d85944bf6efb186ea18e37285c6cd0c74aa3bb888d41",
+      "translatedAt": "2026-09-18",
+      "file": "docs/en/evidence/monitor.md"
+    },
+    {
+      "id": "pnl_latest",
+      "originalSource": "CIRCLE_PNL归因复盘.260918-1209.md",
+      "englishSourceAlias": "CIRCLE_PNL_attribution.260918-1209.md",
+      "sourceSha256": "c107d98f0a01e84613007f1f8c0a04bd7021ea30a4f3e51d852b31e75df93b19",
+      "originalExcerptSha256": "006b08c483409f3e6565cc37e787cb55be1220271de5ed049b30d49e1c9318c4",
+      "translationSha256": "ebab8367a8fed77d1563c39023fe278354c031e76e11c74ab0a84cfe2ea1659b",
+      "translatedAt": "2026-09-18",
+      "file": "docs/en/evidence/pnl_latest.md"
+    },
+    {
+      "id": "research-20260914",
+      "originalSource": "CIRCLE估值驱动日报.260914-0209.md",
+      "englishSourceAlias": "CIRCLE_valuation_driver_daily.260914-0209.md",
+      "sourceSha256": "75285f655aed07b3ac2ea0497e2d8a057368cfa3056122167ed7dbdf805394cb",
+      "originalExcerptSha256": "3e9b7a52ad2112ecf05680e0b72d7d66225e2c4f2ea1e249383ced15af71f05e",
+      "translationSha256": "7cbf13b1bef6002f4221567b34cf782e23f163230a8512c88640ad0910128362",
+      "translatedAt": "2026-09-18",
+      "file": "docs/en/evidence/research-20260914.md"
+    },
+    {
+      "id": "research-20260915",
+      "originalSource": "CIRCLE估值驱动日报.260915-1032.md",
+      "englishSourceAlias": "CIRCLE_valuation_driver_daily.260915-1032.md",
+      "sourceSha256": "069dc3bc6947177bb49dc5c78c571a7274a48803ef81533a42204c4c28a4e4f9",
+      "originalExcerptSha256": "1888f8e6752781b4d8dd3b9864bf8402e7f968163a54bd1c9cdc49b16d42627a",
+      "translationSha256": "3656c79bcd695eb150b694538bc416a7ccfd5845a96a5b049274932ca6b89007",
+      "translatedAt": "2026-09-18",
+      "file": "docs/en/evidence/research-20260915.md"
+    },
+    {
+      "id": "research-20260916",
+      "originalSource": "CIRCLE估值驱动日报.260916-1233.md",
+      "englishSourceAlias": "CIRCLE_valuation_driver_daily.260916-1233.md",
+      "sourceSha256": "20fa894398677de0a76aaf080087fe29ed0ab0293d34d337f130894b995336de",
+      "originalExcerptSha256": "f659b3b3a5b0c236f90288725e1666848574b0efaf13695160036a1b6b51d70c",
+      "translationSha256": "9af42c8d361702af6422aa0602f7b2624cc44c22cdc32f2bacb4c63ef27f0957",
+      "translatedAt": "2026-09-18",
+      "file": "docs/en/evidence/research-20260916.md"
+    },
+    {
+      "id": "ai_decision",
+      "originalSource": "CIRCLE流动性区间生成日报.260824-0016.md",
+      "englishSourceAlias": "CIRCLE_LP_range_daily.260824-0016.md",
+      "sourceSha256": "d65dc488d80403c03b9745457cd0e34126027c4bed531955748c252aa1aeb8d2",
+      "originalExcerptSha256": "dcd0c5e74121ab9f89097b37a998b64d3b89b434e4456f565bca6884d5048cdb",
+      "translationSha256": "df64fc5260262318b0b1152133afae26bb2672a81d43def7422b28082546cfcf",
+      "translatedAt": "2026-09-18",
+      "file": "docs/en/evidence/ai_decision.md"
+    },
+    {
+      "id": "ai-evidence",
+      "originalFileSha256": "2a2a21c5e9b479dc00d67fc49e67f8819a899b7eb9bdb404feb8a6b57cf6bbfc",
+      "translatedFileSha256": "d23576a76e5ef19fd6eb2036b17ca306344cce22eda5808903ab7c299896c8bf",
+      "file": "dist/data/en/ai-evidence.json"
+    },
+    {
+      "id": "workflow-evidence",
+      "originalFileSha256": "804e9bc0a8580d908cb0e7e1f449b2fed80fe28eb6a19143839374843610faff",
+      "translatedFileSha256": "c64588ee54e1115d2e7c3157b07d4393fcd700a9a2ceae1c7dd884df20ff1622",
+      "file": "dist/data/en/workflow-evidence.json"
+    },
+    {
+      "id": "ai-input-improve",
+      "originalFileSha256": "16487e8fc8f16faf666ee6b117ea85bd65653fe721da7dc3c2776763ed21602e",
+      "translatedFileSha256": "c8dc4121b812d2ad69086f9c9e1664f9655562a9266a156886378fe18c40a403",
+      "file": "dist/data/en/ai-input-improve.json"
+    },
+    {
+      "id": "ai-input-pressure",
+      "originalFileSha256": "d98ca0b917a7ecb98790e12a3371231564c7b65276f05e4bb3a00a9f6d1629aa",
+      "translatedFileSha256": "9b31fdda9af7a659f20d375a16fffcc7e2b72f829a2e32f24364f23166ff39f1",
+      "file": "dist/data/en/ai-input-pressure.json"
+    }
+  ]
+}

@@ -1,0 +1,214 @@
+{
+  "identity": "hypothetical-input-not-market-prediction",
+  "company": "CIRCLE / CRCLx",
+  "companyType": "储备收益驱动、利率敏感，具有支付网络平台期权",
+  "sourceValuationVersion": "2026-08-22-full-rebuild",
+  "valuationBase": [
+    {
+      "usdc": 78,
+      "yield": 0.025,
+      "other": 0.17,
+      "margin": 0.36,
+      "opex": 0.64,
+      "multiple": 12,
+      "ebitda": 0.12319999999999998,
+      "value": 11.319717948717946
+    },
+    {
+      "usdc": 95,
+      "yield": 0.029,
+      "other": 0.22,
+      "margin": 0.39,
+      "opex": 0.65,
+      "multiple": 16,
+      "ebitda": 0.5102500000000002,
+      "value": 35.80909523809525
+    },
+    {
+      "usdc": 125,
+      "yield": 0.032,
+      "other": 0.33,
+      "margin": 0.425,
+      "opex": 0.71,
+      "multiple": 20,
+      "ebitda": 1.13025,
+      "value": 88.70653113553112
+    },
+    {
+      "usdc": 160,
+      "yield": 0.035,
+      "other": 0.48,
+      "margin": 0.45,
+      "opex": 0.78,
+      "multiple": 24,
+      "ebitda": 1.9560000000000002,
+      "value": 177.86037728937728
+    }
+  ],
+  "existingRanges": {
+    "core": [
+      58,
+      172.95
+    ],
+    "sell": [
+      90,
+      115
+    ],
+    "buy": [
+      58,
+      75
+    ]
+  },
+  "existingAtReview": {
+    "day": 730,
+    "price": 100,
+    "stock": 82.40338861252516,
+    "cash": 5762.563397947072,
+    "fees": 3095.4089071769513,
+    "feeCash": 1753.9641089871761,
+    "reinvestedFees": 1341.4447981897729,
+    "feeLedger": {
+      "core": {
+        "earned": 1240.069057447838,
+        "cash": 660.2714693368991,
+        "reinvested": 579.7975881109394
+      },
+      "active": {
+        "earned": 1855.339849729113,
+        "cash": 1093.692639650277,
+        "reinvested": 761.6472100788335
+      }
+    },
+    "feeStats": {
+      "core": {
+        "days": 730,
+        "capitalDays": 3233037.185489005,
+        "earned": 1240.069057447838
+      },
+      "sell": {
+        "days": 705.0093153237076,
+        "capitalDays": 1815547.037938675,
+        "earned": 1855.339849729113
+      },
+      "buy": {
+        "days": 0,
+        "capitalDays": 0,
+        "earned": 0
+      }
+    },
+    "feeRunRates": {
+      "core": 660.815484256875,
+      "active": 1097.4365083246894
+    },
+    "annualFeeRunRate": 1758.2519925815645,
+    "feeAnnualContributionPct": 12.556339821813959,
+    "feeContributionPct": 30.954089071769513,
+    "roiPct": 40.0290225919959,
+    "principal": 12248.938150212412,
+    "nav": 14002.902259199589,
+    "pure": 11295.606009262397,
+    "usdc": 10000,
+    "hold": 11043.456869651884,
+    "holdingPnl": 1043.4568696518836,
+    "il": -83.91827143901901,
+    "management": -52.04524619022504,
+    "phase": "sell",
+    "valuationCase": "unchanged",
+    "reentry": true,
+    "policy": "initial",
+    "reviewed": false,
+    "sleeves": [
+      4720.110601834822,
+      2942.189030361098,
+      4203.038518016492,
+      383.59999999999997
+    ],
+    "coreRange": [
+      58,
+      172.95
+    ],
+    "activeRange": [
+      90,
+      115
+    ],
+    "coreLiquidity": 987.4153179904818,
+    "activeLiquidity": 2476.342172916614
+  },
+  "priceHistory": [
+    {
+      "day": 0,
+      "price": 88.53
+    },
+    {
+      "day": 365,
+      "price": 110
+    },
+    {
+      "day": 548,
+      "price": 95
+    },
+    {
+      "day": 730,
+      "price": 100
+    }
+  ],
+  "technicalScope": "仅为合成价格路径的已知节点；不是实盘K线，不提供RSI/ATR，禁止补造技术指标。",
+  "fees": {
+    "coreApr": 14,
+    "activeApr": 37.3,
+    "buyApr": 14,
+    "reinvest": true
+  },
+  "case": "improve",
+  "caseInput": {
+    "valuation": [
+      {
+        "usdc": 117,
+        "yield": 0.025,
+        "other": 0.238,
+        "margin": 0.39999999999999997,
+        "opex": 0.64,
+        "multiple": 12,
+        "ebitda": 0.6252000000000001,
+        "value": 33.38565201465202
+      },
+      {
+        "usdc": 142.5,
+        "yield": 0.029,
+        "other": 0.308,
+        "margin": 0.43,
+        "opex": 0.65,
+        "multiple": 16,
+        "ebitda": 1.2594150000000002,
+        "value": 79.71620146520146
+      },
+      {
+        "usdc": 187.5,
+        "yield": 0.032,
+        "other": 0.46199999999999997,
+        "margin": 0.46499999999999997,
+        "opex": 0.71,
+        "multiple": 20,
+        "ebitda": 2.2948299999999997,
+        "value": 174.0237472527472
+      },
+      {
+        "usdc": 240,
+        "yield": 0.035,
+        "other": 0.6719999999999999,
+        "margin": 0.49,
+        "opex": 0.78,
+        "multiple": 24,
+        "ebitda": 3.66528,
+        "value": 328.12675091575096
+      }
+    ],
+    "goalWeights": [
+      0.25,
+      0,
+      0.7,
+      0.05
+    ],
+    "goal": "假设经营改善已完成估值复核；用户演示目标提高持股，暂停旧 Active。"
+  }
+}
