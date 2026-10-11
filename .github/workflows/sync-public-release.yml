@@ -1,0 +1,62 @@
+name: Synchronize reviewed ValueRange release
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/sync-public-release.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: valuerange-public-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fetch and verify reviewed public source
+        run: |
+          curl --fail --location --retry 3 'https://valuerange-demo.netlify.app/downloads/valuerange-v0.35.0-source.zip' --output /tmp/ValueRange-v0.35.0-source.zip
+          echo '3f304a66f5d89a06d5a362b535e001fa53781e70d0e0b2f65110f81ddb61a704  /tmp/ValueRange-v0.35.0-source.zip' | sha256sum --check
+          python3 - <<'PY'
+          from pathlib import Path
+          import zipfile,shutil
+          root=Path('/tmp/valuerange-reviewed');root.mkdir()
+          with zipfile.ZipFile('/tmp/ValueRange-v0.35.0-source.zip') as z:
+              assert z.testzip() is None
+              for name in z.namelist():
+                  p=Path(name)
+                  assert not p.is_absolute() and '..' not in p.parts and '.git' not in p.parts and '.github' not in p.parts
+              z.extractall(root)
+          for name in ['dist','tests','video']:
+              if Path(name).exists():shutil.rmtree(name)
+          shutil.copytree(root,Path.cwd(),dirs_exist_ok=True)
+          PY
+      - name: Run regression tests
+        run: npm test
+      - name: Synchronize main and Pages source
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add dist tests video docs scripts package.json README.md README.zh.md netlify.toml .gitignore
+          if ! git diff --cached --quiet; then
+            git commit -m 'Sync ValueRange v0.35 demo and pitch cut 6'
+            git push origin HEAD:main
+          fi
+          git fetch origin codex/pages
+          pages_commit=$(git commit-tree HEAD:dist -p origin/codex/pages -m 'Publish ValueRange v0.35 demo and pitch cut 6')
+          git push origin "$pages_commit:refs/heads/codex/pages"
+      - name: Publish v0.35 release downloads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view v0.35.0 >/dev/null 2>&1; then
+            gh release create v0.35.0 --target "$(git rev-parse HEAD)" --title 'ValueRange v0.35 - Demo and pitch cut 6' --notes 'Current bilingual demo and pitch cut 6 (3:13). Includes public source, 119 regression tests, video source, MP4 and WebM. Netlify maintains the daily evidence feed; mirrors retain the release snapshot. Simulation results are hypothetical.'
+          fi
+          gh release upload v0.35.0 /tmp/ValueRange-v0.35.0-source.zip dist/pitch/valuerange-pitch-final.mp4 dist/pitch/valuerange-pitch-final.webm --clobber
