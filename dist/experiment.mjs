@@ -1,9 +1,11 @@
+import {eventScenario} from './scenario-context.mjs';
 import {reviewDay,reviewYears} from './timeline.mjs';
 import {DEFAULTS,validate} from './long-term.mjs';
 import {DEMO_REFERENCE} from './demo-reference.mjs';
 
 export const PATH_ENDS=Object.freeze({growthStory:170,cycles3:85,pressureStory:30,bull:280,decline:40,cycles2:100,stableStory:100});
 
+export const SCENARIO_ENDS=Object.freeze({bull:170,cycles2:133,decline:30});
 export const FEE_KEYS=['coreApr','activeApr','buyApr'];
 export const FEE_PROFILES={cautious:{label:'审慎默认',coreApr:14,activeApr:37.3,buyApr:14},observed:{label:'观察水平',coreApr:28,activeApr:74.6,buyApr:14},low:{label:'低费用',coreApr:7,activeApr:18.7,buyApr:7}};
 export const feePatch=o=>Object.fromEntries(FEE_KEYS.map(k=>[k,o[k]]));
@@ -17,7 +19,7 @@ export function updateExperiment(current,patch) {
   if(patch.shape!==undefined&&patch.marketPath===undefined)next.marketPath=null;
   if(FEE_KEYS.some(k=>patch[k]!==undefined)&&patch.apr===undefined)delete next.apr;
   if(patch.apr!==undefined)Object.assign(next,{coreApr:patch.apr,activeApr:patch.apr,buyApr:patch.apr});
-  if(patch.years!==undefined){const choices=reviewYears(next.years);next.eventYear=choices.includes(next.eventYear)?next.eventYear:Math.max(choices[0],Math.min(next.eventYear,choices.at(-1)));next.day=next.years*365;}
+  if(patch.years!==undefined){const choices=reviewYears(next.years);if(current.priceModel==='daily-v1'&&current.eventYear===reviewYears(current.years).at(-1))next.eventYear=choices.at(-1);next.eventYear=choices.includes(next.eventYear)?next.eventYear:Math.max(choices[0],Math.min(next.eventYear,choices.at(-1)));next.day=next.years*365;}
   if(patch.shape!==undefined){
     if(patch.end===undefined)next.end=PATH_ENDS[patch.shape];
     if(patch.day===undefined)next.day=next.years*365;
@@ -38,7 +40,7 @@ export function storyDefaults(revision='improve',fees={}) {
 
 // Review changes the decision, never silently changes the market used to judge it.
 export function beginReview(current) {
-  return {...validate(current),day:reviewDay(current.eventYear),revision:current.revision};
+  return {...validate(eventScenario(current)),day:reviewDay(current.eventYear),revision:current.revision};
 }
 export function chooseDecision(draft,revision) {
   return updateExperiment(draft,{revision,day:reviewDay(draft.eventYear)});
@@ -46,7 +48,8 @@ export function chooseDecision(draft,revision) {
 // User controls keep duration, target and intervening path independently editable.
 // Legacy named presets remain available through updateExperiment for archived fixtures.
 export function updateSimulationControls(current,patch){
-  return updateExperiment(current,{...(patch.shape!==undefined&&patch.end===undefined?{end:current.end}:{}),...patch});
+  if(current.priceModel==='daily-v1'&&patch.shape!==undefined&&patch.end===undefined)patch={...patch,end:SCENARIO_ENDS[patch.shape]??PATH_ENDS[patch.shape]};
+  return updateExperiment(current,{...(current.priceModel!=='daily-v1'&&patch.shape!==undefined&&patch.end===undefined?{end:current.end}:{}),...patch});
 }
 // The guided review is now an immediate edit of the shared simulation.
 // Keep the run/comparison observation separate from the review snapshot.
@@ -59,5 +62,5 @@ export function applyReview(current,draft) {
   return {...next,day:reviewDay(next.eventYear)};
 }
 export function journeyStart(current=experimentDefaults()) {
-  return {...storyDefaults('unchanged',current),startPrice:DEMO_REFERENCE.close,years:5,shape:'cycles3',end:PATH_ENDS.cycles3,eventYear:4,reinvest:current.reinvest,day:1825};
+  return {...storyDefaults('unchanged',current),startPrice:DEMO_REFERENCE.close,years:5,shape:'cycles2',end:SCENARIO_ENDS.cycles2,priceModel:'daily-v1',eventYear:4,reinvest:current.reinvest,day:1825};
 }

@@ -1,0 +1,456 @@
+{
+  "voice": [
+    {
+      "scene": 1,
+      "cue": 0,
+      "start": 0.34,
+      "end": 6.4164375,
+      "duration": 6.0764375,
+      "tempo": 1.06
+    },
+    {
+      "scene": 1,
+      "cue": 1,
+      "start": 6.9664375,
+      "end": 12.761020833333333,
+      "duration": 5.794583333333334,
+      "tempo": 1.06
+    },
+    {
+      "scene": 1,
+      "cue": 2,
+      "start": 13.311020833333334,
+      "end": 16.346395833333332,
+      "duration": 3.035375,
+      "tempo": 1.0089781250000003
+    },
+    {
+      "scene": 2,
+      "cue": 0,
+      "start": 17.54,
+      "end": 23.909291666666665,
+      "duration": 6.369291666666666,
+      "tempo": 1.06
+    },
+    {
+      "scene": 2,
+      "cue": 1,
+      "start": 24.459291666666665,
+      "end": 32.41679166666667,
+      "duration": 7.9575,
+      "tempo": 0.9665744047619046
+    },
+    {
+      "scene": 2,
+      "cue": 2,
+      "start": 32.966791666666666,
+      "end": 37.548854166666665,
+      "duration": 4.5820625,
+      "tempo": 1.06
+    },
+    {
+      "scene": 3,
+      "cue": 0,
+      "start": 38.94,
+      "end": 45.59339583333333,
+      "duration": 6.653395833333334,
+      "tempo": 1.06
+    },
+    {
+      "scene": 3,
+      "cue": 1,
+      "start": 46.47339583333333,
+      "end": 51.222854166666664,
+      "duration": 4.749458333333333,
+      "tempo": 1.0441905999999999
+    },
+    {
+      "scene": 3,
+      "cue": 2,
+      "start": 51.77285416666666,
+      "end": 61.23527083333333,
+      "duration": 9.462416666666666,
+      "tempo": 1.06
+    },
+    {
+      "scene": 6,
+      "cue": 0,
+      "start": 62.406666666666666,
+      "end": 69.60885416666666,
+      "duration": 7.2021875,
+      "tempo": 0.9858136964912282
+    },
+    {
+      "scene": 6,
+      "cue": 1,
+      "start": 70.15885416666666,
+      "end": 77.27658333333332,
+      "duration": 7.117729166666667,
+      "tempo": 1.06
+    },
+    {
+      "scene": 6,
+      "cue": 2,
+      "start": 77.82658333333333,
+      "end": 86.05304166666667,
+      "duration": 8.226458333333333,
+      "tempo": 1.06
+    },
+    {
+      "scene": 6,
+      "cue": 3,
+      "start": 86.60304166666666,
+      "end": 90.71643749999998,
+      "duration": 4.113395833333334,
+      "tempo": 1.06
+    },
+    {
+      "scene": 7,
+      "cue": 0,
+      "start": 92.10666666666667,
+      "end": 97.62714583333333,
+      "duration": 5.520479166666667,
+      "tempo": 1.0153538476190476
+    },
+    {
+      "scene": 7,
+      "cue": 1,
+      "start": 98.17714583333333,
+      "end": 103.5771875,
+      "duration": 5.400041666666667,
+      "tempo": 1.06
+    },
+    {
+      "scene": 7,
+      "cue": 2,
+      "start": 104.12718749999999,
+      "end": 111.75314583333332,
+      "duration": 7.625958333333333,
+      "tempo": 1.06
+    },
+    {
+      "scene": 7,
+      "cue": 3,
+      "start": 112.30314583333333,
+      "end": 117.0495,
+      "duration": 4.746354166666666,
+      "tempo": 1.0064986111111116
+    },
+    {
+      "scene": 8,
+      "cue": 0,
+      "start": 118.24000000000001,
+      "end": 122.96908333333334,
+      "duration": 4.7290833333333335,
+      "tempo": 0.8833503222222222
+    },
+    {
+      "scene": 8,
+      "cue": 1,
+      "start": 123.51908333333334,
+      "end": 131.88127083333333,
+      "duration": 8.3621875,
+      "tempo": 1.06
+    },
+    {
+      "scene": 8,
+      "cue": 2,
+      "start": 132.43127083333334,
+      "end": 137.92954166666667,
+      "duration": 5.498270833333334,
+      "tempo": 0.763619047619048
+    },
+    {
+      "scene": 8,
+      "cue": 3,
+      "start": 138.47954166666668,
+      "end": 145.44918750000002,
+      "duration": 6.969645833333334,
+      "tempo": 1.06
+    },
+    {
+      "scene": 8,
+      "cue": 4,
+      "start": 145.9991875,
+      "end": 150.76808333333335,
+      "duration": 4.768895833333334,
+      "tempo": 1.06
+    },
+    {
+      "scene": 11,
+      "cue": 0,
+      "start": 152.14000000000001,
+      "end": 156.49127083333335,
+      "duration": 4.351270833333333,
+      "tempo": 1.06
+    },
+    {
+      "scene": 11,
+      "cue": 1,
+      "start": 157.17127083333335,
+      "end": 162.6947291666667,
+      "duration": 5.523458333333333,
+      "tempo": 1.0178195047619047
+    },
+    {
+      "scene": 11,
+      "cue": 2,
+      "start": 163.37472916666667,
+      "end": 167.11660416666666,
+      "duration": 3.741875,
+      "tempo": 1.06
+    },
+    {
+      "scene": 9,
+      "cue": 0,
+      "start": 168.64000000000001,
+      "end": 171.55310416666669,
+      "duration": 2.913104166666667,
+      "tempo": 1.06
+    },
+    {
+      "scene": 9,
+      "cue": 1,
+      "start": 172.10310416666667,
+      "end": 176.43004166666668,
+      "duration": 4.3269375,
+      "tempo": 0.8813984848484847
+    },
+    {
+      "scene": 9,
+      "cue": 2,
+      "start": 176.98004166666666,
+      "end": 182.09472916666667,
+      "duration": 5.1146875,
+      "tempo": 0.8594738666666665
+    },
+    {
+      "scene": 9,
+      "cue": 3,
+      "start": 182.64472916666668,
+      "end": 185.47854166666667,
+      "duration": 2.8338125,
+      "tempo": 0.9
+    },
+    {
+      "scene": 10,
+      "cue": 0,
+      "start": 187.20666666666668,
+      "end": 189.95747916666667,
+      "duration": 2.7508125,
+      "tempo": 0.88
+    }
+  ],
+  "cues": [
+    {
+      "scene": 1,
+      "start": 0.38018867924528305,
+      "end": 6.7464375,
+      "en": "Tokenized stocks and ETFs now represent over three billion dollars onchain worldwide.",
+      "zh": "全球代币化股票与 ETF 的链上规模已超过三十亿美元。"
+    },
+    {
+      "scene": 1,
+      "start": 7.006626179245282,
+      "end": 13.091020833333333,
+      "en": "In September alone, Solana processed around four point four billion dollars in tokenized stock trades.",
+      "zh": "仅九月，Solana 上的代币化股票交易量就达到约四十四亿美元。"
+    },
+    {
+      "scene": 1,
+      "start": 13.355264483313357,
+      "end": 16.676395833333334,
+      "en": "How can long-term holders participate in that activity?",
+      "zh": "长期持有者，怎样参与这些交易？"
+    },
+    {
+      "scene": 2,
+      "start": 17.580188679245282,
+      "end": 24.239291666666666,
+      "en": "Meet ValueRange. AI turns company valuation into a plan for tokenized stocks on Solana.",
+      "zh": "认识 ValueRange：用 AI，把公司估值变成 Solana 股票代币的持仓策略。"
+    },
+    {
+      "scene": 2,
+      "start": 24.50723109438298,
+      "end": 32.74679166666667,
+      "en": "Keep shares for growth. Put part of the portfolio into AMM liquidity to convert shares and cash, and earn trading fees.",
+      "zh": "保留股票参与上涨，用部分资金提供 AMM 流动性，转换股票与现金，赚取交易手续费。"
+    },
+    {
+      "scene": 2,
+      "start": 33.00698034591195,
+      "end": 37.87885416666666,
+      "en": "The challenge: which ranges, how much capital, and when to adjust?",
+      "zh": "难点是：区间怎么定，资金怎么配，什么时候调整？"
+    },
+    {
+      "scene": 3,
+      "start": 38.98018867924528,
+      "end": 45.92339583333333,
+      "en": "Every company creates value differently. Financial reports and research become a model built around its business.",
+      "zh": "每家公司的价值创造方式不同。财报与研究，转化为贴合公司业务的估值模型。"
+    },
+    {
+      "scene": 3,
+      "start": 46.514798596392104,
+      "end": 51.55285416666666,
+      "en": "AI combines that valuation with market data, current holdings, and your goals.",
+      "zh": "AI 将估值与市场数据、现有仓位和持有目标结合。"
+    },
+    {
+      "scene": 3,
+      "start": 51.813042845911944,
+      "end": 61.56527083333333,
+      "en": "Core manages a broad range. Active converts shares in stages. Cash preserves flexibility. Code checks the numbers; you review the plan.",
+      "zh": "Core 管理宽区间，Active 分段换仓，现金保留灵活性。程序核算，你来复核。"
+    },
+    {
+      "scene": 6,
+      "start": 62.452889854985656,
+      "end": 69.93885416666667,
+      "en": "Follow a five-year simulation, starting with ten thousand dollars and a share price of ninety-two dollars and two cents.",
+      "zh": "看一段五年模拟：本金一万美元，起始股价九十二点零二美元。"
+    },
+    {
+      "scene": 6,
+      "start": 70.19904284591195,
+      "end": 77.60658333333332,
+      "en": "On the rallies, the strategy converts shares into cash. On the pullbacks, available cash rebuilds inventory.",
+      "zh": "上涨时，策略逐步把股票转为现金；回落时，可用现金重新积累股票。"
+    },
+    {
+      "scene": 6,
+      "start": 77.86677201257862,
+      "end": 86.38304166666667,
+      "en": "Across two market cycles, the mix of shares, cash, and liquidity changes. In-range trading earns fees along the way.",
+      "zh": "经历两轮上涨与回落，股票、现金与流动性的比例持续变化，区间内成交累积手续费。"
+    },
+    {
+      "scene": 6,
+      "start": 86.64323034591195,
+      "end": 91.0464375,
+      "en": "This exchanges some upside exposure for fees and range management.",
+      "zh": "策略让出部分上涨敞口，换取手续费与区间管理的机会。"
+    },
+    {
+      "scene": 7,
+      "start": 92.14873953239265,
+      "end": 97.95714583333334,
+      "en": "At the end of year four, positive business news supports stronger growth and profitability.",
+      "zh": "第四年末，新的经营利好支持更强的增长与盈利。"
+    },
+    {
+      "scene": 7,
+      "start": 98.21733451257862,
+      "end": 103.90718749999999,
+      "en": "AI reviews the evidence, updates the valuation, and proposes new liquidity ranges.",
+      "zh": "AI 复核依据，更新估值中枢，并提出新的流动性区间。"
+    },
+    {
+      "scene": 7,
+      "start": 104.16737617924528,
+      "end": 112.08314583333332,
+      "en": "Core moves higher. Seventy percent of strategy principal goes to direct shares, and the old Active position is paused.",
+      "zh": "Core 区间上移，策略本金的百分之七十配置为直接持股，并暂停原有 Active 仓位。"
+    },
+    {
+      "scene": 7,
+      "start": 112.34759701792679,
+      "end": 117.3795,
+      "en": "The plan responds to the company, instead of keeping yesterday’s ranges forever.",
+      "zh": "策略跟随公司变化，不再始终沿用过去的区间。"
+    },
+    {
+      "scene": 8,
+      "start": 118.29622456443575,
+      "end": 123.29908333333334,
+      "en": "Five years later, the share price reaches two hundred and fifty-one dollars.",
+      "zh": "五年结束，股价来到二百五十一美元。"
+    },
+    {
+      "scene": 8,
+      "start": 123.55927201257863,
+      "end": 132.21127083333334,
+      "en": "The revised portfolio reaches about sixty-six thousand nine hundred dollars, versus twenty-seven thousand three hundred from simply holding shares.",
+      "zh": "修正后的组合约六万六千九百美元，纯持股约两万七千三百美元。"
+    },
+    {
+      "scene": 8,
+      "start": 132.50258288122558,
+      "end": 138.25954166666668,
+      "en": "That is about thirty-nine thousand six hundred dollars more, on the same price path.",
+      "zh": "在同一条价格路径上，组合比纯持股多约三万九千六百美元。"
+    },
+    {
+      "scene": 8,
+      "start": 138.51973034591197,
+      "end": 145.7791875,
+      "en": "Nearly four thousand dollars in trading fees are already included. The rest reflects holdings and range decisions.",
+      "zh": "其中已包含近四千美元交易手续费，其余差额来自持仓与区间决策。"
+    },
+    {
+      "scene": 8,
+      "start": 146.0393761792453,
+      "end": 151.09808333333334,
+      "en": "Keeping the original strategy finishes at about forty-one thousand five hundred dollars.",
+      "zh": "维持原策略，期末资产约四万一千五百美元。"
+    },
+    {
+      "scene": 11,
+      "start": 152.1801886792453,
+      "end": 156.82127083333336,
+      "en": "The workflow keeps reviewing news, financial reports, and portfolio records.",
+      "zh": "工作流持续复核新闻、财报与仓位记录。"
+    },
+    {
+      "scene": 11,
+      "start": 157.21478269334617,
+      "end": 163.02472916666667,
+      "en": "Track asset value. Explain the return. Feed the findings into the next strategy review.",
+      "zh": "记录净值，拆解收益，把发现反馈到下一轮策略复核。"
+    },
+    {
+      "scene": 11,
+      "start": 163.41491784591196,
+      "end": 167.44660416666667,
+      "en": "Research, decisions, and revisions remain traceable.",
+      "zh": "研究、决策与修正，都保留可追溯的依据。"
+    },
+    {
+      "scene": 9,
+      "start": 168.67861603773585,
+      "end": 171.88310416666667,
+      "en": "Next, bring this strategy to more people.",
+      "zh": "下一步，让更多人用上这套策略。"
+    },
+    {
+      "scene": 9,
+      "start": 172.15954181826373,
+      "end": 176.76004166666667,
+      "en": "Deposit into a managed vault, with the strategy run for you.",
+      "zh": "通过策略金库存入资金，由金库代为管理策略。"
+    },
+    {
+      "scene": 9,
+      "start": 177.03893937990333,
+      "end": 182.42472916666665,
+      "en": "Or keep custody, with an agent helping you trade within limits you set.",
+      "zh": "也可以保留自托管，让 Agent 在你设定的权限内协助交易。"
+    },
+    {
+      "scene": 9,
+      "start": 182.69917361111112,
+      "end": 186.14472916666668,
+      "en": "Research   Allocate   Adapt",
+      "zh": "研究   配置   持续修正"
+    },
+    {
+      "scene": 10,
+      "start": 187.2632575757576,
+      "end": 191.45666666666668,
+      "en": "ValueRange — A plan for how you hold",
+      "zh": "ValueRange，让持有更有章法"
+    }
+  ]
+}

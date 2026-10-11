@@ -1,11 +1,13 @@
-# ValueRange 演示与源码
+# ValueRange
 
-[公网 Demo](https://valuerange-demo.netlify.app/) · [最终视频](https://valuerange-demo.netlify.app/pitch/) · [备用站点](https://cody-fight.github.io/valuerange-demo/) · [下载包](https://github.com/cody-fight/valuerange-demo/releases/tag/v0.28.0)
+用 AI 将公司估值转化为代币化股票的流动性与仓位方案。
 
-本仓库包含可独立运行的 Demo、计算模块、测试、已公开的精选证据，以及最终第五版视频。没有父生产仓库历史、完整私有 Skill、账户配置或模型密钥。
+- [在线 Demo](https://valuerange-demo.netlify.app/)
+- [新版视频与 Demo 入口](https://valuerange-demo.netlify.app/pitch/)
+- [GitHub Pages 备用站](https://cody-fight.github.io/valuerange-demo/)
 
-安装 Node.js 22 或以上版本，下载源码 ZIP 并解压，在项目目录运行 `npm start`，打开 http://127.0.0.1:4173/。不需要 `npm install`，不需要钱包、AI 接口或付费服务。`npm test` 运行计算与交互状态测试。可用 `PORT` 环境变量更换端口。
+运行 `npm start`，打开 http://127.0.0.1:4173/；运行 `npm test` 验证。默认英文，支持中文切换，恢复默认返回英文首页。Circle 支持一次性模拟存入与取出，不发生真实转账。其他金库为展示。
 
-公网默认英文，顶部可切中文。新打开或刷新恢复默认首页与参数。行情路径为构造情景，前端复用归档 AI 候选并确定性计算；不实时调用模型，不执行交易。实盘证据固定于 2026-09-18 12:09:17 +08:00，与模拟结果分开。未来 Agent / Vault 界面为概念预览。
+五年业绩对比使用相同本金和价格路径，假设可在曲线下方展开调整。30 天池手续费 APR 为历史市场数据，不参与模拟核算。模拟结果不是预测或收益保证。视频为第六版，约 3 分 13 秒，英文旁白、中英字幕。
 
-Netlify 不能访问时，可使用 GitHub Pages 备用站点；两站都不能访问时，下载 Releases 中的源码包在本地运行。视频提供 MP4 下载及 WebM 浏览器版本。详细代码地图、当前限制和复现说明见 [英文 README](README.md)。本次公开便于评审检查与复现，未另行授予开源许可证，见 [NOTICE.md](NOTICE.md)。
+代码仅包含公开演示、测试和视频制作材料，不包含生产交易程序、凭证或私有研究工作流。Netlify 实盘证据由原有每日发布器独立更新，备用站保留本次发布快照。

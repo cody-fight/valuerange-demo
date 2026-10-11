@@ -1,7 +1,8 @@
+import {journeyStart} from './archived-journey.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {simulate,pathKnots,priceAt,validate} from '../dist/long-term.mjs';
-import {journeyStart,updateExperiment,beginReview,chooseDecision,applyReview} from '../dist/experiment.mjs';
+import {updateExperiment,beginReview,chooseDecision,applyReview} from '../dist/experiment.mjs';
 import {MARKET_EXAMPLES,marketExample,comparisonContext} from '../dist/scenario-context.mjs';
 import {comparisonAt} from '../dist/comparison.mjs';
 import {demoDefaults,replaceState} from '../dist/demo-reset.mjs';
@@ -76,8 +77,8 @@ test('reset clears all simulation, draft and preview state without retaining obs
   current.conceptUi.agent.authorized=true;current.conceptUi.vault.amount=300000;current.proofUi.caseKey='pressure';
   const fresh=demoDefaults('2026-09-17');
   for(const key of Object.keys(current))replaceState(current[key],fresh[key]);
-  assert.deepEqual(current,pristine);assert.equal(current.state.end,85);assert.equal(current.state.eventYear,4);assert.equal(current.state.view,'overview');
+  assert.deepEqual(current,pristine);assert.equal(current.state.end,133);assert.equal(current.state.eventYear,4);assert.equal(current.state.view,'overview');
   assert.equal(current.state.apr,undefined);assert.equal(current.state.marketPath,undefined);assert.equal(current.draft.unknown,undefined);
   assert.deepEqual([current.state.coreApr,current.state.activeApr,current.state.buyApr],[14,37.3,14]);
-  current.draft.end=2;assert.equal(current.state.end,85);assert.equal(demoDefaults().draft.end,85);
+  current.draft.end=2;assert.equal(current.state.end,133);assert.equal(demoDefaults().draft.end,133);
 });

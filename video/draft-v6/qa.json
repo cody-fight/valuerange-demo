@@ -1,0 +1,165 @@
+{
+  "file": "ValueRange-Draft-v6-EN-ZH.mp4",
+  "duration": 192.77,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "fps": 30,
+  "bytes": 9584669,
+  "sha256": "4481e19de3be2547b38cf64b1ef8752559b9709bb0cdc675e1131762338aa299",
+  "fullDecode": "passed",
+  "subtitleTiming": "passed",
+  "subtitleLayout": "passed",
+  "subtitleCues": 30,
+  "loudness": {
+    "input_i": "-16.04",
+    "input_tp": "-1.21",
+    "input_lra": "4.30",
+    "input_thresh": "-27.04",
+    "output_i": "-15.97",
+    "output_tp": "-1.20",
+    "output_lra": "3.80",
+    "output_thresh": "-26.91",
+    "normalization_type": "dynamic",
+    "target_offset": "-0.03"
+  },
+  "frameChecks": [
+    {
+      "second": 3.566666666666667,
+      "psnr": 43.02
+    },
+    {
+      "second": 10.033333333333333,
+      "psnr": 43.13
+    },
+    {
+      "second": 15.0,
+      "psnr": 43.14
+    },
+    {
+      "second": 20.9,
+      "psnr": 42.93
+    },
+    {
+      "second": 28.633333333333333,
+      "psnr": 43.32
+    },
+    {
+      "second": 35.43333333333333,
+      "psnr": 43.68
+    },
+    {
+      "second": 42.46666666666667,
+      "psnr": 42.43
+    },
+    {
+      "second": 49.03333333333333,
+      "psnr": 43.94
+    },
+    {
+      "second": 56.7,
+      "psnr": 43.59
+    },
+    {
+      "second": 66.2,
+      "psnr": 40.38
+    },
+    {
+      "second": 73.9,
+      "psnr": 40.9
+    },
+    {
+      "second": 82.13333333333334,
+      "psnr": 40.97
+    },
+    {
+      "second": 88.83333333333333,
+      "psnr": 40.72
+    },
+    {
+      "second": 95.06666666666666,
+      "psnr": 44.75
+    },
+    {
+      "second": 101.06666666666666,
+      "psnr": 45.65
+    },
+    {
+      "second": 108.13333333333334,
+      "psnr": 42.14
+    },
+    {
+      "second": 114.86666666666666,
+      "psnr": 42.49
+    },
+    {
+      "second": 120.8,
+      "psnr": 41.3
+    },
+    {
+      "second": 127.9,
+      "psnr": 41.46
+    },
+    {
+      "second": 135.36666666666667,
+      "psnr": 41.64
+    },
+    {
+      "second": 142.13333333333333,
+      "psnr": 41.46
+    },
+    {
+      "second": 148.56666666666666,
+      "psnr": 41.6
+    },
+    {
+      "second": 154.5,
+      "psnr": 40.69
+    },
+    {
+      "second": 160.13333333333333,
+      "psnr": 41.14
+    },
+    {
+      "second": 165.43333333333334,
+      "psnr": 41.21
+    },
+    {
+      "second": 170.26666666666668,
+      "psnr": 46.46
+    },
+    {
+      "second": 174.46666666666667,
+      "psnr": 40.19
+    },
+    {
+      "second": 179.73333333333332,
+      "psnr": 40.06
+    },
+    {
+      "second": 184.43333333333334,
+      "psnr": 49.05
+    },
+    {
+      "second": 189.36666666666667,
+      "psnr": 45.83
+    }
+  ],
+  "scenarioChecks": [
+    "Common comparator prices",
+    "Exact preserved pre-event history",
+    "NAV and event conservation",
+    "Fee attribution",
+    "Approved results matched"
+  ],
+  "scenarioResult": {
+    "revised": 66882.53211449835,
+    "fixed": 41541.15812134967,
+    "hold": 27276.67898282982,
+    "fees": 3988.7600534349795,
+    "excess": 39605.853131668526,
+    "delta": 25341.373993148678
+  },
+  "minSubtitleSeconds": 3.2044881289308194
+}

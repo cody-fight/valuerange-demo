@@ -1,0 +1,119 @@
+﻿1
+00:00:00,380 --> 00:00:06,746
+Tokenized stocks and ETFs now represent over three billion dollars onchain worldwide.
+
+2
+00:00:07,007 --> 00:00:13,091
+In September alone, Solana processed around four point four billion dollars in tokenized stock trades.
+
+3
+00:00:13,355 --> 00:00:16,676
+How can long-term holders participate in that activity?
+
+4
+00:00:17,580 --> 00:00:24,239
+Meet ValueRange. AI turns company valuation into a plan for tokenized stocks on Solana.
+
+5
+00:00:24,507 --> 00:00:32,747
+Keep shares for growth. Put part of the portfolio into AMM liquidity to convert shares and cash, and earn trading fees.
+
+6
+00:00:33,007 --> 00:00:37,879
+The challenge: which ranges, how much capital, and when to adjust?
+
+7
+00:00:38,980 --> 00:00:45,923
+Every company creates value differently. Financial reports and research become a model built around its business.
+
+8
+00:00:46,515 --> 00:00:51,553
+AI combines that valuation with market data, current holdings, and your goals.
+
+9
+00:00:51,813 --> 00:01:01,565
+Core manages a broad range. Active converts shares in stages. Cash preserves flexibility. Code checks the numbers; you review the plan.
+
+10
+00:01:02,453 --> 00:01:09,939
+Follow a five-year simulation, starting with ten thousand dollars and a share price of ninety-two dollars and two cents.
+
+11
+00:01:10,199 --> 00:01:17,607
+On the rallies, the strategy converts shares into cash. On the pullbacks, available cash rebuilds inventory.
+
+12
+00:01:17,867 --> 00:01:26,383
+Across two market cycles, the mix of shares, cash, and liquidity changes. In-range trading earns fees along the way.
+
+13
+00:01:26,643 --> 00:01:31,046
+This exchanges some upside exposure for fees and range management.
+
+14
+00:01:32,149 --> 00:01:37,957
+At the end of year four, positive business news supports stronger growth and profitability.
+
+15
+00:01:38,217 --> 00:01:43,907
+AI reviews the evidence, updates the valuation, and proposes new liquidity ranges.
+
+16
+00:01:44,167 --> 00:01:52,083
+Core moves higher. Seventy percent of strategy principal goes to direct shares, and the old Active position is paused.
+
+17
+00:01:52,348 --> 00:01:57,380
+The plan responds to the company, instead of keeping yesterday’s ranges forever.
+
+18
+00:01:58,296 --> 00:02:03,299
+Five years later, the share price reaches two hundred and fifty-one dollars.
+
+19
+00:02:03,559 --> 00:02:12,211
+The revised portfolio reaches about sixty-six thousand nine hundred dollars, versus twenty-seven thousand three hundred from simply holding shares.
+
+20
+00:02:12,503 --> 00:02:18,260
+That is about thirty-nine thousand six hundred dollars more, on the same price path.
+
+21
+00:02:18,520 --> 00:02:25,779
+Nearly four thousand dollars in trading fees are already included. The rest reflects holdings and range decisions.
+
+22
+00:02:26,039 --> 00:02:31,098
+Keeping the original strategy finishes at about forty-one thousand five hundred dollars.
+
+23
+00:02:32,180 --> 00:02:36,821
+The workflow keeps reviewing news, financial reports, and portfolio records.
+
+24
+00:02:37,215 --> 00:02:43,025
+Track asset value. Explain the return. Feed the findings into the next strategy review.
+
+25
+00:02:43,415 --> 00:02:47,447
+Research, decisions, and revisions remain traceable.
+
+26
+00:02:48,679 --> 00:02:51,883
+Next, bring this strategy to more people.
+
+27
+00:02:52,160 --> 00:02:56,760
+Deposit into a managed vault, with the strategy run for you.
+
+28
+00:02:57,039 --> 00:03:02,425
+Or keep custody, with an agent helping you trade within limits you set.
+
+29
+00:03:02,699 --> 00:03:06,145
+Research   Allocate   Adapt
+
+30
+00:03:07,263 --> 00:03:11,457
+ValueRange — A plan for how you hold

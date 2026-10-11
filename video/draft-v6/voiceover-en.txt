@@ -1,0 +1,17 @@
+Tokenized stocks and ETFs now represent over three billion dollars onchain worldwide. In September alone, Solana processed around four point four billion dollars in tokenized stock trades. How can long-term holders participate in that activity?
+
+Meet ValueRange. AI turns company valuation into a plan for tokenized stocks on Solana. Keep shares for growth. Put part of the portfolio into AMM liquidity to convert shares and cash, and earn trading fees. The challenge: which ranges, how much capital, and when to adjust?
+
+Every company creates value differently. Financial reports and research become a model built around its business. AI combines that valuation with market data, current holdings, and your goals. Core manages a broad range. Active converts shares in stages. Cash preserves flexibility. Code checks the numbers; you review the plan.
+
+Follow a five-year simulation, starting with ten thousand dollars and a share price of ninety-two dollars and two cents. On the rallies, the strategy converts shares into cash. On the pullbacks, available cash rebuilds inventory. Across two market cycles, the mix of shares, cash, and liquidity changes. In-range trading earns fees along the way. This exchanges some upside exposure for fees and range management.
+
+At the end of year four, positive business news supports stronger growth and profitability. AI reviews the evidence, updates the valuation, and proposes new liquidity ranges. Core moves higher. Seventy percent of strategy principal goes to direct shares, and the old Active position is paused. The plan responds to the company, instead of keeping yesterday’s ranges forever.
+
+Five years later, the share price reaches two hundred and fifty-one dollars. The revised portfolio reaches about sixty-six thousand nine hundred dollars, versus twenty-seven thousand three hundred from simply holding shares. That is about thirty-nine thousand six hundred dollars more, on the same price path. Nearly four thousand dollars in trading fees are already included. The rest reflects holdings and range decisions. Keeping the original strategy finishes at about forty-one thousand five hundred dollars.
+
+The workflow keeps reviewing news, financial reports, and portfolio records. Track asset value. Explain the return. Feed the findings into the next strategy review. Research, decisions, and revisions remain traceable.
+
+Next, bring this strategy to more people. Deposit into a managed vault, with the strategy run for you. Or keep custody, with an agent helping you trade within limits you set. Research. Allocate. Adapt.
+
+ValueRange. A plan for how you hold.

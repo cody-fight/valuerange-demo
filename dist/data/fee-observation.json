@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "method": "daily-token-increments/capital-days",
+  "window": {
+    "start": "2026-08-24 13:48:34 +08:00",
+    "end": "2026-10-09 08:03:33 +08:00",
+    "days": 45.76040509259259,
+    "observations": 47,
+    "roles": {
+      "core": {
+        "feesDailyMark": 384.5244050821709,
+        "feesEndMark": 366.03795482450005,
+        "capitalDays": 567432.0404165492,
+        "averagePrincipal": 12400.06593622576,
+        "aprCalendar": 24.73448763167499,
+        "observedInRange": 47,
+        "observations": 47
+      },
+      "active": {
+        "feesDailyMark": 448.044541416103,
+        "feesEndMark": 419.04973741050003,
+        "capitalDays": 295481.8595785953,
+        "averagePrincipal": 6457.151307570616,
+        "aprCalendar": 55.34561676649342,
+        "observedInRange": 23,
+        "observations": 47
+      }
+    },
+    "feeTotal": 832.5689464982739,
+    "avgLpPrincipal": 18857.217243796375,
+    "lpAprCalendar": 35.216452704444784,
+    "avgPortfolioNav": 32788.70639435329,
+    "portfolioFeeAnnual": 20.253446147480858,
+    "portfolioFeeContributionToStartPct": 2.599012293407058
+  },
+  "sources": [
+    {
+      "source": "CIRCLE_LP_NAV监控.csv",
+      "sha256": "4e78d49f5bbb5fb5f7f12ba17ef7f8d45621d11ce9d86a9d2d3884ad07091182"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260824-1348.md",
+      "sha256": "e6eee751930478e9dd6cb83b5fe6be05029c7bda544f08e733cabc8297d05908"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260825-0919.md",
+      "sha256": "7d0636ed3fd55f935755af8843f1acfaf455b868bd6837058f276b9ff5f4f13a"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260826-1222.md",
+      "sha256": "6d5c0a11411b37a1342eed864f71a124be58d3058da3d3c23ac1354cff0ae8c0"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260827-1957.md",
+      "sha256": "c65bf7eca0d1ae1086c8bf05c2e5c42f8675a100cec8ee16cc3f248dab05054b"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260828-1645.md",
+      "sha256": "e42841664dcaf86635db18879bdb4903ced469de4723c776087c408494300e95"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260829-0751.md",
+      "sha256": "2a6d68d11b487955da3c85576684024d8f4bc0f73a77934aca1dcea9040f6c95"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260830-1312.md",
+      "sha256": "97abc9aca66ceef0fb45ba58ae8fa1d99bba3f98a82e5d51565535838e4cb264"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260831-1340.md",
+      "sha256": "3b9d8fdcb8f6360436971c4ae68590379e4caa902c5215a285c4d215301b4ca8"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260901-1100.md",
+      "sha256": "c0f20d2798dee17ee769011cd56c489c260787e58d2bfaa8c6ef9f39fb70fe36"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260902-1216.md",
+      "sha256": "0c259a16bf2c3883dce328069006f5b554ba43057f94463819ee205ff682c258"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260903-1253.md",
+      "sha256": "77093a7c547bacb2473d464aaf9632a583089ffdfff586c0a11ba17e294a6ea0"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260904-0949.md",
+      "sha256": "a10ac968e68658a5eb4e8db2a1686b30ffaffe0fbc8cf98669c641dc2ef551b3"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260905-1344.md",
+      "sha256": "71f8a26f96b1ace7475a28602102197208579dbbac6c08216b5da9392bbedea5"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260906-1154.md",
+      "sha256": "57bac447534a5560c476549817586811eb8d8c03d990cfff226c8d34c5d74708"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260907-1301.md",
+      "sha256": "e8375c295eb0950558211af4408ee833a447c7dae490d49686fbd550ab5c4f62"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260908-1314.md",
+      "sha256": "6484a177a3a44c5d5dceb44266d0eebf807ccd8b88ddef40c5c572f1b447f4da"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260909-1259.md",
+      "sha256": "476e5d122c2a83c63ef4a773233282b485fedb1d1ff759523508453c4fc4ede8"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260910-1335.md",
+      "sha256": "d55b78702886316b3a754fb5e9311a63b2689f81e7eaebfb7e592f5db7a21685"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260911-1328.md",
+      "sha256": "bf7c36be556d5f0085a09fb521f153dcc6de0260d6a35b9ecb22ff5d5052b0d3"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260912-1241.md",
+      "sha256": "d3d576b5d4e6afaad4117ad0cc09668d6f1b80b8a1079c131c1d64f0cd0492ed"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260913-1320.md",
+      "sha256": "9b952cba972bde21825169b1610b64f96c5b77cb29f9458c4b16b2b0307c6732"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260914-0209.md",
+      "sha256": "f83118344d631d95e1d792977ebc231e1ec00a2b80d4b53f491fa97a11710e6c"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260915-1032.md",
+      "sha256": "3c303132f13c0a02964e7dd56b02c6ad353864364b1712034a91114032429788"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260916-1233.md",
+      "sha256": "43ef8572a4920fedd2112c490d09800fb0d888e25583a617ed52057102b35009"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260917-1243.md",
+      "sha256": "1d8793c2e150d85007d76cbb613d187e37b192de1eb33bc1c2392a1c867935c1"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260918-1209.md",
+      "sha256": "25e56d921166856a4fce18bc2fcd97f6fb4a46033521a8420762e934379507e8"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260919-1251.md",
+      "sha256": "51da69296a5f70aa39ab29e7c562aab5784e25610860d29552ba86aa65091f1e"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260920-1043.md",
+      "sha256": "d873a13177a585cf72359ea57c2369506303d5712a00f9890aac1e3867e09138"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260921-1200.md",
+      "sha256": "330e4c57e2a023c684e030dc8c512ea8be0296ae2674c217d1d0cff52e3551a0"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260922-1602.md",
+      "sha256": "193cebbaa446fad9abda9b0cac65ce95e08c2b92dd93e264246e58ccc6885ac6"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260923-0803.md",
+      "sha256": "f407899cbe7b8913bae0a1615b8a13ddf9561d3b1551cc3db0fcd1cdf782acd4"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260924-0802.md",
+      "sha256": "76927ff84130367c7324f508f9331966e13e2a379cba2c0a2f63ffe23ec9f62e"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260925-0803.md",
+      "sha256": "0d3f06af7d004d1609eb8d04257ad5ac4d69864dd5817f81d2e143b85441d520"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260926-0803.md",
+      "sha256": "be82501522a1404e980d402723cc1a90793f835ae12c6ad0ace4f54a0d2b88d6"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260927-0802.md",
+      "sha256": "2b53f7d1fea885ee05a2435281133d87ec28c14e7a4a73b3d15d72f988f98274"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260928-0803.md",
+      "sha256": "db0c6ce6c6aed529381102baea9770fa955371558d4709a2d35c9a917af724de"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260929-0804.md",
+      "sha256": "0400031d1e2f9949799bea051e5fb2ef3a71f304f301706fa50238157661c3a4"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.260930-0803.md",
+      "sha256": "801cbbf634abdacc8b2206b1a76292702e3e2424df3be467adb638e96d04f0d3"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.261001-0803.md",
+      "sha256": "b913fc410357660485f1f1d66f5aa402e5a3a8a30be1154ea25bc72e4b928f68"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.261002-0803.md",
+      "sha256": "9faca34381464da056a9e5e3b9e9aeb3e4d0d935f7ea5632ca9d794ea5e6c349"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.261003-0803.md",
+      "sha256": "6e4924a972c2b3385e2fd4fa40370f101fadf641b3e64f714445bcdec8f9f911"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.261004-0803.md",
+      "sha256": "beadbb78a9133706a8ee2b36ae66b3657657eff9970b7e31780a95c49f0083ef"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.261005-0803.md",
+      "sha256": "b34d844e4adb5888c3d054f2dbcb10c9982f1a4c5938571b44a57552d44a71d1"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.261006-0803.md",
+      "sha256": "f6d58d1d68d55a18e2c766542c31039976e9209f9d6a46545a79f770c8411750"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.261007-0803.md",
+      "sha256": "c7f27b90d86c9baffcaea23a2c02992eafdac05bc0ad5a92c4ec4f8f935c981c"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.261008-0803.md",
+      "sha256": "eb83c44afbd6b832184cbff429a098ab34b052e2640acb2b47a3a84329f107fe"
+    },
+    {
+      "source": "CIRCLE_LP_NAV快照.261009-0803.md",
+      "sha256": "417033bf795478b94207d833c716792c0a351741fee85a16c958c639023db5a7"
+    }
+  ],
+  "limitations": [
+    "Current LP observation window starts 2026-08-24, not strategy inception.",
+    "Fee quantity increments are marked at the next recorded price; old fee repricing is excluded.",
+    "Capital days use trapezoidal LP principal, including out-of-range waiting. Wallet capital is excluded.",
+    "This is a simple annualization, not APY, portfolio ROI or intraday in-range APR.",
+    "No claims, position changes or declining unclaimed quantities are permitted in this audited window."
+  ]
+}

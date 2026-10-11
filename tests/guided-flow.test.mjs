@@ -44,13 +44,15 @@ test('simplified surface keeps live dates, fee inclusion, benchmark labels and d
   assert.match(flow.home(),/Start with company value/);
   assert.doesNotMatch(flow.home(),/data-go="evidence"/);
   assert.match(flow.plan(),/data-detail="foundation"/);
+  const overview=flow.library().match(/<section class="panel strategy-overview">([\s\S]*?)<\/section>/)[1];
+  assert.doesNotMatch(overview,/data-(?:go|detail|doc|proof)=/);
   assert.match(flow.plan(),/Normalized earnings/);
   assert.match(flow.details('foundation'),/EBITDA × valuation multiple/);
-  assert.match(flow.run(),/Fees included in assets/);
+  assert.match(flow.run(),/Included in assets/);
   assert.match(flow.run(),/Buy-and-hold shares/);
-  assert.match(flow.review(),/archived news is separate/i);
+  assert.match(flow.review(),/without a live AI call/i);
   assert.doesNotMatch(flow.review(),/data-flow-apply/);
-  assert.match(flow.review(),/Selections update Run it and Compare immediately/);
+  assert.match(flow.review(),/Selections immediately update valuation/);
   assert.match(flow.review(),/data-go="result"/);
   assert.match(flow.evidence(),new RegExp(data.snapshotAt.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
   assert.match(flow.evidence(),/Cumulative marked fee value/);
@@ -61,7 +63,7 @@ test('simplified surface keeps live dates, fee inclusion, benchmark labels and d
   assert.equal(flow.details('live'),'<p>Archived live detail</p>');
   assert.ok(flow.evidence().includes(new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2}).format(historyData.feeHistory.total)));
   assert.match(flow.library(),/Skill-defined constraints/);
-  assert.match(flow.library(),/do not call AI live/);
+  assert.match(flow.library(),/do(?:es)? not call AI live/);
   assert.match(flow.future(),/Not yet built/);
   assert.match(flow.details('settings'),/data-input="cycles"/);
 });

@@ -1,0 +1,302 @@
+[
+  {
+    "scene": 1,
+    "cue": 0,
+    "words": 12,
+    "rawWpm": 112.1,
+    "adjustedWpm": 118.5,
+    "audioDuration": 6.076,
+    "displayDuration": 6.406,
+    "tempo": 1.06
+  },
+  {
+    "scene": 1,
+    "cue": 1,
+    "words": 15,
+    "rawWpm": 146.7,
+    "adjustedWpm": 155.3,
+    "audioDuration": 5.795,
+    "displayDuration": 6.125,
+    "tempo": 1.06
+  },
+  {
+    "scene": 1,
+    "cue": 2,
+    "words": 8,
+    "rawWpm": 156.6,
+    "adjustedWpm": 158.1,
+    "audioDuration": 3.035,
+    "displayDuration": 3.365,
+    "tempo": 1.009
+  },
+  {
+    "scene": 2,
+    "cue": 0,
+    "words": 14,
+    "rawWpm": 124.3,
+    "adjustedWpm": 131.9,
+    "audioDuration": 6.369,
+    "displayDuration": 6.699,
+    "tempo": 1.06
+  },
+  {
+    "scene": 2,
+    "cue": 1,
+    "words": 21,
+    "rawWpm": 163.5,
+    "adjustedWpm": 158.3,
+    "audioDuration": 7.957,
+    "displayDuration": 8.287,
+    "tempo": 0.9666
+  },
+  {
+    "scene": 2,
+    "cue": 2,
+    "words": 11,
+    "rawWpm": 136.4,
+    "adjustedWpm": 144.0,
+    "audioDuration": 4.582,
+    "displayDuration": 4.912,
+    "tempo": 1.06
+  },
+  {
+    "scene": 3,
+    "cue": 0,
+    "words": 16,
+    "rawWpm": 136.3,
+    "adjustedWpm": 144.3,
+    "audioDuration": 6.653,
+    "displayDuration": 6.983,
+    "tempo": 1.06
+  },
+  {
+    "scene": 3,
+    "cue": 1,
+    "words": 12,
+    "rawWpm": 145.6,
+    "adjustedWpm": 151.6,
+    "audioDuration": 4.749,
+    "displayDuration": 5.079,
+    "tempo": 1.0442
+  },
+  {
+    "scene": 3,
+    "cue": 2,
+    "words": 21,
+    "rawWpm": 125.8,
+    "adjustedWpm": 133.2,
+    "audioDuration": 9.462,
+    "displayDuration": 9.792,
+    "tempo": 1.06
+  },
+  {
+    "scene": 6,
+    "cue": 0,
+    "words": 19,
+    "rawWpm": 160.3,
+    "adjustedWpm": 158.3,
+    "audioDuration": 7.202,
+    "displayDuration": 7.532,
+    "tempo": 0.9858
+  },
+  {
+    "scene": 6,
+    "cue": 1,
+    "words": 16,
+    "rawWpm": 127.5,
+    "adjustedWpm": 134.9,
+    "audioDuration": 7.118,
+    "displayDuration": 7.448,
+    "tempo": 1.06
+  },
+  {
+    "scene": 6,
+    "cue": 2,
+    "words": 19,
+    "rawWpm": 130.7,
+    "adjustedWpm": 138.6,
+    "audioDuration": 8.226,
+    "displayDuration": 8.556,
+    "tempo": 1.06
+  },
+  {
+    "scene": 6,
+    "cue": 3,
+    "words": 10,
+    "rawWpm": 137.9,
+    "adjustedWpm": 145.9,
+    "audioDuration": 4.113,
+    "displayDuration": 4.443,
+    "tempo": 1.06
+  },
+  {
+    "scene": 7,
+    "cue": 0,
+    "words": 14,
+    "rawWpm": 149.7,
+    "adjustedWpm": 152.2,
+    "audioDuration": 5.52,
+    "displayDuration": 5.85,
+    "tempo": 1.0154
+  },
+  {
+    "scene": 7,
+    "cue": 1,
+    "words": 12,
+    "rawWpm": 125.9,
+    "adjustedWpm": 133.3,
+    "audioDuration": 5.4,
+    "displayDuration": 5.73,
+    "tempo": 1.06
+  },
+  {
+    "scene": 7,
+    "cue": 2,
+    "words": 19,
+    "rawWpm": 141.1,
+    "adjustedWpm": 149.5,
+    "audioDuration": 7.626,
+    "displayDuration": 7.956,
+    "tempo": 1.06
+  },
+  {
+    "scene": 7,
+    "cue": 3,
+    "words": 12,
+    "rawWpm": 151.0,
+    "adjustedWpm": 151.7,
+    "audioDuration": 4.746,
+    "displayDuration": 5.076,
+    "tempo": 1.0065
+  },
+  {
+    "scene": 8,
+    "cue": 0,
+    "words": 12,
+    "rawWpm": 172.1,
+    "adjustedWpm": 152.2,
+    "audioDuration": 4.729,
+    "displayDuration": 5.059,
+    "tempo": 0.8834
+  },
+  {
+    "scene": 8,
+    "cue": 1,
+    "words": 19,
+    "rawWpm": 128.8,
+    "adjustedWpm": 136.3,
+    "audioDuration": 8.362,
+    "displayDuration": 8.692,
+    "tempo": 1.06
+  },
+  {
+    "scene": 8,
+    "cue": 2,
+    "words": 14,
+    "rawWpm": 199.1,
+    "adjustedWpm": 152.8,
+    "audioDuration": 5.498,
+    "displayDuration": 5.828,
+    "tempo": 0.7636
+  },
+  {
+    "scene": 8,
+    "cue": 3,
+    "words": 17,
+    "rawWpm": 138.3,
+    "adjustedWpm": 146.3,
+    "audioDuration": 6.97,
+    "displayDuration": 7.3,
+    "tempo": 1.06
+  },
+  {
+    "scene": 8,
+    "cue": 4,
+    "words": 12,
+    "rawWpm": 142.8,
+    "adjustedWpm": 151.0,
+    "audioDuration": 4.769,
+    "displayDuration": 5.099,
+    "tempo": 1.06
+  },
+  {
+    "scene": 11,
+    "cue": 0,
+    "words": 10,
+    "rawWpm": 130.4,
+    "adjustedWpm": 137.9,
+    "audioDuration": 4.351,
+    "displayDuration": 4.681,
+    "tempo": 1.06
+  },
+  {
+    "scene": 11,
+    "cue": 1,
+    "words": 14,
+    "rawWpm": 149.3,
+    "adjustedWpm": 152.1,
+    "audioDuration": 5.523,
+    "displayDuration": 5.853,
+    "tempo": 1.0178
+  },
+  {
+    "scene": 11,
+    "cue": 2,
+    "words": 6,
+    "rawWpm": 91.0,
+    "adjustedWpm": 96.2,
+    "audioDuration": 3.742,
+    "displayDuration": 4.072,
+    "tempo": 1.06
+  },
+  {
+    "scene": 9,
+    "cue": 0,
+    "words": 7,
+    "rawWpm": 136.6,
+    "adjustedWpm": 144.2,
+    "audioDuration": 2.913,
+    "displayDuration": 3.243,
+    "tempo": 1.06
+  },
+  {
+    "scene": 9,
+    "cue": 1,
+    "words": 11,
+    "rawWpm": 172.5,
+    "adjustedWpm": 152.5,
+    "audioDuration": 4.327,
+    "displayDuration": 4.657,
+    "tempo": 0.8814
+  },
+  {
+    "scene": 9,
+    "cue": 2,
+    "words": 13,
+    "rawWpm": 176.9,
+    "adjustedWpm": 152.5,
+    "audioDuration": 5.115,
+    "displayDuration": 5.445,
+    "tempo": 0.8595
+  },
+  {
+    "scene": 9,
+    "cue": 3,
+    "words": 3,
+    "rawWpm": 70.2,
+    "adjustedWpm": 63.5,
+    "audioDuration": 2.834,
+    "displayDuration": 3.5,
+    "tempo": 0.9
+  },
+  {
+    "scene": 10,
+    "cue": 0,
+    "words": 7,
+    "rawWpm": 172.4,
+    "adjustedWpm": 152.7,
+    "audioDuration": 2.751,
+    "displayDuration": 4.25,
+    "tempo": 0.88
+  }
+]

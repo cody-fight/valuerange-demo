@@ -25,7 +25,7 @@ export function planValuation(price){
 export function planRanges(price){
   return `<div class="plan-lp-figure"><div class="plan-figure-title"><h3>${t('先定区间：在哪里转换股票与现金','First, set the trading ranges')}</h3></div>
     ${rangesFigure(price,[['Core LP',BASE.core,'#344cec',t('覆盖较宽的价格范围，随涨跌转换股票与现金。','A broad range converts between shares and cash as prices move.')],['Active LP',BASE.sell,'#008b7c',t('用一部分股票分段兑现；涨过上沿后，按规则关闭并留存现金。','Distribute a portion of shares in stages; above the upper boundary, close under the rules and retain cash.')]],t('AI 提案的 Core 和 Active LP 区间','Core and Active LP ranges from the AI proposal'))}
-    <p class="plan-lp-context">${t('起点价格同时位于两个 LP 区间内，便于在下一步观察换仓与手续费。','The starting price lies inside both LP ranges, so the next step can show inventory changes and fees.')}</p></div>`;
+    <p class="plan-lp-context">${t('案例起点位于两个 LP 区间内；价格在区间内变化时，股票与现金逐步转换，并按模拟假设计收手续费。','The case starts inside both LP ranges. Price moves within a range convert shares and cash and accrue fees under the simulation assumptions.')}</p></div>`;
 }
 
 export function valuationModelRoute(){

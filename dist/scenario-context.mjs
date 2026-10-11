@@ -1,3 +1,4 @@
+import {dailyBridge} from './daily-prices.mjs';
 import {reviewDay} from './timeline.mjs';
 // Explicit educational market examples, independent of portfolio outcomes.
 // A market path belongs to the experiment and is shared by every comparator.
@@ -21,7 +22,7 @@ export function marketExample(input,key){
   // different re-entry decisions when both portfolios start the review in cash.
   const levels=key==='divergence'?[Math.min(price*.65,(BASE.buy[0]+BASE.buy[1])/2),end*.8,end*1.1,end]:progress.map(v=>price+(end-price)*v);
   const future=levels.map((v,i)=>({day:Math.round(fromDay+(lastDay-fromDay)*(i+1)/4),price:Math.max(1,Math.min(400,v))}));
-  return {...o,revision:spec.revision,end,marketPath:{key,fromDay,knots:[...prefix,...future]},day:o.day??lastDay};
+  return {...o,revision:spec.revision,end,marketPath:{key,fromDay,knots:o.priceModel==='daily-v1'?[...prefix,...dailyBridge([{day:fromDay,price},...future]).slice(1)]:[...prefix,...future]},day:o.day??lastDay};
 }
 
 // Read only the observed prefix. These facts describe a synthetic experiment,
@@ -36,4 +37,10 @@ export function comparisonContext(revised,baseline,q){
     pnl:p.nav-CAPITAL,relative:q.totalDelta,versusShares:p.nav-p.pure,feeDelta:q.feeDelta,
     exposureChange:revised.revisionSnapshot.stock*start/revised.revisionSnapshot.nav-revised.reviewSnapshot.stock*start/revised.reviewSnapshot.nav,
     recovered:observed.some(x=>x.reviewed),baselineNav:baseline.points[q.day].nav};
+}
+
+// The UI stores the original scenario. Derive event prices without mutating it.
+export function eventScenario(state){
+  if(state.priceModel!=='daily-v1'||state.revision==='unchanged')return {...state};
+  return marketExample({...state,marketPath:null},state.revision==='improve'?'growth':'pressure');
 }

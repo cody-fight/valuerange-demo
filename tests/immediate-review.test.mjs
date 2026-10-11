@@ -1,6 +1,7 @@
+import {journeyStart} from './archived-journey.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {reviewSelection,journeyStart} from '../dist/experiment.mjs';
+import {reviewSelection} from '../dist/experiment.mjs';
 import {simulate,valuation} from '../dist/long-term.mjs';
 import {marketExample} from '../dist/scenario-context.mjs';
 

@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
-import {configureLocale,translate,messageTemplate} from '../dist/locales/locale.mjs';
+import {configureLocale,getLanguage,resolveLanguage,translate,messageTemplate} from '../dist/locales/locale.mjs';
 import {simulate} from '../dist/long-term.mjs';
 import {storyDefaults} from '../dist/experiment.mjs';
 const root=new URL('../',import.meta.url);
@@ -67,4 +67,13 @@ test('every collected UI template has an English translation',async()=>{
   const source=JSON.parse(await read('docs/localization/ui-source.json'));
   configureLocale(catalog,'en');
   for(const example of Object.values(source))assert.ok(!/[\u3400-\u9fff]/.test(translate(example)),messageTemplate(example).key);
+});
+
+
+test('unqualified entry URLs default to English; Chinese requires an explicit selection',()=>{
+ for(const value of [undefined,null,'','en','EN','invalid'])assert.equal(resolveLanguage(value),'en');
+ assert.equal(resolveLanguage('zh'),'zh');
+ configureLocale(catalog,'zh');assert.equal(getLanguage(),'zh');
+ configureLocale(catalog);assert.equal(getLanguage(),'en');
+ configureLocale(catalog,'invalid');assert.equal(getLanguage(),'en');
 });

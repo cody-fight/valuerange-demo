@@ -1,10 +1,17 @@
-import {pathPreview} from './market-paths.mjs';
+import {performanceReport} from './investment-model.mjs';
+import {initWallet} from './wallet.mjs';
+import {investmentHome,investmentShell,investmentResearchLinks,initInvestment,resetInvestment,refreshInvestmentDialog} from './investment-view.mjs';
+import {markdown} from './document-markdown.mjs';
+import {pnlReportSummary} from './pnl-report-view.mjs';
+import {loadFeeObservation} from './fee-observation.mjs';
+import {loadLive} from './daily-live.mjs';
+import {pathPreview,MARKET_PATHS} from './market-paths.mjs';
 import {HORIZONS} from './timeline.mjs';
 import {configureLocale,getLanguage,setLanguage,translate,localizeMarkup as html} from './locales/locale.mjs';
 import {feeReferenceDetails} from './fee-view.mjs';
 import {overviewPage,decisionContent,cycleContent,DECISIONS,CYCLE_STEPS} from './overview-view.mjs';
 import {futurePage,futureWorkbench,FUTURE_STEPS,FUTURE_GOALS} from './future-view.mjs';
-import {marketExample} from './scenario-context.mjs';
+import {marketExample,eventScenario} from './scenario-context.mjs';
 import {scenarioStatus,scenarioExamples} from './scenario-view.mjs';
 import {demoDefaults,replaceState} from './demo-reset.mjs';
 import {simulate,CASES} from './long-term.mjs';
@@ -22,12 +29,14 @@ let detailTrigger=null;
 const proofUi={key:'map',caseKey:'improve'};
 let proofTrigger=null,openedDocument=null;
 let englishDocuments={};
-const shellSources=[...document.querySelectorAll('.topbar,.sidebar,noscript')].map(el=>[el,el.matches('.topbar')?document.querySelector('#source-topbar').content.querySelector('.topbar').innerHTML:el.innerHTML]);
-const originalDescription=document.querySelector('meta[name=description]').dataset.sourceZh;
+const shellSources=[...document.querySelectorAll('.topbar,.sidebar,noscript')].map(el=>[el,el.innerHTML]);
+const originalDescription=document.querySelector('meta[name=description]').content;
 function renderShell(){
   document.documentElement.lang=getLanguage()==='en'?'en':'zh-CN';
   document.querySelector('meta[name=description]').content=translate(originalDescription);
   for(const [el,source] of shellSources)el.innerHTML=html(source);
+  investmentShell();
+  document.querySelector('.topbar').style.visibility='';
   document.querySelectorAll('[data-language]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.language===getLanguage())));
 }
 function switchLanguage(lang){
@@ -36,7 +45,7 @@ function switchLanguage(lang){
   const proofScroll=document.querySelector('#proof-dialog').scrollTop,docScroll=document.querySelector('#document-dialog').scrollTop;
   setLanguage(lang);try{localStorage.setItem('circle-lab-language',lang);}catch{}
   const url=new URL(location.href);url.searchParams.set('lang',lang);history.replaceState(null,'',url);
-  renderShell();render();
+  renderShell();render();refreshInvestmentDialog();
   [...app.querySelectorAll('details')].forEach((d,i)=>d.open=details[i]??false);
   if(document.querySelector('#proof-dialog').open){openProof(proofUi.key);document.querySelector('#proof-dialog').scrollTop=proofScroll;}
   if(state.view==='document'&&openedDocument)openDoc(openedDocument);
@@ -47,7 +56,7 @@ function switchLanguage(lang){
 const researchUi={date:null};
 const introUi={decision:'low',cycle:0};
 const futureUi={entry:'investor',step:0,goal:'growth',event:false};
-const VIEWS=['overview','plan','simulate','revise','result','evidence','library','document','future','vault','agent'];
+const VIEWS=['overview','account','learn','plan','simulate','revise','result','evidence','library','document','future','vault','agent'];
 let conceptUi=conceptDefaults();
 const state={view:'overview'};
 const draft={};
@@ -79,21 +88,23 @@ function evidence(){const d=data,p=d.pnl,fees=d.positions.reduce((s,x)=>s+x.uncl
 }
 
 function render(){
-  const pages={overview:flow.home,plan:flow.plan,simulate:flow.run,revise:flow.review,result:flow.result,evidence:flow.evidence,library:flow.library,future:flow.future,vault:()=>conceptPage('vault',conceptUi),agent:()=>conceptPage('agent',conceptUi),document:()=>flowUi.documentMarkup};
+  const existingAssumptions=document.querySelector('#performance-assumptions');if(existingAssumptions)flowUi.assumptionsOpen=existingAssumptions.open;
+  const pages={overview:investmentHome,learn:()=>investmentResearchLinks()+flow.home(),plan:flow.library,simulate:flow.run,revise:flow.review,result:flow.result,evidence:flow.evidence,library:flow.library,future:flow.future,vault:()=>conceptPage('vault',conceptUi),agent:()=>conceptPage('agent',conceptUi),document:()=>flowUi.documentMarkup};
+  document.body.classList.toggle('vr-page',['overview','account'].includes(state.view));
   app.innerHTML=html((FLOW_ROUTES.includes(state.view)&&state.view!=='overview'?flowSteps(state.view):'')+pages[state.view]());
-  const active=FLOW_ROUTES.includes(state.view)?'overview':['vault','agent'].includes(state.view)?'future':state.view==='document'?'library':state.view;
+  const active=({learn:'library',account:'simulate',revise:'simulate',result:'simulate',document:'library',plan:'library',vault:'future',agent:'future'})[state.view]||state.view;
   document.querySelectorAll('[data-view]').forEach(b=>{b.classList.toggle('active',b.dataset.view===active);b.setAttribute('aria-current',b.dataset.view===active?'page':'false');});
   revealMilestone();
   const selected=document.querySelector('[data-view][aria-current="page"]'),nav=selected?.parentElement;
   if(nav&&nav.scrollWidth>nav.clientWidth){const left=selected.getBoundingClientRect().left-nav.getBoundingClientRect().left+nav.scrollLeft;nav.scrollLeft=Math.max(0,left-(nav.clientWidth-selected.clientWidth)/2);}
 }
 function revealMilestone(){const list=document.querySelector('.milestone-list'),selected=list?.querySelector('[aria-pressed="true"]');if(!selected)return;list.scrollLeft=Math.max(0,selected.offsetLeft-list.offsetLeft-(list.clientWidth-selected.clientWidth)/2);}
-function navigate(view,keepReview=false){if(!VIEWS.includes(view))return;closeDetail();if(view==='document'&&!openedDocument)view='library';if(view==='revise'&&state.view!=='revise'&&!keepReview)replaceState(draft,beginReview(state));state.view=view;render();window.scrollTo({top:0,behavior:'instant'});app.querySelector('h1')?.focus({preventScroll:true});history.replaceState(null,'',`#${view}`);}
+function navigate(view,keepReview=false){if(!VIEWS.includes(view))return;if(view==='account')view='simulate';if(view==='plan'||view==='learn')view='library';closeDetail();if(view==='document'&&!openedDocument)view='library';if(view==='revise'&&state.view!=='revise'&&!keepReview)replaceState(draft,beginReview(state));state.view=view;render();window.scrollTo({top:0,behavior:'instant'});app.querySelector('h1')?.focus({preventScroll:true});if(location.hash!==`#${view}`)history.pushState(null,'',`#${view}`);}
 function closeDetail(){document.querySelector('#detail-dialog').close();}
 function trimDetailHeadingStops(markup){return markup.replace(/(<h[1-4]\b[^>]*>)([\s\S]*?)(<\/h[1-4]>)/g,(_,open,body,close)=>open+body.replace(/[。.](\s*(?:<\/[^>]+>\s*)*)$/,'$1')+close);}
 function renderDetail(){
   const key=flowUi.detail,dialog=document.querySelector('#detail-dialog'),content=document.querySelector('#detail-content');
-  const titles={reviewReason:['为什么这样调仓，手续费会怎样变化？','Why rebalance, and what happens to fees?'],reset:['默认案例配置','Default demo settings'],foundation:['这三个估值区间是怎么算出来的？','How are these valuation ranges calculated?'],settings:['交易规则与手续费设置','Trading rules & fee settings'],price:['价格与估值','Price & valuation'],plan:['Core LP、Active LP 和持股为什么这样配？','Why this mix of Core LP, Active LP and shares?'],factors:['经营因子与估值计算','Operating factors & valuation'],research:['持续跟踪记录','Ongoing research records'],returns:['收益与交易明细','Return & trade details'],live:['完整实盘记录','Full live records'],lifecycle:['运行规则与资金来源','Lifecycle rules & funding'],guide:['策略原理与生命周期','Strategy & lifecycle guide'],future:['未来使用流程','Future workflow preview']};
+  const titles={holdings:['仓位与运行明细','Holdings & strategy details'],reviewReason:['为什么这样调仓，手续费会怎样变化？','Why rebalance, and what happens to fees?'],reset:['默认案例配置','Default demo settings'],foundation:['这三个估值区间是怎么算出来的？','How are these valuation ranges calculated?'],settings:['调整目标价与交易设置','Target price & trading settings'],price:['价格与估值','Price & valuation'],plan:['Core LP、Active LP 和持股为什么这样配？','Why this mix of Core LP, Active LP and shares?'],factors:['经营因子与估值计算','Operating factors & valuation'],research:['持续跟踪记录','Ongoing research records'],returns:['收益与交易明细','Return & trade details'],live:['完整实盘记录','Full live records'],lifecycle:['运行规则与资金来源','Lifecycle rules & funding'],guide:['策略原理与生命周期','Strategy & lifecycle guide'],future:['未来使用流程','Future workflow preview']};
   const title=titles[key]?.[getLanguage()==='en'?1:0]??key;
   content.innerHTML=`<header class="detail-heading"><h2 id="detail-title">${title}</h2><button class="close-button" data-detail-close aria-label="${getLanguage()==='en'?'Close details':'关闭明细'}">×</button></header><div class="detail-body">${trimDetailHeadingStops(html(key==='future'?futurePage(futureUi):flow.details(key,flowUi.detailDraft)))}</div>`;
 }
@@ -115,26 +126,25 @@ function updateResults(){
   if(state.view==='simulate'){
     const fresh=document.createElement('template');fresh.innerHTML=html(flow.runResult());
     const root=document.querySelector('#simulation-results');
-    const breakdownOpen=root.querySelector('.position-breakdown')?.open;
-    for(const selector of ['.metrics-grid','.flow-inventory'])root.querySelector(selector).replaceWith(fresh.content.querySelector(selector));
-    root.querySelector('.position-breakdown').open=breakdownOpen;
-    root.querySelector('#price-chart-content').innerHTML=fresh.content.querySelector('#price-chart-content').innerHTML;
+    for(const selector of ['.metrics-grid','.compact-holdings'])root.querySelector(selector).replaceWith(fresh.content.querySelector(selector));
+    const accountPanel=root.querySelector('.vr-inline-account'),nextAccount=fresh.content.querySelector('.vr-inline-account');
+    if(accountPanel&&nextAccount){nextAccount.querySelector('.vr-details').open=accountPanel.querySelector('.vr-details').open;accountPanel.replaceWith(nextAccount);}
+    root.querySelector('#observation-price').innerHTML=fresh.content.querySelector('#observation-price').innerHTML;
     root.querySelector('#run-chart-content').innerHTML=fresh.content.querySelector('#run-chart-content').innerHTML;
     root.querySelector('[data-next-event]').dataset.observe=fresh.content.querySelector('[data-next-event]').dataset.observe;
     revealMilestone();
     document.querySelector('#day-label').textContent=fresh.content.querySelector('#day-label').textContent;
     document.querySelector('#day').value=state.day;
-    document.querySelector('#end-number').value=state.end;
-    document.querySelector('#market-path-preview').innerHTML=html(pathPreview(state));
-    document.querySelector('#end-position').innerHTML=html(flow.endingTag());
-    document.querySelector('#end').value=state.end;
-    const paint=valuationPaint(state.end,state.revision);
-    document.querySelector('#end').style.setProperty('--valuation-gradient',paint.gradient);
-    document.querySelector('#end').style.setProperty('--price-ink',paint.color);
-    document.querySelector('#end-number').style.color=paint.color;
+    const preview=document.querySelector('#market-path-preview');if(preview)preview.innerHTML=html(pathPreview(state));
+    syncTargetControls();
     document.querySelectorAll('[data-fee-profile]').forEach(b=>{const selected=FEE_KEYS.every(k=>state[k]===FEE_PROFILES[b.dataset.feeProfile][k]);b.classList.toggle('selected',selected);b.setAttribute('aria-pressed',String(selected));});
   }
   if(state.view==='revise')updateRevision();
+}
+function syncTargetControls(){
+  const paint=valuationPaint(state.end,'unchanged');
+  for(const id of ['end','end-number']){const el=document.getElementById(id);if(el){el.value=state.end;el.style.setProperty('--valuation-gradient',paint.gradient);el.style.setProperty('--price-ink',paint.color);}}
+  const zones=document.getElementById('end-position');if(zones)zones.innerHTML=html(flow.endingTag());
 }
 function setComparisonDay(value){
   if(state.view!=='result')return;
@@ -185,21 +195,21 @@ function resetDemo(notify=true){
   detailTrigger=proofTrigger=null;openedDocument=null;
   for(const dialog of document.querySelectorAll('dialog'))dialog.close();
   const fresh=demoDefaults(research.latestDate);
+  fresh.state=updateSimulationControls(fresh.state,{years:5,shape:'bull'});fresh.draft=beginReview(fresh.state);
   for(const [target,key] of [[state,'state'],[draft,'draft'],[flowUi,'flowUi'],[proofUi,'proofUi'],[researchUi,'researchUi'],[introUi,'introUi'],[futureUi,'futureUi']])replaceState(target,fresh[key]);
-  conceptUi=fresh.conceptUi;
-  navigate('overview');
+  conceptUi=fresh.conceptUi;resetInvestment();
+  const assumptions=document.querySelector('#performance-assumptions');if(assumptions)assumptions.open=false;
+  flowUi.assumptionsOpen=false;
+  setLanguage('en');try{localStorage.setItem('circle-lab-language','en');}catch{}
+  const url=new URL(location.href);url.searchParams.set('lang','en');url.hash='overview';history.replaceState(null,'',url);
+  renderShell();navigate('overview');
   const toast=document.getElementById('reset-toast');
   clearTimeout(resetToastTimer);toast.hidden=true;
   if(!notify)return;
   toast.textContent=getLanguage()==='en'?'Default demo restored':'已恢复默认案例';toast.hidden=false;
   clearTimeout(resetToastTimer);resetToastTimer=setTimeout(()=>toast.hidden=true,3500);
 }
-function setInput(key,value){try{Object.assign(state,updateSimulationControls(state,{[key]:value}));}catch{return;}replaceState(draft,beginReview(state));if(['years','shape','reinvest',...FEE_KEYS].includes(key)||state.view!=='simulate')render();else updateResults();}
-// Tiny safe markdown renderer for copied business documents. Raw HTML is escaped.
-function markdown(text){const lines=text.split('\n');let out='',fence=false,code=[],table=[];
-  const inline=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/`([^`]+)`/g,'<code>$1</code>');
-  const flush=()=>{if(!table.length)return;const rows=table.filter(x=>!/^\|[\s:|\-]+\|$/.test(x));out+='<div class="table-wrap"><table>'+rows.map((r,i)=>'<tr>'+r.replace(/^\||\|$/g,'').split('|').map(v=>`<${i?'td':'th'}>${inline(v.trim())}</${i?'td':'th'}>`).join('')+'</tr>').join('')+'</table></div>';table=[];};
-  for(const line of lines){if(line.startsWith('```')){flush();if(fence){out+='<pre>'+esc(code.join('\n'))+'</pre>';code=[];}fence=!fence;continue;}if(fence){code.push(line);continue;}if(line.startsWith('|')){table.push(line);continue;}flush();const h=line.match(/^(#{1,6})\s+(.*)/);if(h){out+=`<h3>${inline(h[2])}</h3>`;}else if(line.trim()){out+=`<p>${inline(line.replace(/^>\s?/,''))}</p>`;}}flush();return out;}
+function setInput(key,value){try{Object.assign(state,updateSimulationControls(state,{[key]:value}));}catch{return;}replaceState(draft,beginReview(state));if(['years','shape','reinvest',...FEE_KEYS].includes(key)||state.view!=='simulate'){const focusId=document.activeElement?.id;render();if(focusId)document.getElementById(focusId)?.focus({preventScroll:true});}else updateResults();}
 function openDoc(id){
   const original=[...documents.documents,...research.documents].find(d=>d.id===id);if(!original)return;
   if(state.view!=='document'){flowUi.readingFrom=state.view;flowUi.readingScroll=scrollY;}
@@ -208,7 +218,7 @@ function openDoc(id){
   const translated=getLanguage()==='en'?englishDocuments[id]:null;
   const doc=translated?{...original,...translated}:original;
   const dialog=document.querySelector('#document-dialog');
-  flowUi.documentMarkup=html(`<article class="flow-document"><button class="text-button" data-reading-back>${getLanguage()==='en'?'← Back to demo':'← 返回演示'}</button><div class="flow-heading"><span class="eyebrow">${getLanguage()==='en'?'Translated evidence':'证据副本'} · ${esc(doc.version)}</span><h1 tabindex="-1">${esc(doc.title)}</h1></div><div class="document-body"><p class="copy-note">${translated?'English translation of the archived business excerpt. Dates and calculations are retained. This is not a new research update or AI run.':'以下为已复制的业务摘录，保留日期、计算与假设。'}</p>${markdown(doc.markdown)}<details class="method"><summary>来源、复制范围与摘要</summary><p>${esc(doc.source)}<br>原文件 SHA-256：<code>${original.sourceSha256}</code><br>摘录 SHA-256：<code>${original.excerptSha256}</code>${translated?`<br>English translation SHA-256: <code>${translated.translationSha256}</code><br>Translated: ${esc(translated.translatedAt)}`:''}</p><p>仅复制选定业务章节，省略内部路径与操作元数据；不包含完整 Skill 或私人提示词。</p>${id.startsWith('valuation')?documents.officialSources.map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)} ↗</a></p>`).join(''):''}</details></div><button class="secondary" data-reading-back>${getLanguage()==='en'?'Back to demo':'返回演示'}</button></article>`);
+  flowUi.documentMarkup=html(`<article class="flow-document ${id==='pnl_latest'?'pnl-report':''}"><button class="text-button" data-reading-back>${getLanguage()==='en'?'← Back to demo':'← 返回演示'}</button><div class="flow-heading"><span class="eyebrow">${getLanguage()==='en'?'Translated evidence':'证据副本'} · ${esc(doc.version)}</span><h1 tabindex="-1">${id==='pnl_latest'?(getLanguage()==='en'?'CIRCLE · Daily P&L report':'CIRCLE · PNL 日报'):esc(doc.title)}</h1></div>${id==='pnl_latest'?pnlReportSummary(original):''}<div class="document-body"><p class="copy-note">${translated?'English translation of the archived business excerpt. Dates and calculations are retained. This is not a new research update or AI run.':'以下为已复制的业务摘录，保留日期、计算与假设。'}</p>${markdown(doc.markdown)}<details class="method"><summary>来源、复制范围与摘要</summary><p>${esc(doc.source)}<br>原文件 SHA-256：<code>${original.sourceSha256}</code><br>摘录 SHA-256：<code>${original.excerptSha256}</code>${translated?`<br>English translation SHA-256: <code>${translated.translationSha256}</code><br>Translated: ${esc(translated.translatedAt)}`:''}</p><p>仅复制选定业务章节，省略内部路径与操作元数据；不包含完整 Skill 或私人提示词。</p>${id.startsWith('valuation')?documents.officialSources.map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.title)} ↗</a></p>`).join(''):''}</details></div><button class="secondary" data-reading-back>${getLanguage()==='en'?'Back to demo':'返回演示'}</button></article>`);
   navigate('document');
 }
 function revealIntroCycle(){
@@ -238,14 +248,14 @@ document.addEventListener('click',e=>{
     else app.querySelector(`[data-concept="${kind}"][data-concept-action="${action}"][data-concept-value="${value}"]`)?.focus({preventScroll:true});
     return;
   }
-  if(b.hasAttribute('data-flow-start')){if(!flowUi.started){Object.assign(state,journeyStart(state));flowUi.started=true;}navigate('plan');return;}
+  if(b.hasAttribute('data-flow-start')){if(!flowUi.started){Object.assign(state,updateSimulationControls(journeyStart(state),{years:5,shape:'bull'}));flowUi.started=true;}navigate('simulate');return;}
   if(b.dataset.detail){openDetail(b.dataset.detail,b.hasAttribute('data-detail-draft'));return;}
   if(b.hasAttribute('data-detail-close')){closeDetail();return;}
   if(b.hasAttribute('data-reading-back')){navigate(flowUi.readingFrom,true);window.scrollTo({top:flowUi.readingScroll??0,behavior:'instant'});return;}
   if(b.dataset.endZone!==undefined&&state.view==='simulate'){
     const zone=Number(b.dataset.endZone);
     if(!Number.isInteger(zone)||zone<0||zone>4)return;
-    setInput('end',valuationZonePrice(zone,state.revision));
+    setInput('end',valuationZonePrice(zone,'unchanged'));
     // Results replace the cards; keep keyboard focus on the equivalent button.
     document.querySelector(`[data-end-zone="${zone}"]`)?.focus({preventScroll:true});
     return;
@@ -254,7 +264,7 @@ document.addEventListener('click',e=>{
   if(b.dataset.proof)openProof(b.dataset.proof);
   if(b.dataset.proofCase){proofUi.caseKey=b.dataset.proofCase;openProof('candidates');}
   if(b.hasAttribute('data-proof-close'))document.querySelector('#proof-dialog').close();
-  if(b.hasAttribute('data-journey-start')){Object.assign(state,journeyStart(state));navigate('simulate');}
+  if(b.hasAttribute('data-journey-start')){Object.assign(state,updateSimulationControls(journeyStart(state),{years:5,shape:'bull'}));navigate('simulate');}
   if(b.dataset.comparisonObserve!==undefined){setComparisonDay(Number(b.dataset.comparisonObserve));return;}
   if(b.dataset.observe!==undefined){setInput('day',Number(b.dataset.observe));}
   if(b.dataset.view||b.dataset.go){e.preventDefault();navigate(b.dataset.view||b.dataset.go);}
@@ -323,6 +333,7 @@ document.addEventListener('submit',e=>{
   catch{let error=form.querySelector('[role="alert"]');if(!error){error=document.createElement('p');error.setAttribute('role','alert');form.append(error);}error.textContent=getLanguage()==='en'?'Check the amount, asset symbol and selected options.':'请检查金额、资产标识与所选选项';return;}
   render();window.scrollTo({top:0,behavior:'instant'});app.querySelector('[aria-current="step"]')?.focus({preventScroll:true});
 });
+document.addEventListener('toggle',e=>{if(e.target.id==='performance-assumptions'&&e.target.isConnected)flowUi.assumptionsOpen=e.target.open;},true);
 document.addEventListener('input',e=>{
   if(e.target.hasAttribute('data-comparison-day')){setComparisonDay(Number(e.target.value));return;}
   const kind=e.target.dataset.conceptKind,field=e.target.dataset.conceptField;
@@ -339,38 +350,46 @@ document.addEventListener('input',e=>{
   const v=['cycles','reinvest','recovery'].includes(key)?e.target.checked:['years','end','day',...FEE_KEYS].includes(key)?Number(e.target.value):e.target.value;
   if(e.target.type==='number'&&(e.target.value===''||!e.target.validity.valid)){e.target.setAttribute('aria-invalid','true');return;}
   const focusId=e.target.id;
-  e.target.removeAttribute('aria-invalid');setInput(key,v);refreshDetail(focusId);
+  e.target.removeAttribute('aria-invalid');setInput(key,v);if(key!=='end')refreshDetail(focusId);
   if(focusId)document.getElementById(focusId)?.focus({preventScroll:true});
 });
-window.addEventListener('hashchange',()=>navigate(location.hash.slice(1)));
+window.addEventListener('hashchange',()=>{if(flow)navigate(VIEWS.includes(location.hash.slice(1))?location.hash.slice(1):'overview');});
 // A restored document is a fresh visit too; ordinary in-page steps retain state.
-window.addEventListener('pageshow',event=>{if(event.persisted&&flow){resetDemo(false);webTools();}});
+window.addEventListener('pageshow',event=>{if(event.persisted&&flow){navigate(location.hash.slice(1)||'overview',true);webTools();}});
 history.scrollRestoration='manual';
 function webTools(){if(!document.modelContext?.registerTool)return;
   const lifetime=new AbortController();
   const register=tool=>{try{Promise.resolve(document.modelContext.registerTool(tool,{signal:lifetime.signal})).catch(()=>{});}catch{}};
-  register({name:'get_demo_state',description:'Read the shared CIRCLE simulation and its synchronized review snapshot.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute:input=>{if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).length)throw new Error('Expected empty object');return {...state,researchDate:researchUi.date,draft:{...draft},simulation:simulate(state).points[state.day],...(state.view==='result'?{comparison:flow.comparisonSnapshot()}:{} )};}});
-  register({name:'configure_simulation',description:'Set visible educational simulation controls. No chain execution.',inputSchema:{type:'object',properties:{years:{type:'number',enum:HORIZONS},shape:{type:'string',enum:Object.keys(SHAPES)},end:{type:'number',minimum:1,maximum:400},coreApr:{type:'number',minimum:0.1,maximum:120},activeApr:{type:'number',minimum:0.1,maximum:120},buyApr:{type:'number',minimum:0.1,maximum:120},day:{type:'integer',minimum:0,maximum:1825},cycles:{type:'boolean'},reinvest:{type:'boolean'}},additionalProperties:false},annotations:{readOnlyHint:false},execute:input=>{
+  register({name:'get_demo_state',description:'Read the shared CIRCLE simulation and its synchronized review snapshot.',inputSchema:{type:'object',properties:{},additionalProperties:false},annotations:{readOnlyHint:true},execute:input=>{if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).length)throw new Error('Expected empty object');return {...state,researchDate:researchUi.date,draft:{...draft},simulation:simulate(state.view==='simulate'?{...state,revision:'unchanged'}:eventScenario(state)).points[state.day],...(state.view==='result'?{comparison:flow.comparisonSnapshot()}:{} )};}});
+  register({name:'configure_simulation',description:'Set visible educational simulation controls. No chain execution.',inputSchema:{type:'object',properties:{years:{type:'number',enum:HORIZONS},shape:{type:'string',enum:Object.keys(MARKET_PATHS)},end:{type:'number',minimum:1,maximum:400},coreApr:{type:'number',minimum:0.1,maximum:120},activeApr:{type:'number',minimum:0.1,maximum:120},buyApr:{type:'number',minimum:0.1,maximum:120},day:{type:'integer',minimum:0,maximum:1825},cycles:{type:'boolean'},reinvest:{type:'boolean'}},additionalProperties:false},annotations:{readOnlyHint:false},execute:input=>{
     if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(k=>!['years','shape','end',...FEE_KEYS,'day','cycles','reinvest'].includes(k)))throw new Error('Invalid input');
     if(FEE_KEYS.some(k=>input[k]!==undefined&&(!Number.isFinite(input[k])||input[k]<.1)))throw new Error('APR must be positive');
     const next=updateSimulationControls(state,input);if(input.day!==undefined)next.day=input.day;
     if(!Number.isInteger(next.day)||next.day<0||next.day>next.years*365)throw new Error('Invalid day');
-    Object.assign(state,next);navigate('simulate');return {...state,simulation:simulate(state).points[state.day],...(state.view==='result'?{comparison:flow.comparisonSnapshot()}:{} )};
+    Object.assign(state,next);replaceState(draft,beginReview(state));navigate('simulate');return {...state,simulation:simulate(state.view==='simulate'?{...state,revision:'unchanged'}:eventScenario(state)).points[state.day],...(state.view==='result'?{comparison:flow.comparisonSnapshot()}:{} )};
   }});
   window.addEventListener('pagehide',()=>lifetime.abort(),{once:true});
 }
 try{
   const catalog=await (await fetch('locales/en.json')).json();
-  let preferred;try{preferred=localStorage.getItem('circle-lab-language');}catch{}
-  configureLocale(catalog,new URL(location.href).searchParams.get('lang')==='zh'?'zh':'en');
-  [data,documents,proposals,historyData,research,feeReference,workflow,aiEvidence]=await Promise.all(['circle-case','documents','prepared-proposals','history','research-trail','fee-reference','workflow-evidence','ai-evidence'].map(async name=>{const r=await fetch(`data/${name}.json`);if(!r.ok)throw new Error(`无法读取 ${name}`);return r.json();}));
+  // Plain pasted URLs always start in English; explicit language links stay shareable.
+  configureLocale(catalog,new URL(location.href).searchParams.get('lang'));
+  [data,documents,proposals,historyData,research,feeReference,workflow,aiEvidence]=await Promise.all(['circle-case','documents','prepared-proposals','history','research-trail','fee-reference','workflow-evidence','ai-evidence'].map(async name=>{const r=await fetch(`data/${name}.json`);if(!r.ok)throw new Error(getLanguage()==='en'?`Unable to load ${name}`:`无法读取 ${name}`);return r.json();}));
   const translatedBundle=await (await fetch('data/en/documents.json')).json();
   englishDocuments=translatedBundle.documents;
   for(const original of [...documents.documents,...research.documents]){const translated=englishDocuments[original.id];if(!translated||translated.originalExcerptSha256!==original.excerptSha256)throw new Error('English evidence needs a version refresh: '+original.id);}
-  defaults=experimentDefaults();const initial=demoDefaults(research.latestDate);replaceState(state,initial.state);replaceState(draft,initial.draft);
+  defaults=experimentDefaults();const initial=demoDefaults(research.latestDate);initial.state=updateSimulationControls(initial.state,{years:5,shape:'bull'});initial.draft=beginReview(initial.state);replaceState(state,initial.state);replaceState(draft,initial.draft);
   researchUi.date=research.latestDate;
   lab=createLab({state,draft,data,documents,proposals,defaults,feeReference,research,researchUi});
-  flow=createFlow({state,draft,data,historyData,research,feeReference,documents,ui:flowUi,lab,archiveEvidence:evidence});
-  // Copied step fragments never skip the introduction on a new document load.
-  renderShell();resetDemo(false);webTools();
-}catch(error){app.innerHTML=html(`<h1>案例读取失败</h1><p>${esc(error.message)}</p><p>请通过本地服务打开，并刷新页面。</p>`);}
+  const [liveEvidence,feeObservation]=await Promise.all([loadLive(),loadFeeObservation()]);
+  flow=createFlow({liveEvidence,feeObservation,state,draft,data,historyData,research,feeReference,documents,ui:flowUi,lab,archiveEvidence:evidence});
+  // Fresh accounts reset on reload, while bookmarked research routes remain addressable.
+  const requestedView=location.hash.slice(1);
+  initInvestment({navigate,render,getPerformance:amount=>performanceReport(amount,simulate({...state,revision:'unchanged'}),state.day)});initWallet();renderShell();navigate(VIEWS.includes(requestedView)?requestedView:'overview');webTools();
+}catch(error){app.innerHTML=`<h1>${getLanguage()==='en'?'Unable to load the demo':'案例读取失败'}</h1><p>${esc(error.message)}</p><p>${getLanguage()==='en'?'Open this page through the local server and refresh.':'请通过本地服务打开，并刷新页面。'}</p>`;}
+
+for(const kind of ['pointerover','focusin'])document.addEventListener(kind,e=>{
+  const candle=e.target.closest?.('.candle');if(!candle)return;
+  const output=candle.closest('.candle-preview')?.querySelector('.candle-readout');
+  if(output)output.textContent=candle.getAttribute('aria-label');
+});

@@ -1,3 +1,4 @@
+import {eventScenario} from '../dist/scenario-context.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {journeyStart,updateSimulationControls,reviewSelection} from '../dist/experiment.mjs';
@@ -8,16 +9,16 @@ import {scenarioExplanation} from '../dist/scenario-view.mjs';
 import {configureLocale} from '../dist/locales/locale.mjs';
 import {MARKET_PATHS,pathOptions,pathPreview} from '../dist/market-paths.mjs';
 
-test('visible path choices retain target and horizon and replace only the selected market template',()=>{
+test('visible scenarios load their default target while retaining horizon and fees',()=>{
   const current={...marketExample(journeyStart(),'growth'),end:154,coreApr:9.1,reinvest:false};
   const saved=structuredClone(current);
   for(const shape of Object.keys(MARKET_PATHS)){
     const next=updateSimulationControls(current,{shape});
-    assert.equal(next.end,154);assert.equal(next.years,5);assert.equal(next.marketPath,null);
+    assert.equal(next.end,MARKET_PATHS[shape].end);assert.equal(next.years,5);assert.equal(next.marketPath,null);
     assert.equal(next.coreApr,9.1);assert.equal(next.reinvest,false);
-    assert.equal(simulate(next).final.price,154);
+    assert.equal(simulate(next).final.price,MARKET_PATHS[shape].end);
     const review=reviewSelection(current,{shape});
-    assert.equal(review.state.end,154);assert.equal(review.draft.end,154);
+    assert.equal(review.state.end,MARKET_PATHS[shape].end);assert.equal(review.draft.end,eventScenario(review.state).end);
   }
   assert.deepEqual(current,saved);
   const shorter=updateSimulationControls(current,{years:3});
