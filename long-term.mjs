@@ -1,3 +1,4 @@
+import {dailyBridge} from './daily-prices.mjs';
 import {HORIZONS,reviewYears,reviewDay} from './timeline.mjs';
 import {runLifecycle} from './lifecycle-engine.mjs';
 // Frictionless CLMM illustration. USD, CRCLx, 365-day years; no leverage.
@@ -61,11 +62,11 @@ export function validate(input={}){
   if(!Number.isFinite(o.startPrice)||o.startPrice<=0||o.startPrice>400||!HORIZONS.includes(o.years)||!['cycles2','cycles3','bull','decline','growthStory','pressureStory','stableStory'].includes(o.shape)||!Number.isFinite(o.end)||o.end<1||o.end>400||!['coreApr','activeApr','buyApr'].every(k=>Number.isFinite(o[k])&&o[k]>=0&&o[k]<=120)||(input.apr!==undefined&&input.apr>60)||typeof o.cycles!=='boolean'||typeof o.reinvest!=='boolean'||typeof o.recovery!=='boolean'||!Object.hasOwn(CASES,o.revision)||!reviewYears(o.years).includes(o.eventYear)||!['ranges','inventory'].includes(o.allocation))throw new Error('模拟参数超出允许范围');
   if(o.marketPath!=null){
     const m=o.marketPath,k=m.knots,days=o.years*365;
-    if(!['growth','pressure','divergence'].includes(m.key)||!Number.isInteger(m.fromDay)||m.fromDay<1||m.fromDay>=days||!Array.isArray(k)||k.length<3||k.length>100||k[0]?.day!==0||k[0]?.price!==o.startPrice||k.at(-1)?.day!==days||!k.some(x=>x.day===m.fromDay)||k.some((x,i)=>!Number.isInteger(x.day)||!Number.isFinite(x.price)||x.price<=0||x.price>400||(i>0&&x.day<=k[i-1].day)))throw new Error('Invalid example market path');
+    if(!['growth','pressure','divergence'].includes(m.key)||!Number.isInteger(m.fromDay)||m.fromDay<1||m.fromDay>=days||!Array.isArray(k)||k.length<3||k.length>1826||k[0]?.day!==0||k[0]?.price!==o.startPrice||k.at(-1)?.day!==days||!k.some(x=>x.day===m.fromDay)||k.some((x,i)=>!Number.isInteger(x.day)||!Number.isFinite(x.price)||x.price<=0||x.price>400||(i>0&&x.day<=k[i-1].day)))throw new Error('Invalid example market path');
   }
   return o;
 }
-export function pathKnots(input={}){const o=validate(input),days=o.years*365;let values;
+function anchorKnots(input={}){const o=validate(input),days=o.years*365;let values;
   if(o.marketPath)return o.marketPath.knots.map((x,i)=>({...x,price:i===o.marketPath.knots.length-1?o.end:x.price}));
   if(o.shape.endsWith('Story')){
     const day=reviewDay(o.eventYear),after={growthStory:[145,130,215,190,o.end],pressureStory:[75,50,32,40,o.end],stableStory:[165,52,173,52,o.end]}[o.shape];
@@ -75,5 +76,6 @@ export function pathKnots(input={}){const o=validate(input),days=o.years*365;let
   else if(o.shape==='decline')values=[o.startPrice,100,75,65,48,o.end];
   else {values=[o.startPrice];for(let i=0;i<(o.shape==='cycles2'?2:3);i++)values.push(165+i*8,52);values.push(o.end);}
   return values.map((price,i)=>({day:Math.round(days*i/(values.length-1)),price}));}
-export function priceAt(knots,day){if(day<=0)return knots[0].price;for(let i=1;i<knots.length;i++)if(day<=knots[i].day){const a=knots[i-1],b=knots[i];return a.price+(b.price-a.price)*(day-a.day)/(b.day-a.day);}return knots.at(-1).price;}
+export function pathKnots(input={}){const knots=anchorKnots(input);return input.priceModel==='daily-v1'&&!input.marketPath?dailyBridge(knots):knots;}
+export function priceAt(knots,day){if(day<=0)return knots[0].price;if(Number.isInteger(day)&&knots[day]?.day===day)return knots[day].price;for(let i=1;i<knots.length;i++)if(day<=knots[i].day){const a=knots[i-1],b=knots[i];return a.price+(b.price-a.price)*(day-a.day)/(b.day-a.day);}return knots.at(-1).price;}
 export function simulate(input={}){return runLifecycle(validate(input),{inventory,valuation,CASES,BASE,CAPITAL,allocationPlan,pathKnots,priceAt});}

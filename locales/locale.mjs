@@ -1,8 +1,10 @@
 // Offline presentation translation. Numbers, state and calculation inputs stay untouched.
-let language='zh', messages={};
+let language='en', messages={};
+// Only an explicit Chinese selection overrides the English entry default.
+export const resolveLanguage=lang=>lang==='zh'?'zh':'en';
 export const getLanguage=()=>language;
-export function configureLocale(catalog,lang){messages=catalog;language=lang==='en'?'en':'zh';}
-export function setLanguage(lang){language=lang==='en'?'en':'zh';}
+export function configureLocale(catalog,lang){messages=catalog;language=resolveLanguage(lang);}
+export function setLanguage(lang){language=resolveLanguage(lang);}
 export function messageTemplate(value){const values=[];const key=value.trim().replace(/\d[\d,]*(?:\.\d+)?/g,n=>`{${values.push(n)-1}}`);return {key,values};}
 export function translate(value){
   if(language!=='en'||!/[\u3400-\u9fff]/u.test(value))return value;

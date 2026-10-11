@@ -19,8 +19,8 @@ const option=(key,label,value)=>`<option value="${key}" ${key===value?'selected'
 const PHASE={sell:'Active LP · 退出带',buy:'Active LP · 积累带',stock:'Active · 持股等待',cash:'Active · 现金等待',paused:'Active LP · 已暂停'};
 const COLORS=['#314deb','#168477','#94a6d5','#b89b66'];
 
-export function chart(series,{price=false,cursor=null,eventDay=null,events=[],bands=null,calendar=false,indexed=false,ariaLabel=null}={}){
-  const w=calendar&&!indexed?600:860,h=price?245:calendar&&!indexed?265:315,pad={l:66,r:24,t:30,b:35};
+export function chart(series,{price=false,cursor=null,eventDay=null,events=[],bands=null,calendar=false,indexed=false,ariaLabel=null,compact=false}={}){
+  const w=calendar&&!indexed?600:860,h=compact?235:price?245:calendar&&!indexed?265:315,pad={l:66,r:24,t:30,b:35};
   const all=series.flatMap(s=>s.points.map(p=>p[s.key]));
   if(bands)all.push(...bands.before,...bands.after);
   let lo=Math.min(...all),hi=Math.max(...all);const extra=Math.max((hi-lo)*.12,price?5:indexed?1:2);lo=Math.max(0,lo-extra);hi+=extra;

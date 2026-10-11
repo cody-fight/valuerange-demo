@@ -1,27 +1,25 @@
 import {getLanguage} from './locales/locale.mjs';
-import {pathKnots} from './long-term.mjs';
-
+import {pathKnots,priceAt} from './long-term.mjs';
+import {candleBuckets} from './daily-prices.mjs';
 const t=(zh,en)=>getLanguage()==='en'?en:zh;
-// One option catalog for the run page, comparison page and legacy readers.
 export const MARKET_PATHS=Object.freeze({
-  cycles3:{label:['三轮上涨与回落','Three rallies and pullbacks'],description:['经历三轮上涨和回落，再到达目标价，观察资金能否反复参与。','Three rallies and pullbacks before the ending target: explore repeated use of the portfolio.']},
-  cycles2:{label:['两轮上涨与回落','Two rallies and pullbacks'],description:['经历两轮上涨和回落，再到达目标价，与三轮波动比较。','Two rallies and pullbacks before the ending target: compare with the three-cycle path.']},
-  bull:{label:['平滑到达目标价','Smooth move to the target'],description:['从起价平滑走向目标价，不加入中途反弹或回撤，观察单边行情。','Move smoothly from the opening price to the target, without intervening reversals.']},
-  growthStory:{label:['盘整后冲高回落','Consolidation, then a rally'],description:['先盘整，随后冲高并回撤，最后到达目标价；这只设定价格，不代表公司估值上调。','Consolidate, then rally with pullbacks before the target. This sets prices, not a higher company valuation.']},
-  pressureStory:{label:['盘整后下探反弹','Consolidation, then a selloff'],description:['先盘整，随后下探并反弹，最后到达目标价；这只设定价格，不代表公司估值下调。','Consolidate, then decline and rebound before the target. This sets prices, not a lower company valuation.']},
-  stableStory:{label:['盘整后反复涨跌','Consolidation, then swings'],description:['前段先盘整，后段多次涨跌，再到达目标价，观察波动发生的时机。','Consolidate first, then swing repeatedly before the target: explore when volatility occurs.']},
-  decline:{label:['逐步回落，再到目标价','Gradual decline, then the target'],description:['途中逐步走低，最后一段回到你设定的目标价；目标越高，末段反弹越明显。','Decline along the way, then reach your target. A higher target creates a stronger final rebound.']}
+  bull:{end:170,label:['波动上涨','Rally with pullbacks'],description:['上涨途中经历回撤，再到达目标价。','Rally with pullbacks along the way to the target.']},
+  cycles2:{end:133,label:['两轮上涨与回落','Two rallies and pullbacks'],description:['经历两次明显上涨和回落，再到达目标价。','Two major rallies and pullbacks before reaching the target.']},
+  decline:{end:30,label:['下跌中反弹','Decline with rebounds'],description:['总体走弱，期间出现反弹。','An overall decline with intervening rebounds.']}
 });
-export const SHAPES=Object.fromEntries(Object.entries(MARKET_PATHS).map(([key,p])=>[key,p.label[0]]));
-export const pathLabel=key=>t(...MARKET_PATHS[key].label);
-const exampleLabel=key=>({growth:t('改善后的价格示例','Post-review growth example'),pressure:t('承压后的价格示例','Post-review pressure example'),divergence:t('估值与价格背离示例','Price/valuation divergence example')})[key];
-export function pathOptions(state){return (state.marketPath?`<option value="example" selected disabled>${exampleLabel(state.marketPath.key)}</option>`:'')+Object.keys(MARKET_PATHS).map(key=>`<option value="${key}" ${!state.marketPath&&state.shape===key?'selected':''}>${pathLabel(key)}</option>`).join('');}
+const legacy={cycles3:['三轮上涨与回落','Three rallies and pullbacks'],growthStory:['盘整后冲高回落','Consolidation, then a rally'],pressureStory:['盘整后下探反弹','Consolidation, then a selloff'],stableStory:['盘整后反复涨跌','Consolidation, then swings']};
+export const SHAPES=Object.fromEntries([...Object.entries(MARKET_PATHS).map(([k,p])=>[k,p.label[0]]),...Object.entries(legacy).map(([k,v])=>[k,v[0]])]);
+export const pathLabel=key=>t(...(MARKET_PATHS[key]?.label??legacy[key]??['历史情景','Archived scenario']));
+export function pathOptions(state){return (state.marketPath?`<option value="example" selected disabled>${t('事件后的模拟走势','Simulated post-event path')}</option>`:!MARKET_PATHS[state.shape]?`<option value="${state.shape}" selected disabled>${pathLabel(state.shape)}</option>`:'')+Object.keys(MARKET_PATHS).map(key=>`<option value="${key}" ${!state.marketPath&&state.shape===key?'selected':''}>${pathLabel(key)} · $${MARKET_PATHS[key].end}</option>`).join('');}
+export function pathCards(state){return `<div class="scenario-path-cards" role="group" aria-label="${t('期间走势','Market scenario')}">${Object.entries(MARKET_PATHS).map(([key,p])=>`<button data-path="${key}" aria-pressed="${!state.marketPath&&state.shape===key}"><span>${pathLabel(key)}</span><strong>$${p.end}</strong><small>${t('默认到期价','Default ending price')}</small></button>`).join('')}</div>`;}
 export function pathPreview(state){
-  // Draw the very same knots used by the simulator, including a loaded example.
-  const knots=pathKnots(state),prices=knots.map(p=>p.price),lo=Math.min(...prices),hi=Math.max(...prices);
-  const x=d=>8+d/(state.years*365)*444,y=p=>70-(p-lo)/Math.max(1,hi-lo)*58;
-  const points=knots.map(p=>`${x(p.day).toFixed(2)},${y(p.price).toFixed(2)}`).join(' ');
-  const title=state.marketPath?exampleLabel(state.marketPath.key):pathLabel(state.shape);
-  const description=state.marketPath?t('保留复核前的价格，展示复核后的配套走势。选择其他走势将替换整段示例。','Prices before review are preserved. Choosing another path replaces this whole example.'):t(...MARKET_PATHS[state.shape].description);
-  return `<div class="market-path-preview"><div class="path-preview-title"><b>${title}</b><span>${t('模拟走势预览','Simulated path preview')}</span></div><svg viewBox="0 0 460 82" preserveAspectRatio="none" role="img" aria-label="${title}"><path d="M8 76H452" fill="none" stroke="#dbe2ef"/><polyline points="${points}" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/><circle cx="452" cy="${y(state.end).toFixed(2)}" r="4" fill="currentColor"/></svg><div class="path-preview-scale"><span>${t('起价','Start')} $${state.startPrice.toFixed(2)}</span><span>${state.years} ${t('年后','year'+(state.years===1?'':'s'))} · $${state.end}</span></div><p>${description}</p></div>`;
+  const knots=pathKnots(state),days=state.years*365;
+  const prices=Array.from({length:days+1},(_,day)=>({day,price:priceAt(knots,day)})),candles=candleBuckets(prices,120);
+  const low=Math.min(...prices.map(p=>p.price)),high=Math.max(...prices.map(p=>p.price));
+  const pad=Math.max(4,(high-low)*.12),lo=Math.max(0,low-pad),hi=high+pad;
+  const x=d=>54+d/days*652,y=p=>268-(p-lo)/(hi-lo)*230;
+  const title=state.marketPath?t('事件后的模拟走势','Simulated post-event path'):pathLabel(state.shape);
+  const custom=!state.marketPath&&MARKET_PATHS[state.shape]&&state.end!==MARKET_PATHS[state.shape].end;
+  const cursor=Math.max(0,Math.min(days,state.day??days));
+  return `<div class="market-path-preview candle-preview"><div class="path-preview-title"><b>${title}</b><span>${t('模拟 K 线','Simulated candles')}</span></div><div class="candle-target"><span>${t('起价','Start')} $${state.startPrice.toFixed(2)}</span><strong>${state.years} ${t('年后','year'+(state.years===1?'':'s'))} · $${state.end}${custom?` <small>${t('已自定义','Custom target')}</small>`:''}</strong></div><div class="candle-scroll"><svg viewBox="0 0 730 310" role="img" aria-label="${title} · ${t('绿涨红跌，模拟每日价格汇总','Green up, red down; aggregated simulated daily prices')}">${Array.from({length:4},(_,i)=>{const p=lo+(hi-lo)*i/3;return `<path d="M54 ${y(p)}H706" stroke="#e3e8f2"/><text x="46" y="${y(p)+4}" text-anchor="end">$${p.toFixed(0)}</text>`;}).join('')}${candles.map(c=>{const up=c.close>=c.open,cx=x((c.from+c.to)/2),w=652/candles.length*.64;const label=`${t('第','Day ')} ${c.from}–${c.to} ${t('天','')} · ${up?t('涨','Up'):t('跌','Down')} · ${t('开','O')} $${c.open.toFixed(2)} · ${t('高','H')} $${c.high.toFixed(2)} · ${t('低','L')} $${c.low.toFixed(2)} · ${t('收','C')} $${c.close.toFixed(2)}`;return `<g class="candle ${up?'up':'down'}" tabindex="0" aria-label="${label}"><title>${label}</title><line x1="${cx}" x2="${cx}" y1="${y(c.high)}" y2="${y(c.low)}"/><rect x="${cx-w/2}" y="${Math.min(y(c.open),y(c.close))}" width="${w}" height="${Math.max(1.2,Math.abs(y(c.close)-y(c.open)))}" rx=".35"/><rect class="candle-hit" x="${cx-652/candles.length/2}" y="32" width="${652/candles.length}" height="242"/></g>`;}).join('')}<line class="candle-cursor" x1="${x(cursor)}" x2="${x(cursor)}" y1="30" y2="274"/><circle cx="${x(cursor)}" cy="${y(prices[cursor].price)}" r="4" fill="#344cec"/>${Array.from({length:state.years+1},(_,i)=>`<text x="${x(i*365)}" y="296" text-anchor="middle">${i} ${t('年',i===1?'year':'years')}</text>`).join('')}</svg></div><p class="candle-mobile-hint">${t('左右滑动查看完整走势','Swipe horizontally to see the full path')}</p><p class="candle-caption">${t('绿涨 · 红跌 · 悬停或聚焦蜡烛查看开高低收；每根汇总约','Green up · Red down · Hover or focus for OHLC; each candle covers about')} ${Math.round(days/candles.length)} ${t('天。构造行情，与收益计算使用同一组每日价格。','days. Constructed prices, shared with the portfolio calculation.')}</p><output class="candle-readout" aria-live="polite">${t('指向蜡烛，查看这段时间的价格变化','Point to a candle to inspect its price movement')}</output></div>`;
 }

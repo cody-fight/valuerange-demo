@@ -1074,7 +1074,7 @@
   "看看未来如何使用": "Explore future use cases",
   "回到长期策略推演 ↗": "Back to the long-term simulation ↗",
   "CIRCLE 单一案例 · CRCL 为原股，CRCLx 为链上代币化敞口；不包含发行者的股东权利差异模拟。历史实盘、历史 AI 输出与假设推演分别标注。": "Single CIRCLE case · CRCL is the underlying equity; CRCLx is tokenized on-chain exposure. Differences in issuer-specific shareholder rights are not modeled. Live history, historical AI output and hypothetical simulations are labeled separately.",
-  "恢复默认案例，返回首页；保留当前语言": "Restore the default demo and return to the overview; keep the current language",
+  "恢复默认案例，返回英文首页": "Restore the default demo and return to the English homepage",
   "查看默认配置": "View default settings",
   "本地证据副本 · {0}-{1}-{2}": "Local evidence copy · {0}-{1}-{2}",
   "关闭文档": "Close document",
@@ -1148,5 +1148,8 @@
   "盘整后下探反弹": "Consolidation, then a selloff",
   "盘整后反复涨跌": "Consolidation, then swings",
   "逐步回落，再到目标价": "Gradual decline, then the target",
-  "事件时股价 ${0}：高于乐观上界 → 高于乐观上界": "Price at review ${0}: above the bull boundary → above the bull boundary"
+  "事件时股价 ${0}：高于乐观上界 → 高于乐观上界": "Price at review ${0}: above the bull boundary → above the bull boundary",
+  "AI 与策略": "AI & strategy",
+  "该批次没有生成新 LP 区间、没有修订正式估值、没有执行交易。八月历史 AI 提案与本次日常监控分属不同日期。": "This run generated no new LP ranges, revised no official valuation and executed no trades. The archived AI proposal from August and this daily monitoring run occurred on different dates.",
+  "查看归档日报 · {0}-{1}-{2} ↗": "Read archived daily summary · {0}-{1}-{2} ↗"
 }

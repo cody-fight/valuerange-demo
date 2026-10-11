@@ -1,4 +1,5 @@
 import {HORIZONS,reviewYears,reviewLabel} from './timeline.mjs';
+import {getLanguage,translate} from './locales/locale.mjs';
 import {feeDecisionBridge} from './journey-view.mjs';
 import {feeControls,feeLabel,feeContributionTable} from './fee-view.mjs';
 import {factorBridge} from './research-view.mjs';
@@ -21,9 +22,12 @@ export const STORIES={
 };
 export function valuationShift(key,price){
   const before=valuation().map(n=>n.value),after=valuation(key).map(n=>n.value),max=Math.max(...before,...after,price)*1.08;
+  const position=getLanguage()==='en'
+    ? 'Price at event '+money(price)+': '+translate(pricePosition(price).label)+' → '+translate(pricePosition(price,key).label)
+    : '事件时股价 '+money(price)+'：'+pricePosition(price).label+' → '+pricePosition(price,key).label;
   const x=v=>110+v/max*650,colors=['#e4e9f7','#cddaff','#d8ece1'];
   const row=(nodes,y,title)=>'<text x="2" y="'+(y+22)+'" class="band-title">'+title+'</text>'+[0,1,2].map(i=>'<rect x="'+x(nodes[i])+'" y="'+y+'" width="'+(x(nodes[i+1])-x(nodes[i]))+'" height="34" rx="3" fill="'+colors[i]+'"/>').join('')+nodes.map((v,i)=>'<text x="'+x(v)+'" y="'+(y+49+i%2*14)+'" text-anchor="middle">'+money(v,2)+'</text>').join('');
-  return '<div class="valuation-shift chart-scroll"><svg viewBox="0 0 800 220" role="img" aria-label="同一价格尺度上的原估值与新估值"><title>原估值和新估值，共用价格刻度</title>'+row(before,20,'原估值')+row(after,113,key==='unchanged'?'复核后':'修正后')+'<line x1="'+x(price)+'" x2="'+x(price)+'" y1="10" y2="177" stroke="#596b9a" stroke-dasharray="4 4"/><text x="110" y="210">事件时股价 '+money(price)+'：'+pricePosition(price).label+' → '+pricePosition(price,key).label+'</text></svg></div><div class="valuation-deltas">'+['悲观','中性','乐观'].map((name,i)=>'<div><span>'+name+'区间</span><small>'+range(before.slice(i,i+2))+'</small><b>→ '+range(after.slice(i,i+2))+'</b></div>').join('')+'</div><p class="hint">同一价格刻度，色带宽度表示价格范围，不表示情景概率。修正的是经营假设与估值边界，股价不会因此在模拟中瞬间跳涨。</p>';
+  return '<div class="valuation-shift chart-scroll"><svg viewBox="0 0 800 220" role="img" aria-label="同一价格尺度上的原估值与新估值"><title>原估值和新估值，共用价格刻度</title>'+row(before,20,'原估值')+row(after,113,key==='unchanged'?'复核后':'修正后')+'<line x1="'+x(price)+'" x2="'+x(price)+'" y1="10" y2="177" stroke="#596b9a" stroke-dasharray="4 4"/><text x="110" y="210">'+position+'</text></svg></div><div class="valuation-deltas">'+['悲观','中性','乐观'].map((name,i)=>'<div><span>'+name+'区间</span><small>'+range(before.slice(i,i+2))+'</small><b>→ '+range(after.slice(i,i+2))+'</b></div>').join('')+'</div><p class="hint">同一价格刻度，色带宽度表示价格范围，不表示情景概率。修正的是经营假设与估值边界，股价不会因此在模拟中瞬间跳涨。</p>';
 }
 function compactAllocation(p,title){
   return '<div class="allocation-compare"><b>'+title+'</b><div class="allocation-bar">'+p.sleeves.map((v,i)=>'<span style="width:'+v/p.principal*100+'%;background:'+COLORS[i]+'"></span>').join('')+'</div><div class="allocation-key">'+['Core LP','Active LP / 等待库存','直接持股','独立现金'].map((name,i)=>'<span><i class="allocation-dot" style="background:'+COLORS[i]+'"></i>'+name+'<b>'+(p.sleeves[i]/p.principal*100).toFixed(1)+'%</b></span>').join('')+'</div></div>';

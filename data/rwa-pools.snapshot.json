@@ -1,0 +1,728 @@
+{
+  "schemaVersion": 1,
+  "fetchedAt": "2026-10-11T03:45:44.068Z",
+  "source": "https://raydium.io/liquidity-pools/?type=RWA",
+  "apiUrl": "https://api-v3.raydium.io/pools/info/ids?ids=G39wywquKbHK8F2wZZZFX3fcsyG91VCCbbr6WEVp5axy,49iMatQtoyabsYAQc8GafVq6aeBFVDxSRH44oiatyyw6,8aDaBQkTrS6HVMjyc6EZebgdiaXhLYGriDWKWWp1NpFF,CKwJZwm7oj3nu4653N1EpDrqXbXAYXoPFiPeEnLouF8y,6truu3rZuiB9rKQg4VYC3Dt3QwV7DgwGqXrYUcrvnDDE,GMjGLWzvK75LPetrgAmdeXnvxc4fUuQPwJxeQqTDU1aG",
+  "selection": [
+    {
+      "symbol": "CRCLx",
+      "mint": "XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1",
+      "id": "G39wywquKbHK8F2wZZZFX3fcsyG91VCCbbr6WEVp5axy",
+      "selection": "existing-project-pool"
+    },
+    {
+      "symbol": "NVDAx",
+      "mint": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+      "id": "49iMatQtoyabsYAQc8GafVq6aeBFVDxSRH44oiatyyw6",
+      "selection": "highest-tvl-usdc-at-selection"
+    },
+    {
+      "symbol": "TSLAx",
+      "mint": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+      "id": "8aDaBQkTrS6HVMjyc6EZebgdiaXhLYGriDWKWWp1NpFF",
+      "selection": "highest-tvl-usdc-at-selection"
+    },
+    {
+      "symbol": "AAPLx",
+      "mint": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+      "id": "CKwJZwm7oj3nu4653N1EpDrqXbXAYXoPFiPeEnLouF8y",
+      "selection": "highest-tvl-usdc-at-selection"
+    },
+    {
+      "symbol": "SPYx",
+      "mint": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+      "id": "6truu3rZuiB9rKQg4VYC3Dt3QwV7DgwGqXrYUcrvnDDE",
+      "selection": "highest-tvl-usdc-at-selection"
+    },
+    {
+      "symbol": "QQQx",
+      "mint": "Xs8S1uUs1zvS2p7iwtsG3b6fkhpvmwz4GYU3gWAmWHZ",
+      "id": "GMjGLWzvK75LPetrgAmdeXnvxc4fUuQPwJxeQqTDU1aG",
+      "selection": "highest-tvl-usdc-at-selection"
+    }
+  ],
+  "notes": "CRCLx uses the existing project pool. Other USDC pairs were selected by highest TVL from the RWA list on 2026-10-11; pool IDs remain pinned. day.feeApr is historical annualized pool fee APR, not a vault forecast.",
+  "response": {
+    "id": "eff212b5-5713-4575-b0b7-570e1cb3506f",
+    "success": true,
+    "data": [
+      {
+        "type": "Concentrated",
+        "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+        "id": "49iMatQtoyabsYAQc8GafVq6aeBFVDxSRH44oiatyyw6",
+        "mintA": {
+          "chainId": 101,
+          "address": "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh",
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "logoURI": "https://img-v1.raydium.io/icon/Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh.png",
+          "symbol": "NVDAx",
+          "name": "NVIDIA xStock",
+          "decimals": 8,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {
+            "tips": {
+              "text": "This is a Backed tokenized equity.",
+              "link": "https://assets.backed.fi/products",
+              "icon": "https://img-v1.raydium.io/share/backed.png"
+            }
+          }
+        },
+        "mintB": {
+          "chainId": 101,
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "logoURI": "https://img-v1.raydium.io/icon/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v.png",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "decimals": 6,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {}
+        },
+        "rewardDefaultPoolInfos": "Clmm",
+        "rewardDefaultInfos": [],
+        "price": 230.5348737130489,
+        "mintAmountA": 6598.64989178,
+        "mintAmountB": 1765491.032694,
+        "feeRate": 0.001,
+        "openTime": "0",
+        "tvl": 3286709.95,
+        "day": {
+          "volume": 1105173.6478355161,
+          "volumeQuote": 1105829.9132400893,
+          "volumeFee": 1105.1849757008995,
+          "apr": 12.27,
+          "feeApr": 12.27,
+          "priceMin": 208.3333333333333,
+          "priceMax": 231.30841121495328,
+          "rewardApr": []
+        },
+        "week": {
+          "volume": 18537339.319796346,
+          "volumeQuote": 18548467.74367876,
+          "volumeFee": 18537.454158134788,
+          "apr": 16.92,
+          "feeApr": 16.92,
+          "priceMin": 208.3333333333333,
+          "priceMax": 263.6363636363636,
+          "rewardApr": []
+        },
+        "month": {
+          "volume": 124327708.41000873,
+          "volumeQuote": 124403692.58167394,
+          "volumeFee": 124328.54075903274,
+          "apr": 45.39,
+          "feeApr": 45.39,
+          "priceMin": 190.9090909090909,
+          "priceMax": 263.6363636363636,
+          "rewardApr": []
+        },
+        "pooltype": [
+          "RWA",
+          "Clmm"
+        ],
+        "farmUpcomingCount": 0,
+        "farmOngoingCount": 0,
+        "farmFinishedCount": 0,
+        "config": {
+          "id": "DrdecJVzkaRsf1TQu1g7iFncaokikVTHqpzPjenjRySY",
+          "index": 10,
+          "protocolFeeRate": 120000,
+          "tradeFeeRate": 1000,
+          "tickSpacing": 10,
+          "fundFeeRate": 40000,
+          "defaultRange": 0.1,
+          "defaultRangePoint": [
+            0.01,
+            0.05,
+            0.1,
+            0.2,
+            0.5
+          ]
+        },
+        "burnPercent": 0,
+        "launchMigratePool": false,
+        "tips": [
+          {
+            "text": "Providing xStocks earns xPoints.",
+            "link": "https://defi.xstocks.fi/points",
+            "icon": "https://img-v1.raydium.io/share/xstocks-pool-tips.png"
+          }
+        ],
+        "feeOn": "Both",
+        "hasDynamicFee": false
+      },
+      {
+        "type": "Concentrated",
+        "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+        "id": "6truu3rZuiB9rKQg4VYC3Dt3QwV7DgwGqXrYUcrvnDDE",
+        "mintA": {
+          "chainId": 101,
+          "address": "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W",
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "logoURI": "https://img-v1.raydium.io/icon/XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W.png",
+          "symbol": "SPYx",
+          "name": "SP500 xStock",
+          "decimals": 8,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {
+            "tips": {
+              "text": "This is a Backed tokenized equity.",
+              "link": "https://assets.backed.fi/products",
+              "icon": "https://img-v1.raydium.io/share/backed.png"
+            }
+          }
+        },
+        "mintB": {
+          "chainId": 101,
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "logoURI": "https://img-v1.raydium.io/icon/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v.png",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "decimals": 6,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {}
+        },
+        "rewardDefaultPoolInfos": "Clmm",
+        "rewardDefaultInfos": [],
+        "price": 783.7083559245227,
+        "mintAmountA": 921.48173225,
+        "mintAmountB": 1479393.498675,
+        "feeRate": 0.001,
+        "openTime": "0",
+        "tvl": 2201576.17,
+        "day": {
+          "volume": 31354.217432295867,
+          "volumeQuote": 31379.476081205317,
+          "volumeFee": 31.354769856644467,
+          "apr": 0.52,
+          "feeApr": 0.52,
+          "priceMin": 781.3664596273292,
+          "priceMax": 784.9117846596915,
+          "rewardApr": []
+        },
+        "week": {
+          "volume": 2098184.7949841525,
+          "volumeQuote": 2099511.682998989,
+          "volumeFee": 2098.1967728776435,
+          "apr": 2.86,
+          "feeApr": 2.86,
+          "priceMin": 750,
+          "priceMax": 833.3333333333334,
+          "rewardApr": []
+        },
+        "month": {
+          "volume": 82222632.19813123,
+          "volumeQuote": 82269570.339872,
+          "volumeFee": 82223.69505927512,
+          "apr": 44.82,
+          "feeApr": 44.82,
+          "priceMin": 690.9090909090909,
+          "priceMax": 833.3333333333334,
+          "rewardApr": []
+        },
+        "pooltype": [
+          "RWA",
+          "Clmm"
+        ],
+        "farmUpcomingCount": 0,
+        "farmOngoingCount": 0,
+        "farmFinishedCount": 0,
+        "config": {
+          "id": "DrdecJVzkaRsf1TQu1g7iFncaokikVTHqpzPjenjRySY",
+          "index": 10,
+          "protocolFeeRate": 120000,
+          "tradeFeeRate": 1000,
+          "tickSpacing": 10,
+          "fundFeeRate": 40000,
+          "defaultRange": 0.1,
+          "defaultRangePoint": [
+            0.01,
+            0.05,
+            0.1,
+            0.2,
+            0.5
+          ]
+        },
+        "burnPercent": 0,
+        "launchMigratePool": false,
+        "tips": [
+          {
+            "text": "Providing xStocks earns xPoints.",
+            "link": "https://defi.xstocks.fi/points",
+            "icon": "https://img-v1.raydium.io/share/xstocks-pool-tips.png"
+          }
+        ],
+        "feeOn": "Both",
+        "hasDynamicFee": false
+      },
+      {
+        "type": "Concentrated",
+        "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+        "id": "8aDaBQkTrS6HVMjyc6EZebgdiaXhLYGriDWKWWp1NpFF",
+        "mintA": {
+          "chainId": 101,
+          "address": "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB",
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "logoURI": "https://img-v1.raydium.io/icon/XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB.png",
+          "symbol": "TSLAx",
+          "name": "Tesla xStock",
+          "decimals": 8,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {
+            "tips": {
+              "text": "This is a Backed tokenized equity.",
+              "link": "https://assets.backed.fi/products",
+              "icon": "https://img-v1.raydium.io/share/backed.png"
+            }
+          }
+        },
+        "mintB": {
+          "chainId": 101,
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "logoURI": "https://img-v1.raydium.io/icon/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v.png",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "decimals": 6,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {}
+        },
+        "rewardDefaultPoolInfos": "Clmm",
+        "rewardDefaultInfos": [],
+        "price": 382.15977844930495,
+        "mintAmountA": 3399.89701599,
+        "mintAmountB": 1033174.649375,
+        "feeRate": 0.001,
+        "openTime": "0",
+        "tvl": 2332478.54,
+        "day": {
+          "volume": 180643.69859966845,
+          "volumeQuote": 180743.52318011445,
+          "volumeFee": 180.6462809160767,
+          "apr": 2.83,
+          "feeApr": 2.83,
+          "priceMin": 350,
+          "priceMax": 383.6433581447735,
+          "rewardApr": []
+        },
+        "week": {
+          "volume": 7806727.3986786865,
+          "volumeQuote": 7811627.83340965,
+          "volumeFee": 7806.798413396641,
+          "apr": 10.04,
+          "feeApr": 10.04,
+          "priceMin": 336.3636363636364,
+          "priceMax": 393.3333333333333,
+          "rewardApr": []
+        },
+        "month": {
+          "volume": 30799781.257077016,
+          "volumeQuote": 30823616.507108994,
+          "volumeFee": 30800.048518312655,
+          "apr": 15.85,
+          "feeApr": 15.85,
+          "priceMin": 316.6666666666667,
+          "priceMax": 400,
+          "rewardApr": []
+        },
+        "pooltype": [
+          "RWA",
+          "Clmm"
+        ],
+        "farmUpcomingCount": 0,
+        "farmOngoingCount": 0,
+        "farmFinishedCount": 0,
+        "config": {
+          "id": "DrdecJVzkaRsf1TQu1g7iFncaokikVTHqpzPjenjRySY",
+          "index": 10,
+          "protocolFeeRate": 120000,
+          "tradeFeeRate": 1000,
+          "tickSpacing": 10,
+          "fundFeeRate": 40000,
+          "defaultRange": 0.1,
+          "defaultRangePoint": [
+            0.01,
+            0.05,
+            0.1,
+            0.2,
+            0.5
+          ]
+        },
+        "burnPercent": 0.01,
+        "launchMigratePool": false,
+        "tips": [
+          {
+            "text": "Providing xStocks earns xPoints.",
+            "link": "https://defi.xstocks.fi/points",
+            "icon": "https://img-v1.raydium.io/share/xstocks-pool-tips.png"
+          }
+        ],
+        "feeOn": "Both",
+        "hasDynamicFee": false
+      },
+      {
+        "type": "Concentrated",
+        "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+        "id": "CKwJZwm7oj3nu4653N1EpDrqXbXAYXoPFiPeEnLouF8y",
+        "mintA": {
+          "chainId": 101,
+          "address": "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp",
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "logoURI": "https://img-v1.raydium.io/icon/XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp.png",
+          "symbol": "AAPLx",
+          "name": "Apple xStock",
+          "decimals": 8,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {
+            "tips": {
+              "text": "This is a Backed tokenized equity.",
+              "link": "https://assets.backed.fi/products",
+              "icon": "https://img-v1.raydium.io/share/backed.png"
+            }
+          }
+        },
+        "mintB": {
+          "chainId": 101,
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "logoURI": "https://img-v1.raydium.io/icon/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v.png",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "decimals": 6,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {}
+        },
+        "rewardDefaultPoolInfos": "Clmm",
+        "rewardDefaultInfos": [],
+        "price": 337.2915597756415,
+        "mintAmountA": 286.61519583,
+        "mintAmountB": 241013.682188,
+        "feeRate": 0.0025,
+        "openTime": "0",
+        "tvl": 337686.57,
+        "day": {
+          "volume": 29281.4247530665,
+          "volumeQuote": 29320.066405961574,
+          "volumeFee": 73.20418801748325,
+          "apr": 7.91,
+          "feeApr": 7.91,
+          "priceMin": 336.4040944815727,
+          "priceMax": 338.53200661687305,
+          "rewardApr": []
+        },
+        "week": {
+          "volume": 1029910.5775760937,
+          "volumeQuote": 1031549.5018019665,
+          "volumeFee": 2574.7860932377184,
+          "apr": 22.87,
+          "feeApr": 22.87,
+          "priceMin": 325,
+          "priceMax": 343.11172000243204,
+          "rewardApr": []
+        },
+        "month": {
+          "volume": 10041524.471566042,
+          "volumeQuote": 10057140.796952004,
+          "volumeFee": 25103.92801373443,
+          "apr": 89.21,
+          "feeApr": 89.21,
+          "priceMin": 308.3333333333333,
+          "priceMax": 346.06382164368966,
+          "rewardApr": []
+        },
+        "pooltype": [
+          "RWA",
+          "Clmm"
+        ],
+        "farmUpcomingCount": 0,
+        "farmOngoingCount": 0,
+        "farmFinishedCount": 0,
+        "config": {
+          "id": "E64NGkDLLCdQ2yFNPcavaKptrEgmiQaNykUuLC1Qgwyp",
+          "index": 1,
+          "protocolFeeRate": 120000,
+          "tradeFeeRate": 2500,
+          "tickSpacing": 60,
+          "fundFeeRate": 40000,
+          "defaultRange": 0.1,
+          "defaultRangePoint": [
+            0.01,
+            0.05,
+            0.1,
+            0.2,
+            0.5
+          ]
+        },
+        "burnPercent": 0,
+        "launchMigratePool": false,
+        "tips": [
+          {
+            "text": "Providing xStocks earns xPoints.",
+            "link": "https://defi.xstocks.fi/points",
+            "icon": "https://img-v1.raydium.io/share/xstocks-pool-tips.png"
+          }
+        ],
+        "feeOn": "Both",
+        "hasDynamicFee": false
+      },
+      {
+        "type": "Concentrated",
+        "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+        "id": "G39wywquKbHK8F2wZZZFX3fcsyG91VCCbbr6WEVp5axy",
+        "mintA": {
+          "chainId": 101,
+          "address": "XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1",
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "logoURI": "https://img-v1.raydium.io/icon/XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1.png",
+          "symbol": "CRCLx",
+          "name": "Circle xStock",
+          "decimals": 8,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {
+            "tips": {
+              "text": "This is a Backed tokenized equity.",
+              "link": "https://assets.backed.fi/products",
+              "icon": "https://img-v1.raydium.io/share/backed.png"
+            }
+          }
+        },
+        "mintB": {
+          "chainId": 101,
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "logoURI": "https://img-v1.raydium.io/icon/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v.png",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "decimals": 6,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {}
+        },
+        "rewardDefaultPoolInfos": "Clmm",
+        "rewardDefaultInfos": [
+          {
+            "mint": {
+              "chainId": 101,
+              "address": "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R",
+              "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+              "logoURI": "https://img-v1.raydium.io/icon/4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R.png",
+              "symbol": "RAY",
+              "name": "Raydium",
+              "decimals": 6,
+              "tags": [],
+              "extensions": {}
+            },
+            "perSecond": "2067",
+            "startTime": "1751306400",
+            "endTime": "1753725600"
+          }
+        ],
+        "price": 85.88936082989677,
+        "mintAmountA": 5225.7238092,
+        "mintAmountB": 665195.727367,
+        "feeRate": 0.0025,
+        "openTime": "0",
+        "tvl": 1113382.55,
+        "day": {
+          "volume": 15392.959784430843,
+          "volumeQuote": 15412.18178176625,
+          "volumeFee": 38.482433441129096,
+          "apr": 1.26,
+          "feeApr": 1.26,
+          "priceMin": 84.86459712717458,
+          "priceMax": 86.09761052300351,
+          "rewardApr": [
+            0
+          ]
+        },
+        "week": {
+          "volume": 3650921.016912526,
+          "volumeQuote": 3656499.9591409755,
+          "volumeFee": 9127.305713994469,
+          "apr": 24.59,
+          "feeApr": 24.59,
+          "priceMin": 78.95998483532648,
+          "priceMax": 87.45436310208547,
+          "rewardApr": [
+            0
+          ]
+        },
+        "month": {
+          "volume": 27316027.977811366,
+          "volumeQuote": 27364952.198882,
+          "volumeFee": 68290.09617884071,
+          "apr": 73.6,
+          "feeApr": 73.6,
+          "priceMin": 78.3835208596179,
+          "priceMax": 99.70397017445438,
+          "rewardApr": [
+            0
+          ]
+        },
+        "pooltype": [
+          "RWA",
+          "Clmm"
+        ],
+        "farmUpcomingCount": 0,
+        "farmOngoingCount": 0,
+        "farmFinishedCount": 1,
+        "config": {
+          "id": "E64NGkDLLCdQ2yFNPcavaKptrEgmiQaNykUuLC1Qgwyp",
+          "index": 1,
+          "protocolFeeRate": 120000,
+          "tradeFeeRate": 2500,
+          "tickSpacing": 60,
+          "fundFeeRate": 40000,
+          "defaultRange": 0.1,
+          "defaultRangePoint": [
+            0.01,
+            0.05,
+            0.1,
+            0.2,
+            0.5
+          ]
+        },
+        "burnPercent": 0,
+        "launchMigratePool": false,
+        "tips": [
+          {
+            "text": "Providing xStocks earns xPoints.",
+            "link": "https://defi.xstocks.fi/points",
+            "icon": "https://img-v1.raydium.io/share/xstocks-pool-tips.png"
+          }
+        ],
+        "feeOn": "Both",
+        "hasDynamicFee": false
+      },
+      {
+        "type": "Concentrated",
+        "programId": "CAMMCzo5YL8w4VFF8KVHrK22GGUsp5VTaW7grrKgrWqK",
+        "id": "GMjGLWzvK75LPetrgAmdeXnvxc4fUuQPwJxeQqTDU1aG",
+        "mintA": {
+          "chainId": 101,
+          "address": "Xs8S1uUs1zvS2p7iwtsG3b6fkhpvmwz4GYU3gWAmWHZ",
+          "programId": "TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb",
+          "logoURI": "https://img-v1.raydium.io/icon/Xs8S1uUs1zvS2p7iwtsG3b6fkhpvmwz4GYU3gWAmWHZ.png",
+          "symbol": "QQQx",
+          "name": "Nasdaq xStock",
+          "decimals": 8,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {
+            "tips": {
+              "text": "This is a Backed tokenized equity.",
+              "link": "https://assets.backed.fi/products",
+              "icon": "https://img-v1.raydium.io/share/backed.png"
+            }
+          }
+        },
+        "mintB": {
+          "chainId": 101,
+          "address": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+          "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+          "logoURI": "https://img-v1.raydium.io/icon/EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v.png",
+          "symbol": "USDC",
+          "name": "USD Coin",
+          "decimals": 6,
+          "tags": [
+            "hasFreeze"
+          ],
+          "extensions": {}
+        },
+        "rewardDefaultPoolInfos": "Clmm",
+        "rewardDefaultInfos": [],
+        "price": 753.6251598160178,
+        "mintAmountA": 944.15118389,
+        "mintAmountB": 1503574.674595,
+        "feeRate": 0.001,
+        "openTime": "0",
+        "tvl": 2215110.76,
+        "day": {
+          "volume": 87579.07586950084,
+          "volumeQuote": 87628.96197527905,
+          "volumeFee": 87.58126600921054,
+          "apr": 1.44,
+          "feeApr": 1.44,
+          "priceMin": 752.4887698979538,
+          "priceMax": 765.9090909090909,
+          "rewardApr": []
+        },
+        "week": {
+          "volume": 2202014.4956946624,
+          "volumeQuote": 2203347.4242653707,
+          "volumeFee": 2202.062612624046,
+          "apr": 2.98,
+          "feeApr": 2.98,
+          "priceMin": 681.8181818181819,
+          "priceMax": 793.3333333333334,
+          "rewardApr": []
+        },
+        "month": {
+          "volume": 19146454.202269986,
+          "volumeQuote": 19157976.473348003,
+          "volumeFee": 19146.89618123823,
+          "apr": 10.37,
+          "feeApr": 10.37,
+          "priceMin": 636.3636363636364,
+          "priceMax": 793.3333333333334,
+          "rewardApr": []
+        },
+        "pooltype": [
+          "RWA",
+          "Clmm"
+        ],
+        "farmUpcomingCount": 0,
+        "farmOngoingCount": 0,
+        "farmFinishedCount": 0,
+        "config": {
+          "id": "DrdecJVzkaRsf1TQu1g7iFncaokikVTHqpzPjenjRySY",
+          "index": 10,
+          "protocolFeeRate": 120000,
+          "tradeFeeRate": 1000,
+          "tickSpacing": 10,
+          "fundFeeRate": 40000,
+          "defaultRange": 0.1,
+          "defaultRangePoint": [
+            0.01,
+            0.05,
+            0.1,
+            0.2,
+            0.5
+          ]
+        },
+        "burnPercent": 0,
+        "launchMigratePool": false,
+        "tips": [
+          {
+            "text": "Providing xStocks earns xPoints.",
+            "link": "https://defi.xstocks.fi/points",
+            "icon": "https://img-v1.raydium.io/share/xstocks-pool-tips.png"
+          }
+        ],
+        "feeOn": "Both",
+        "hasDynamicFee": false
+      }
+    ]
+  }
+}

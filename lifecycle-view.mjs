@@ -11,7 +11,7 @@ export function observedPriceChart(r,day){
   const p=r.points[day],paint=valuationPaint(p.price,p.valuationCase),changed=r.options.revision!=='unchanged';
   return `<div class="observed-price"><div class="observed-price-heading"><div><small>${t('观察此刻','OBSERVING NOW')} · ${period(day)}</small><b>${usd(p.price,2)} <span style="color:${paint.color}">${zone(p)}</span></b></div><small>${t(`${r.options.years} 年后目标价`,`Target after ${r.options.years} ${r.options.years===1?'year':'years'}`)} ${usd(r.options.end)}</small></div>${chart([{points:r.points,key:'price',name:t('模拟股价','Simulated share price'),color:'#506890'}],{price:true,cursor:day,eventDay:changed?r.eventDay:null,events:r.events.filter(e=>e.day<=day),bands:{before:valuation().map(n=>n.value),after:valuation(r.options.revision).map(n=>n.value)}})}<small class="event-dot-key">${t('蓝点：积累完成 · 绿点：兑现完成；仅标出观察时点前的动作','Blue: accumulation completed · Green: exit completed. Only actions up to the cursor are marked.')}</small></div>`;
 }
-export function lifecycleStatus(p){
+export function lifecycleSummary(p){
   const c=p.positions.core,a=p.positions.active;
   let title,body,next;
   if(p.policy==='defensive'){
@@ -38,7 +38,10 @@ export function lifecycleStatus(p){
     next=p.reentry?t('回落至 $75，用储备之外的可用现金开启 Core 积累','At a pullback to $75, start Core accumulation with available cash above the reserve'):t('保持当前资产，等待新的策略复核','Keep current assets and wait for a new strategy review');
     if(p.reentry&&p.activeStage===2&&p.price<130)next+=t('；$130 仅可用剩余股票开启第二段 Active','; at $130, stage 2 may use remaining eligible shares only');
   }
-  const last=p.lastAction;
+  return {title,body,next};
+}
+export function lifecycleStatus(p){
+  const {title,body,next}=lifecycleSummary(p),last=p.lastAction;
   return `<section class="lifecycle-status"><div class="row"><span class="eyebrow">${t('策略正在做什么','WHAT THE STRATEGY IS DOING')}</span><button class="text-button" data-detail="lifecycle">${t('规则与触发条件','Rules & triggers')} ↗</button></div><h3>${title}</h3><p>${body}</p><div class="lifecycle-next"><b>${t('下一条件','Next condition')}</b><span>${next}</span></div>${last?`<details class="lifecycle-last"><summary>${t('最近动作','Latest action')} · ${period(last.day)} · ${usd(last.price,2)}</summary><p>${getLanguage()==='en'?last.textEn:last.text}</p></details>`:''}</section>`;
 }
 export function currentHoldings(p){
@@ -57,4 +60,9 @@ export function lifecycleRules(){
     [t('基本面修正','Fundamental revision'),t('在设定年份复核','Review in the selected year'),t('先关闭旧仓，再应用修正配置；原循环暂停，按新区间管理和等待','Close old positions, apply the revised allocation, and pause the original cycle; manage or wait under the revised ranges')]
   ];
   return `<p class="model-scope">${t('生命周期 v1 · 预先设定的模拟规则，不是新的实时 AI 提案，也不是实盘交易记录。','Lifecycle v1 · Preset simulation rules, not a new live AI proposal or a live trade record.')}</p><div class="table-wrap"><table><thead><tr><th>${t('阶段','Stage')}</th><th>${t('示例条件','Illustrative condition')}</th><th>${t('资金与动作','Funding & action')}</th></tr></thead><tbody>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</tbody></table></div><p>${t('同一时刻最多一个 Core 和一个 Active。LP 区间内仍可双向转换；只有移除流动性后，所得股票或现金才停止在旧区间反向转换。价格越过估值最外边界提示重新审视，不额外自动买卖。','At most one Core and one Active exist at a time. Conversion remains two-way within a range; removing liquidity stops reverse conversion in that old range. Crossing the outer valuation bounds calls for review, not an additional automatic trade.')}</p><p>${t('防守复核将股票控制在本金的 10% 以内；已有持股更少时不补买。常规重启只用现有股币，不凭空补资产。年度费用复投和明确的基本面换仓可按当时价格模拟股币兑换，并记录前后库存；没有新增资金、杠杆或摩擦成本。','A defensive review caps shares at 10% of principal and never buys up to the cap. Routine redeployment uses existing assets. Annual reinvestment and explicit fundamental rebalances may exchange assets at the current simulated price, recording before/after inventory. There is no external funding, leverage or friction cost.')}</p><p>${t('关闭不抹去之前的相对持有损益；持股仍可能下跌，兑现后仍可能卖早。手续费仅在有效区间内产生。','Closing does not erase prior differences versus holding. Shares can fall and realized exits can miss further rallies. Fees accrue only in range.')}</p>`;
+}
+
+export function compactHoldings(p){
+  const stockValue=p.stock*p.price,stockPct=stockValue/p.nav*100,cashPct=p.cash/p.nav*100;
+  return `<div class="compact-holdings"><div class="compact-holdings-head"><h3>${t('当时仓位','Holdings at this point')}</h3><button class="text-button" data-detail="holdings">${t('仓位与运行明细','Holdings & strategy details')} ↗</button></div><div class="compact-exposure-labels"><div><span>${t('股票','Shares')}</span><b>${stockPct.toFixed(1)}%</b><small>${usd(stockValue)}</small></div><div><span>${t('现金','Cash')}</span><b>${cashPct.toFixed(1)}%</b><small>${usd(p.cash)}</small></div></div><div class="exposure-bar" role="img" aria-label="${t('股票','Shares')} ${stockPct.toFixed(1)}%, ${t('现金','Cash')} ${cashPct.toFixed(1)}%"><span style="width:${stockPct}%;background:#344cec"></span><span style="width:${cashPct}%;background:#b79b61"></span></div><div class="compact-strategy-state"><span>${lifecycleSummary(p).title}</span><small>${t('含钱包与 LP 内股币，现金含留存手续费','Includes wallet and LP assets; cash includes retained fees')}</small></div></div>`;
 }
